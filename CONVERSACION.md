@@ -24,4 +24,21 @@ Resumen de lo relevante de la conversación con Claude durante la construcción 
 - Modelo chico, prompts cortos, prompt caching.
 - Stack Node.js (ya instalado; el lenguaje no cambia el costo en tokens).
 
+**Vínculo con GitHub:** repo creado por el asistente con `gh` en la cuenta del alumno, inicialmente privado y luego pasado a público a pedido del alumno para que el profesor lo vea.
+
 **Nota de proceso:** el antivirus (Avast) marcó como falso positivo la instalación de Git y `gh` por línea de comandos; se ignoró el aviso y la instalación se completó.
+
+## Iteración 1: investigación de metodología
+
+**Pedido del alumno:** investigar las últimas tendencias y papers de metodología y ver qué da más resultado. Ejemplo propuesto: refuerzos intermitentes, es decir, preguntar más tarde (no de inmediato) sobre algo visto antes.
+
+**Qué se hizo:** búsqueda en literatura (meta-análisis de práctica espaciada, recuperación, intercalado, corrección de errores, cobertura de vocabulario) y destilado en [`docs/metodologia.md`](docs/metodologia.md).
+
+**Hallazgos que cambiaron el diseño:**
+- La idea del alumno está respaldada, pero con otro nombre: **práctica espaciada con recuperación**. Lo que importa es el hueco entre exposición y repaso y que el repaso obligue a recordar.
+- Espaciado con intervalos crecientes vs. iguales: **equivalentes** en el meta-análisis (Kim & Webb 2022). Se usa un esquema simple (1-3-7-14-30 días) en vez de un algoritmo complejo, lo que además ahorra tokens.
+- Corrección: pista explícita para que el alumno se autocorrija (prompts) rinde más que reformular (recasts).
+- Intercalar temas rinde mejor a largo plazo, pero para principiantes conviene empezar en bloque.
+- Vocabulario ordenado por frecuencia: las 2.000 palabras más comunes cubren ~90% de textos narrativos.
+
+**Límite declarado:** la investigación se basó en resúmenes de búsqueda web, no en lectura completa de los artículos.

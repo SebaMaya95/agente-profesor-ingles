@@ -15,7 +15,9 @@ Un agente que enseñe a interactuar en inglés (escuchar, hablar, leer, escribir
 
 ## Estado
 
-Iteración 0: definición del proyecto y vínculo con GitHub.
+- Iteración 0: definición del proyecto y vínculo con GitHub. ✅
+- Iteración 1: metodología investigada, ver [`docs/metodologia.md`](docs/metodologia.md). ✅
+- Iteración 2: esqueleto del agente en Node (próxima).
 
 ## Historial de iteraciones
 
