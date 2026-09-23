@@ -42,3 +42,25 @@ Resumen de lo relevante de la conversación con Claude durante la construcción 
 - Vocabulario ordenado por frecuencia: las 2.000 palabras más comunes cubren ~90% de textos narrativos.
 
 **Límite declarado:** la investigación se basó en resúmenes de búsqueda web, no en lectura completa de los artículos.
+
+## Iteración 2: esqueleto del agente en Node
+
+**Pedido del alumno:** avanzar con el agente, priorizando eficiencia en tokens.
+
+**Decisión de arquitectura:** el modelo solo se usa para la conversación libre. Todo lo demás lo hace el código:
+- Repaso espaciado (intervalos 1-3-7-14-30 días, intercalado de temas): `src/scheduler.js`.
+- Preguntas de repaso y corrección de vocabulario: `src/grading.js`. Cuesta 0 tokens.
+- Presentación del tema nuevo desde un JSON: 0 tokens.
+- Conversación: prompt de sistema corto, respuestas de máximo 200 tokens, historial recortado a 6 mensajes, modelo `claude-haiku-4-5`, y contador de tokens por sesión.
+
+**Problemas encontrados y cómo se resolvieron:**
+- *Bug de entrada:* con `readline`, las líneas que llegan antes de hacer la pregunta se perdían, y un fin de entrada (Ctrl+D) dejaba el programa colgado sin guardar el progreso. Se reemplazó por una cola de líneas que devuelve `null` al cerrarse la entrada, y el programa guarda y termina.
+- *Prueba mal armada:* el primer test de integración falló porque la respuesta simulada del tercer repaso era incorrecta (error del test, no del programa). Se corrigió el test.
+- Para que las pruebas no pisen el progreso real del alumno, la ruta del archivo de estado se puede cambiar con la variable `ALUMNO_FILE`.
+
+**Resultado:** 12 pruebas automáticas pasan, incluida una que simula dos sesiones completas (presentación, repaso con aciertos y errores, guardado).
+
+**Límites declarados:**
+- La llamada real al modelo (`src/tutor.js`) **no se probó** porque no había API key. Se probó todo el resto sin IA (`--no-ai`).
+- No se activó prompt caching: el prompt de sistema es corto y, por debajo del mínimo cacheable del modelo, el caching no se activaría. Se medirá con el contador de tokens cuando haya API key.
+- El currículo (5 temas, 25 palabras) es de ejemplo y no proviene de una lista de frecuencia real.

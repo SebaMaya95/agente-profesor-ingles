@@ -1,0 +1,13 @@
+{
+  "name": "agente-profesor-ingles",
+  "version": "0.2.0",
+  "description": "Agente profesor de inglés eficiente en tokens (TP Creación de Agentes de IA)",
+  "type": "module",
+  "scripts": {
+    "start": "node src/cli.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.128.0"
+  }
+}

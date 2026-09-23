@@ -1,0 +1,65 @@
+{
+  "nota": "Currículo inicial de ejemplo (nivel A1), con palabras muy comunes. Se puede reemplazar por una lista de frecuencia real más adelante.",
+  "lessons": [
+    {
+      "id": "saludos",
+      "title": "Saludos y cortesía",
+      "pattern": "My name is ___. Nice to meet you.",
+      "words": [
+        { "en": "hello", "es": "hola" },
+        { "en": "goodbye", "es": "adiós" },
+        { "en": "please", "es": "por favor" },
+        { "en": "thank you", "es": "gracias" },
+        { "en": "sorry", "es": "perdón" }
+      ]
+    },
+    {
+      "id": "ser-estar",
+      "title": "Yo soy / vos sos (verbo to be)",
+      "pattern": "I am ___. You are ___. She is ___.",
+      "words": [
+        { "en": "I", "es": "yo" },
+        { "en": "you", "es": "tú / vos" },
+        { "en": "he", "es": "él" },
+        { "en": "she", "es": "ella" },
+        { "en": "we", "es": "nosotros" }
+      ]
+    },
+    {
+      "id": "verbos",
+      "title": "Verbos de todos los días",
+      "pattern": "I want ___. I have ___. I like ___.",
+      "words": [
+        { "en": "want", "es": "querer" },
+        { "en": "have", "es": "tener" },
+        { "en": "like", "es": "gustar / querer (algo)" },
+        { "en": "go", "es": "ir" },
+        { "en": "need", "es": "necesitar" }
+      ]
+    },
+    {
+      "id": "comida",
+      "title": "Pedir comida y bebida",
+      "pattern": "Can I have ___, please?",
+      "words": [
+        { "en": "water", "es": "agua" },
+        { "en": "coffee", "es": "café" },
+        { "en": "bread", "es": "pan" },
+        { "en": "menu", "es": "carta / menú" },
+        { "en": "bill", "es": "la cuenta" }
+      ]
+    },
+    {
+      "id": "lugares-tiempo",
+      "title": "Lugares y tiempo",
+      "pattern": "Where is ___? I go to ___ today.",
+      "words": [
+        { "en": "today", "es": "hoy" },
+        { "en": "tomorrow", "es": "mañana" },
+        { "en": "home", "es": "casa" },
+        { "en": "work", "es": "trabajo" },
+        { "en": "where", "es": "dónde" }
+      ]
+    }
+  ]
+}
