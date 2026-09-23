@@ -1,39 +1,51 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { loadCurriculum, phraseIndex, poolFor } from "../src/curriculum.js";
-import { normalize } from "../src/grading.js";
+import { loadPerfil, loadUnidades } from "../src/contenido.js";
+import { buildCurriculum } from "../src/curriculum.js";
 
-const curriculum = loadCurriculum();
-const phrases = [...phraseIndex(curriculum).values()];
+const curriculum = buildCurriculum();
 
-test("cada nivel tiene situación, nota de gramática, role-play y frases", () => {
-  for (const level of curriculum.levels) {
-    assert.ok(level.title && level.situation && level.grammarNote, level.id);
-    assert.ok(level.roleplay.scenario && level.roleplay.goal, level.id);
-    assert.ok(level.phrases.length >= 5, level.id);
+test("hay 12 unidades en el orden definido, con tiempos, role-play y material de ejercicios", () => {
+  assert.deepEqual(curriculum.units.map((u) => u.id), loadUnidades().units.map((u) => u.id));
+  assert.equal(curriculum.units.length, 12);
+  for (const unit of curriculum.units) {
+    assert.ok(unit.title && unit.situation && unit.roleplay.scenario && unit.roleplay.goal, unit.id);
+    assert.ok(unit.tenses.length >= 1 && unit.tenses.every(Boolean), unit.id);
+    assert.ok(unit.guided.prompt && unit.extras.errors.length >= 3, unit.id);
+    assert.ok(unit.lessons.length >= 3, `${unit.id}: pocas lecciones para rotar los ejercicios`);
   }
 });
 
-test("los ids de frases son únicos y empiezan con el id de su nivel", () => {
-  const ids = curriculum.levels.flatMap((l) => l.phrases.map((p) => p.id));
+test("todos los ítems quedan en exactamente una lección de hasta 6 ítems", () => {
+  const seen = new Set();
+  for (const lesson of curriculum.lessons) {
+    assert.ok(lesson.itemIds.length >= 1 && lesson.itemIds.length <= 6, lesson.id);
+    for (const id of lesson.itemIds) {
+      assert.equal(seen.has(id), false, `${id} repetido`);
+      seen.add(id);
+      assert.equal(curriculum.items.get(id).lessonId, lesson.id);
+    }
+  }
+  assert.equal(seen.size, curriculum.items.size);
+  assert.ok(curriculum.items.size >= 270);
+});
+
+test("los ids de lección son únicos y cada unidad conoce sus ítems en orden", () => {
+  const ids = curriculum.lessons.map((l) => l.id);
   assert.equal(new Set(ids).size, ids.length);
-  for (const level of curriculum.levels) {
-    for (const p of level.phrases) assert.ok(p.id.startsWith(`${level.id}.`), p.id);
+  for (const unit of curriculum.units) {
+    assert.deepEqual(unit.itemList.map((i) => i.id), unit.lessons.flatMap((l) => l.itemIds));
   }
 });
 
-test("cada frase tiene palabra clave presente en el texto y un error típico distinto", () => {
-  for (const p of phrases) {
-    const words = p.en.split(" ").map(normalize);
-    assert.ok(words.includes(normalize(p.key)), `${p.id}: la clave no está en la frase`);
-    assert.equal(normalize(p.key).includes(" "), false, `${p.id}: la clave debe ser una palabra`);
-    assert.notEqual(normalize(p.wrong), normalize(p.en), `${p.id}: 'wrong' igual a 'en'`);
-    assert.ok(p.es && p.wrong, p.id);
-  }
+test("no queda ningún marcador sin completar y el perfil personaliza el contenido", () => {
+  assert.equal(JSON.stringify([...curriculum.items.values()]).includes("{{"), false);
+  assert.equal(JSON.stringify(curriculum.units.map((u) => u.extras)).includes("{{"), false);
+  const custom = buildCurriculum({ ...loadPerfil(), name: "Zedrik" });
+  assert.ok(JSON.stringify([...custom.items.values()]).includes("Zedrik"));
 });
 
-test("poolFor incluye el nivel de la frase y los anteriores, no los siguientes", () => {
-  const cafe = phrases.find((p) => p.levelId === "cafe");
-  const ids = new Set(poolFor(curriculum, cafe).map((p) => p.levelId));
-  assert.deepEqual([...ids], ["presentarte", "cafe"]);
+test("las variantes separan las alternativas de una palabra (Father / Dad)", () => {
+  const father = [...curriculum.items.values()].find((i) => i.en === "Father / Dad");
+  assert.deepEqual(father.variants, ["Father", "Dad"]);
 });

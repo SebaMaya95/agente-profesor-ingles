@@ -12,26 +12,36 @@ const run = (file, stdin) =>
   spawnSync(process.execPath, [cli, "--no-ai"], {
     input: stdin,
     encoding: "utf8",
-    timeout: 15_000,
+    timeout: 20_000,
     env: { ...process.env, ALUMNO_FILE: file, TUTOR_SEED: "1" },
   });
 
 const tempFile = () => join(mkdtempSync(join(tmpdir(), "alumno-")), "alumno.json");
 
-test("la consola muestra el nivel 1 y el mapa, y guarda el progreso", () => {
+test("la consola muestra la unidad 1 con su tiempo verbal, la lección y el mapa, y guarda el progreso", () => {
   const file = tempFile();
-  const result = run(file, "1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n");
-  assert.equal(result.status, 0);
-  assert.match(result.stdout, /Nivel 1: Presentarte/);
+  const result = run(file, "1\n".repeat(60));
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(result.stdout, /Unidad 1: Personal Information/);
+  assert.match(result.stdout, /Tiempo verbal: Presente Simple/);
+  assert.match(result.stdout, /Lección:/);
   assert.match(result.stdout, /Tu mapa/);
   const saved = JSON.parse(readFileSync(file, "utf8"));
-  assert.equal(saved.version, 2);
-  assert.ok(Object.keys(saved.phrases).length > 0);
+  assert.equal(saved.version, 3);
+  assert.ok(Object.keys(saved.items).length > 0);
 });
 
 test("si se cierra la entrada en medio de la práctica, guarda y termina sin colgarse", () => {
   const file = tempFile();
   const result = run(file, "1\n");
-  assert.equal(result.status, 0);
-  assert.equal(JSON.parse(readFileSync(file, "utf8")).version, 2);
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(JSON.parse(readFileSync(file, "utf8")).version, 3);
+});
+
+test("con la práctica completa aparecen ejercicios de varios tipos, incluida una historia", () => {
+  const file = tempFile();
+  const result = run(file, "1\n".repeat(200));
+  assert.equal(result.status, 0, result.stderr);
+  const skills = new Set([...result.stdout.matchAll(/^\[([^\]]+)\]/gm)].map((m) => m[1]));
+  assert.ok(skills.size >= 5, [...skills].join(", "));
 });

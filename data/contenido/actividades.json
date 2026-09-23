@@ -1,0 +1,307 @@
+{
+  "nota": "Material de los ejercicios por unidad, escrito por Claude y pendiente de revisión del alumno. errors: oración correcta y su error típico de hispanohablantes. transforms: la misma oración en afirmativa, negativa e interrogativa. dialogues: diálogo con un turno faltante (gap) y opciones falsas. story: historia ramificada; en cada opción 'good' marca la respuesta natural.",
+  "informacion-personal": {
+    "errors": [
+      { "correct": "Hi, my name is {{name}}.", "wrong": "Hi, me name is {{name}}." },
+      { "correct": "I'm thirty years old.", "wrong": "I have thirty years." },
+      { "correct": "How are you?", "wrong": "How you are?" }
+    ],
+    "transforms": [
+      { "tense": "presente-simple", "forms": { "affirmative": "She lives in Rosario.", "negative": "She doesn't live in Rosario.", "interrogative": "Does she live in Rosario?" } },
+      { "tense": "presente-simple", "forms": { "affirmative": "They have brown eyes.", "negative": "They don't have brown eyes.", "interrogative": "Do they have brown eyes?" } }
+    ],
+    "dialogues": [
+      { "turns": [{ "who": "A", "text": "Hi! What's your name?" }, { "who": "B", "text": "My name is {{name}}. Nice to meet you." }, { "who": "A", "text": "Nice to meet you too. Where are you from?" }], "gap": 1, "distractors": ["I'm thirty years old.", "I like coffee, thanks."] },
+      { "turns": [{ "who": "A", "text": "How old are you?" }, { "who": "B", "text": "I'm {{age}} years old." }, { "who": "A", "text": "And where are you from?" }], "gap": 1, "distractors": ["I'm fine, thanks.", "I work in an office."] }
+    ],
+    "story": {
+      "title": "Conocer a alguien en una fiesta",
+      "start": "n1",
+      "nodes": {
+        "n1": { "npc": "Hi! I'm Alex. What's your name?", "options": [{ "text": "My name is {{name}}. Nice to meet you.", "good": true, "next": "n2" }, { "text": "Me name {{name}}.", "good": false, "next": "n2" }, { "text": "I have thirty years.", "good": false, "next": "n2" }] },
+        "n2": { "npc": "Nice to meet you! Where are you from?", "options": [{ "text": "I'm from Argentina.", "good": true, "next": "n3" }, { "text": "I'm of Argentina.", "good": false, "next": "n3" }, { "text": "Argentina is.", "good": false, "next": "n3" }] },
+        "n3": { "npc": "Cool! How are you today?", "options": [{ "text": "I'm fine, thanks. And you?", "good": true, "next": "fin" }, { "text": "I fine, thanks.", "good": false, "next": "fin" }, { "text": "Thanks fine you.", "good": false, "next": "fin" }] },
+        "fin": { "npc": "Great! Let's get some food together.", "end": true }
+      }
+    }
+  },
+  "familia": {
+    "errors": [
+      { "correct": "My father's name is {{father}}.", "wrong": "My father name is {{father}}." },
+      { "correct": "I have two brothers.", "wrong": "I have two brother." },
+      { "correct": "She has a big family.", "wrong": "She have a big family." }
+    ],
+    "transforms": [
+      { "tense": "presente-simple", "forms": { "affirmative": "He lives near my grandmother.", "negative": "He doesn't live near my grandmother.", "interrogative": "Does he live near my grandmother?" } },
+      { "tense": "presente-simple", "forms": { "affirmative": "They have two dogs.", "negative": "They don't have two dogs.", "interrogative": "Do they have two dogs?" } }
+    ],
+    "dialogues": [
+      { "turns": [{ "who": "A", "text": "Do you have brothers or sisters?" }, { "who": "B", "text": "Yes, I have a brother and a sister." }, { "who": "A", "text": "What's your brother's name?" }], "gap": 1, "distractors": ["I work in an office.", "It's sunny today."] },
+      { "turns": [{ "who": "A", "text": "Do you have any pets?" }, { "who": "B", "text": "Yes, I have two dogs." }, { "who": "A", "text": "That's great! What are their names?" }], "gap": 1, "distractors": ["I go to the gym on Mondays.", "My father is a doctor."] }
+    ],
+    "story": {
+      "title": "Hablar de tu familia",
+      "start": "n1",
+      "nodes": {
+        "n1": { "npc": "Do you have a big family?", "options": [{ "text": "Yes, we are a very close-knit family.", "good": true, "next": "n2" }, { "text": "Yes, I have big.", "good": false, "next": "n2" }, { "text": "No family big.", "good": false, "next": "n2" }] },
+        "n2": { "npc": "Nice! Do you have any pets?", "options": [{ "text": "Yes, I have two dogs.", "good": true, "next": "fin" }, { "text": "Yes, I have two dog.", "good": false, "next": "fin" }, { "text": "Yes, I am two dogs.", "good": false, "next": "fin" }] },
+        "fin": { "npc": "Dogs are wonderful companions!", "end": true }
+      }
+    }
+  },
+  "compras": {
+    "errors": [
+      { "correct": "Can I have a coffee, please?", "wrong": "Can I to have a coffee, please?" },
+      { "correct": "How much is it?", "wrong": "How much costs it?" },
+      { "correct": "The bill, please.", "wrong": "The account, please." }
+    ],
+    "transforms": [
+      { "tense": "presente-simple", "forms": { "affirmative": "She buys fresh bread.", "negative": "She doesn't buy fresh bread.", "interrogative": "Does she buy fresh bread?" } },
+      { "tense": "presente-simple", "forms": { "affirmative": "They accept credit cards.", "negative": "They don't accept credit cards.", "interrogative": "Do they accept credit cards?" } }
+    ],
+    "dialogues": [
+      { "turns": [{ "who": "A", "text": "Hello! What would you like?" }, { "who": "B", "text": "I'd like a coffee, please." }, { "who": "A", "text": "Anything else?" }], "gap": 1, "distractors": ["It costs ten dollars.", "I don't like this shirt."] },
+      { "turns": [{ "who": "A", "text": "That's ten dollars." }, { "who": "B", "text": "Can I pay by card?" }, { "who": "A", "text": "Sure, no problem." }], "gap": 1, "distractors": ["Do you have this in a different size?", "I bought a new laptop."] }
+    ],
+    "story": {
+      "title": "En el café",
+      "start": "n1",
+      "nodes": {
+        "n1": { "npc": "Hi! What can I get you?", "options": [{ "text": "Can I have a coffee, please?", "good": true, "next": "n2" }, { "text": "Give me coffee.", "good": false, "next": "n2" }, { "text": "I have a coffee.", "good": false, "next": "n2" }] },
+        "n2": { "npc": "Sure. Anything else?", "options": [{ "text": "No, that's all. How much is it?", "good": true, "next": "n3" }, { "text": "No, thanks. The account, please.", "good": false, "next": "n3" }, { "text": "How much costs?", "good": false, "next": "n3" }] },
+        "n3": { "npc": "That's three dollars.", "options": [{ "text": "Can I pay by card?", "good": true, "next": "fin" }, { "text": "Can I pay with card?", "good": false, "next": "fin" }, { "text": "I pay card.", "good": false, "next": "fin" }] },
+        "fin": { "npc": "Of course. Enjoy your coffee!", "end": true }
+      }
+    }
+  },
+  "trabajo-estudios": {
+    "errors": [
+      { "correct": "What do you do?", "wrong": "What do you work?" },
+      { "correct": "I work from home.", "wrong": "I work since home." },
+      { "correct": "I don't like coffee.", "wrong": "I no like coffee." }
+    ],
+    "transforms": [
+      { "tense": "presente-simple", "forms": { "affirmative": "She manages a team.", "negative": "She doesn't manage a team.", "interrogative": "Does she manage a team?" } },
+      { "tense": "presente-simple", "forms": { "affirmative": "They use Power BI.", "negative": "They don't use Power BI.", "interrogative": "Do they use Power BI?" } }
+    ],
+    "dialogues": [
+      { "turns": [{ "who": "A", "text": "What do you do?" }, { "who": "B", "text": "I work as a data analyst." }, { "who": "A", "text": "That sounds interesting!" }], "gap": 1, "distractors": ["I wake up at seven.", "She lives in Rosario."] },
+      { "turns": [{ "who": "A", "text": "Which tools do you use at work?" }, { "who": "B", "text": "I use Excel and Power BI." }, { "who": "A", "text": "Nice! I use Excel too." }], "gap": 1, "distractors": ["I usually go to the gym.", "It's cloudy today."] }
+    ],
+    "story": {
+      "title": "Un compañero nuevo",
+      "start": "n1",
+      "nodes": {
+        "n1": { "npc": "Hi, I'm new here. What do you do?", "options": [{ "text": "I work as an analyst. And you?", "good": true, "next": "n2" }, { "text": "I am work analyst.", "good": false, "next": "n2" }, { "text": "I analyst work.", "good": false, "next": "n2" }] },
+        "n2": { "npc": "Do you work from home?", "options": [{ "text": "Yes, I work from home two days a week.", "good": true, "next": "fin" }, { "text": "Yes, I work since home.", "good": false, "next": "fin" }, { "text": "Yes, I am work home.", "good": false, "next": "fin" }] },
+        "fin": { "npc": "Nice! We should have lunch together.", "end": true }
+      }
+    }
+  },
+  "pasatiempos": {
+    "errors": [
+      { "correct": "I enjoy running outdoors.", "wrong": "I enjoy to run outdoors." },
+      { "correct": "She is listening to music now.", "wrong": "She listening to music now." },
+      { "correct": "I go to the gym to stay fit.", "wrong": "I go to the gym for stay fit." }
+    ],
+    "transforms": [
+      { "tense": "presente-continuo", "forms": { "affirmative": "He is playing soccer.", "negative": "He isn't playing soccer.", "interrogative": "Is he playing soccer?" } },
+      { "tense": "presente-simple", "forms": { "affirmative": "They listen to music.", "negative": "They don't listen to music.", "interrogative": "Do they listen to music?" } }
+    ],
+    "dialogues": [
+      { "turns": [{ "who": "A", "text": "What do you do in your free time?" }, { "who": "B", "text": "I play soccer and I go to the gym." }, { "who": "A", "text": "Cool! I like soccer too." }], "gap": 1, "distractors": ["It's raining today.", "I have a headache."] },
+      { "turns": [{ "who": "A", "text": "What are you doing this weekend?" }, { "who": "B", "text": "I'm going to the beach." }, { "who": "A", "text": "Sounds great!" }], "gap": 1, "distractors": ["I play soccer every day.", "I work from home."] }
+    ],
+    "story": {
+      "title": "Planes de fin de semana",
+      "start": "n1",
+      "nodes": {
+        "n1": { "npc": "What do you like doing on weekends?", "options": [{ "text": "I like riding my bike and drinking mate.", "good": true, "next": "n2" }, { "text": "I am like bike.", "good": false, "next": "n2" }, { "text": "Weekends I like ride.", "good": false, "next": "n2" }] },
+        "n2": { "npc": "Are you doing anything this weekend?", "options": [{ "text": "Yes, I'm traveling to the mountains.", "good": true, "next": "fin" }, { "text": "Yes, I am travel mountains.", "good": false, "next": "fin" }, { "text": "Yes, I traveling to mountains now.", "good": false, "next": "fin" }] },
+        "fin": { "npc": "That sounds like a great plan!", "end": true }
+      }
+    }
+  },
+  "clima": {
+    "errors": [
+      { "correct": "The sun is shining.", "wrong": "The sun shining." },
+      { "correct": "It's going to rain later.", "wrong": "It's going rain later." },
+      { "correct": "What's the weather like today?", "wrong": "How is the weather like today?" }
+    ],
+    "transforms": [
+      { "tense": "futuro-going-to", "forms": { "affirmative": "It is going to rain.", "negative": "It isn't going to rain.", "interrogative": "Is it going to rain?" } },
+      { "tense": "presente-continuo", "forms": { "affirmative": "The sun is shining.", "negative": "The sun isn't shining.", "interrogative": "Is the sun shining?" } }
+    ],
+    "dialogues": [
+      { "turns": [{ "who": "A", "text": "What's the weather like today?" }, { "who": "B", "text": "It's cloudy, but it's not cold." }, { "who": "A", "text": "Do you need a jacket?" }], "gap": 1, "distractors": ["I love summer.", "It was sunny yesterday."] },
+      { "turns": [{ "who": "A", "text": "Look at those clouds!" }, { "who": "B", "text": "Yes, it's going to rain." }, { "who": "A", "text": "Let's take an umbrella." }], "gap": 1, "distractors": ["Yes, it rained yesterday.", "I like drinking mate."] }
+    ],
+    "story": {
+      "title": "Planear un picnic",
+      "start": "n1",
+      "nodes": {
+        "n1": { "npc": "Should we have a picnic today?", "options": [{ "text": "It's sunny, so let's go!", "good": true, "next": "n2" }, { "text": "It's sun, so let's go!", "good": false, "next": "n2" }, { "text": "Sunny is it!", "good": false, "next": "n2" }] },
+        "n2": { "npc": "But the forecast says it might rain later.", "options": [{ "text": "Then it's going to rain. Let's take umbrellas.", "good": true, "next": "fin" }, { "text": "Then it going rain.", "good": false, "next": "fin" }, { "text": "Rain is going to it.", "good": false, "next": "fin" }] },
+        "fin": { "npc": "Good idea. Let's pack the umbrellas!", "end": true }
+      }
+    }
+  },
+  "emociones": {
+    "errors": [
+      { "correct": "I'm feeling great today!", "wrong": "I feel me great today!" },
+      { "correct": "You look tired, are you okay?", "wrong": "You look tiredly, are you okay?" },
+      { "correct": "I'm worried about the exam results.", "wrong": "I'm worry about the exam results." }
+    ],
+    "transforms": [
+      { "tense": "presente-continuo", "forms": { "affirmative": "She is feeling happy.", "negative": "She isn't feeling happy.", "interrogative": "Is she feeling happy?" } },
+      { "tense": "presente-continuo", "forms": { "affirmative": "They are feeling stressed.", "negative": "They aren't feeling stressed.", "interrogative": "Are they feeling stressed?" } }
+    ],
+    "dialogues": [
+      { "turns": [{ "who": "A", "text": "You look tired. Are you okay?" }, { "who": "B", "text": "I'm a little stressed about work." }, { "who": "A", "text": "I'm sorry to hear that." }], "gap": 1, "distractors": ["I'm going to the beach.", "It's windy today."] },
+      { "turns": [{ "who": "A", "text": "How are you feeling today?" }, { "who": "B", "text": "I'm feeling great, thanks!" }, { "who": "A", "text": "That's good to hear!" }], "gap": 1, "distractors": ["I go to work by bus.", "My sister lives in Rosario."] }
+    ],
+    "story": {
+      "title": "Un amigo que se ve mal",
+      "start": "n1",
+      "nodes": {
+        "n1": { "npc": "Hi... I'm not feeling very well.", "options": [{ "text": "Oh no! What's wrong?", "good": true, "next": "n2" }, { "text": "You are sad? Why is?", "good": false, "next": "n2" }, { "text": "What wrong you?", "good": false, "next": "n2" }] },
+        "n2": { "npc": "I'm worried about my exam.", "options": [{ "text": "Don't worry, you're going to do great.", "good": true, "next": "fin" }, { "text": "Don't worry, you doing great.", "good": false, "next": "fin" }, { "text": "You will to do great.", "good": false, "next": "fin" }] },
+        "fin": { "npc": "Thanks, that makes me feel better!", "end": true }
+      }
+    }
+  },
+  "transporte": {
+    "errors": [
+      { "correct": "Excuse me, where is the station?", "wrong": "Excuse me, where the station is?" },
+      { "correct": "Turn left at the corner.", "wrong": "Turn to left in the corner." },
+      { "correct": "It's about ten minutes on foot.", "wrong": "It's about ten minutes by foot." }
+    ],
+    "transforms": [
+      { "tense": "futuro-going-to", "forms": { "affirmative": "We are going to take the bus.", "negative": "We aren't going to take the bus.", "interrogative": "Are we going to take the bus?" } },
+      { "tense": "futuro-going-to", "forms": { "affirmative": "He is going to buy a ticket.", "negative": "He isn't going to buy a ticket.", "interrogative": "Is he going to buy a ticket?" } }
+    ],
+    "dialogues": [
+      { "turns": [{ "who": "A", "text": "Excuse me, where is the bus stop?" }, { "who": "B", "text": "Go straight and turn left at the corner." }, { "who": "A", "text": "Thank you very much!" }], "gap": 1, "distractors": ["I take the bus every day.", "It's about ten dollars."] },
+      { "turns": [{ "who": "A", "text": "Does this train go to the airport?" }, { "who": "B", "text": "Yes, it leaves at five p.m." }, { "who": "A", "text": "Great, thanks!" }], "gap": 1, "distractors": ["No, I don't like trains.", "I bought a new car last week."] }
+    ],
+    "story": {
+      "title": "Perdido en la ciudad",
+      "start": "n1",
+      "nodes": {
+        "n1": { "npc": "Hi! Do you need help?", "options": [{ "text": "Yes, please. Where is the subway station?", "good": true, "next": "n2" }, { "text": "Yes, where the station is?", "good": false, "next": "n2" }, { "text": "Yes, subway where?", "good": false, "next": "n2" }] },
+        "n2": { "npc": "Go straight two blocks and turn right.", "options": [{ "text": "Is it far from here?", "good": true, "next": "fin" }, { "text": "It is far of here?", "good": false, "next": "fin" }, { "text": "Far it is?", "good": false, "next": "fin" }] },
+        "fin": { "npc": "No, it's about ten minutes on foot.", "end": true }
+      }
+    }
+  },
+  "salud": {
+    "errors": [
+      { "correct": "I had a terrible headache yesterday.", "wrong": "I have a terrible headache yesterday." },
+      { "correct": "I didn't sleep well.", "wrong": "I didn't slept well." },
+      { "correct": "I caught a cold last week.", "wrong": "I catched a cold last week." }
+    ],
+    "transforms": [
+      { "tense": "pasado-simple", "forms": { "affirmative": "She visited the doctor.", "negative": "She didn't visit the doctor.", "interrogative": "Did she visit the doctor?" } },
+      { "tense": "pasado-simple", "forms": { "affirmative": "They took the medicine.", "negative": "They didn't take the medicine.", "interrogative": "Did they take the medicine?" } }
+    ],
+    "dialogues": [
+      { "turns": [{ "who": "A", "text": "You look pale. What happened?" }, { "who": "B", "text": "I caught a cold last week." }, { "who": "A", "text": "Did you go to the doctor?" }], "gap": 1, "distractors": ["I catch a cold every day.", "I am going to catch a cold."] },
+      { "turns": [{ "who": "A", "text": "Did you take any medicine?" }, { "who": "B", "text": "Yes, I took some medicine yesterday." }, { "who": "A", "text": "I hope you feel better soon." }], "gap": 1, "distractors": ["Yes, I take medicine tomorrow.", "No, I like the pharmacy."] }
+    ],
+    "story": {
+      "title": "En el consultorio",
+      "start": "n1",
+      "nodes": {
+        "n1": { "npc": "Hello. What's the problem?", "options": [{ "text": "I have a headache and a fever.", "good": true, "next": "n2" }, { "text": "I have a head pain and hot.", "good": false, "next": "n2" }, { "text": "My head is headache.", "good": false, "next": "n2" }] },
+        "n2": { "npc": "When did it start?", "options": [{ "text": "It started two days ago.", "good": true, "next": "fin" }, { "text": "It starts two days ago.", "good": false, "next": "fin" }, { "text": "It did start since two days.", "good": false, "next": "fin" }] },
+        "fin": { "npc": "I see. Rest and drink plenty of water.", "end": true }
+      }
+    }
+  },
+  "ropa": {
+    "errors": [
+      { "correct": "She is wearing a red dress.", "wrong": "She wearing a red dress." },
+      { "correct": "These jeans are too tight.", "wrong": "These jeans is too tight." },
+      { "correct": "I need to buy a new jacket.", "wrong": "I need buy a new jacket." }
+    ],
+    "transforms": [
+      { "tense": "presente-continuo", "forms": { "affirmative": "He is wearing a black coat.", "negative": "He isn't wearing a black coat.", "interrogative": "Is he wearing a black coat?" } },
+      { "tense": "presente-continuo", "forms": { "affirmative": "They are buying new sneakers.", "negative": "They aren't buying new sneakers.", "interrogative": "Are they buying new sneakers?" } }
+    ],
+    "dialogues": [
+      { "turns": [{ "who": "A", "text": "What are you wearing to the party?" }, { "who": "B", "text": "I'm wearing a black dress." }, { "who": "A", "text": "That sounds elegant!" }], "gap": 1, "distractors": ["I wear jeans every day.", "It's made of cotton."] },
+      { "turns": [{ "who": "A", "text": "Can I help you?" }, { "who": "B", "text": "Yes, do you have this shirt in a different size?" }, { "who": "A", "text": "Let me check for you." }], "gap": 1, "distractors": ["Yes, my shirt is very old.", "I bought a laptop yesterday."] }
+    ],
+    "story": {
+      "title": "De compras de ropa",
+      "start": "n1",
+      "nodes": {
+        "n1": { "npc": "Welcome! Are you looking for something?", "options": [{ "text": "Yes, I need a new jacket for winter.", "good": true, "next": "n2" }, { "text": "Yes, I need buy jacket winter.", "good": false, "next": "n2" }, { "text": "Yes, jacket new I want.", "good": false, "next": "n2" }] },
+        "n2": { "npc": "Here is one. Do you like it?", "options": [{ "text": "It's nice, but it's too tight. Do you have a bigger size?", "good": true, "next": "fin" }, { "text": "It's nice, but it is too tightly.", "good": false, "next": "fin" }, { "text": "Is nice but tight too.", "good": false, "next": "fin" }] },
+        "fin": { "npc": "Of course. Let me get you a larger one.", "end": true }
+      }
+    }
+  },
+  "conectores": {
+    "errors": [
+      { "correct": "I stayed home because I was sick.", "wrong": "I stayed home because of I was sick." },
+      { "correct": "Although it was raining, we went out.", "wrong": "Although it was raining, but we went out." },
+      { "correct": "I have lived here since 2020.", "wrong": "I live here since 2020." }
+    ],
+    "transforms": [
+      { "tense": "pasado-simple", "forms": { "affirmative": "She called me yesterday.", "negative": "She didn't call me yesterday.", "interrogative": "Did she call me yesterday?" } },
+      { "tense": "futuro-will", "forms": { "affirmative": "He will call you later.", "negative": "He won't call you later.", "interrogative": "Will he call you later?" } }
+    ],
+    "dialogues": [
+      { "turns": [{ "who": "A", "text": "Why were you late?" }, { "who": "B", "text": "I was late because I missed the bus." }, { "who": "A", "text": "Oh, I see." }], "gap": 1, "distractors": ["I was late so the bus.", "I miss the bus tomorrow."] },
+      { "turns": [{ "who": "A", "text": "Are you going to the party?" }, { "who": "B", "text": "I don't know. If it rains, I will stay home." }, { "who": "A", "text": "Okay, let me know." }], "gap": 1, "distractors": ["I stay home if it will rain.", "If it rains, I stayed home."] }
+    ],
+    "story": {
+      "title": "Contar qué pasó",
+      "start": "n1",
+      "nodes": {
+        "n1": { "npc": "Why did you miss the meeting?", "options": [{ "text": "First, I missed the bus. Then, I called my boss.", "good": true, "next": "n2" }, { "text": "First I miss the bus. Then I call my boss yesterday.", "good": false, "next": "n2" }, { "text": "Because bus miss.", "good": false, "next": "n2" }] },
+        "n2": { "npc": "And what did you do after that?", "options": [{ "text": "After that, I took a taxi, but I arrived late.", "good": true, "next": "fin" }, { "text": "After that I taked a taxi but arrive late.", "good": false, "next": "fin" }, { "text": "After that taxi and late.", "good": false, "next": "fin" }] },
+        "fin": { "npc": "I understand. Next time, please call me earlier.", "end": true }
+      }
+    },
+    "matchSets": [
+      [
+        { "left": "I stayed home", "right": "because I was sick." },
+        { "left": "It was late,", "right": "so I went to bed." },
+        { "left": "The food was good;", "right": "however, the service was slow." },
+        { "left": "Although it was raining,", "right": "we went out." }
+      ],
+      [
+        { "left": "I like summer,", "right": "but I prefer winter." },
+        { "left": "First, wash your hands.", "right": "Then, cut the vegetables." },
+        { "left": "It rained all day;", "right": "therefore, the game was canceled." },
+        { "left": "You won't pass", "right": "unless you study." }
+      ]
+    ]
+  },
+  "expresiones": {
+    "errors": [
+      { "correct": "Would you mind opening the window?", "wrong": "Would you mind to open the window?" },
+      { "correct": "Do you know where the bank is?", "wrong": "Do you know where is the bank?" },
+      { "correct": "I will help you with your homework.", "wrong": "I will to help you with your homework." }
+    ],
+    "transforms": [
+      { "tense": "futuro-will", "forms": { "affirmative": "She will help you tomorrow.", "negative": "She won't help you tomorrow.", "interrogative": "Will she help you tomorrow?" } },
+      { "tense": "futuro-will", "forms": { "affirmative": "They will call you later.", "negative": "They won't call you later.", "interrogative": "Will they call you later?" } }
+    ],
+    "dialogues": [
+      { "turns": [{ "who": "A", "text": "Excuse me, could you help me?" }, { "who": "B", "text": "Of course. What do you need?" }, { "who": "A", "text": "Do you know where the bank is?" }], "gap": 1, "distractors": ["No, I don't like banks.", "I help you yesterday."] },
+      { "turns": [{ "who": "A", "text": "Thank you for your help!" }, { "who": "B", "text": "You're welcome! Have a nice day." }, { "who": "A", "text": "See you later!" }], "gap": 1, "distractors": ["Thanks you very much.", "You are welcomed."] }
+    ],
+    "story": {
+      "title": "Pedir ayuda con cortesía",
+      "start": "n1",
+      "nodes": {
+        "n1": { "npc": "Hello! Can I help you?", "options": [{ "text": "Yes, could you tell me where the restroom is?", "good": true, "next": "n2" }, { "text": "Yes, where is restroom?", "good": false, "next": "n2" }, { "text": "Yes, tell me restroom.", "good": false, "next": "n2" }] },
+        "n2": { "npc": "It's next to the elevator.", "options": [{ "text": "Thank you very much!", "good": true, "next": "fin" }, { "text": "Thanks you!", "good": false, "next": "fin" }, { "text": "Thank to you!", "good": false, "next": "fin" }] },
+        "fin": { "npc": "You're welcome! Have a nice day.", "end": true }
+      }
+    }
+  }
+}

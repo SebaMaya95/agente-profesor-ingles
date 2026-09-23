@@ -64,4 +64,6 @@ El alumno aclaró que el objetivo es **salir hablando**, no la gramática formal
 - El punto 7 tiene respaldo más débil que los demás.
 - Los intervalos 1-3-7-14-30 son una elección práctica razonable, no un valor óptimo probado.
 - Las reglas de superación de nivel (2 aciertos por frase, 80% del nivel) y de XP son decisiones de diseño del juego, no valores respaldados por estudios.
+- La **rotación de los tipos de ejercicio entre categorías** es un pedido del alumno (variedad de tareas); no se buscó evidencia específica sobre ella.
+- La consigna guiada se corrige verificando la presencia de los elementos pedidos; no evalúa la corrección gramatical.
 - Las frases y los "errores típicos" del currículo son de autoría propia (Claude), pendientes de revisión por el alumno, y no salen de un corpus de errores de hispanohablantes.

@@ -1,0 +1,233 @@
+{
+  "nota": "Una unidad por categoría de vocabulario, en el orden del curso. Las expresiones regulares de 'guided' se aplican al texto normalizado (minúsculas, sin puntuación, con contracciones expandidas: i'm -> i am).",
+  "units": [
+    {
+      "id": "informacion-personal",
+      "tenses": ["presente-simple"],
+      "situation": "Conocés a alguien nuevo. Contá quién sos, de dónde sos y cómo sos.",
+      "roleplay": {
+        "scenario": "You are a friendly person meeting the student for the first time at a language meetup. Get to know them: name, age, where they are from.",
+        "goal": "Presentate y respondé preguntas sobre vos."
+      },
+      "guided": {
+        "prompt": "Presentate: decí o escribí tu nombre, tu edad y de dónde sos.",
+        "requirements": [
+          { "label": "Tu nombre", "re": "\\b(my name is|i am|call me) [a-z]+", "hint": "Por ejemplo: My name is…" },
+          { "label": "Tu edad", "re": "\\byears old\\b|\\bi am \\d+\\b", "hint": "Por ejemplo: I am thirty years old." },
+          { "label": "De dónde sos", "re": "\\bfrom\\b", "hint": "Por ejemplo: I am from…" }
+        ],
+        "min": 2,
+        "sample": "My name is Sam. I am thirty years old. I am from Argentina."
+      }
+    },
+    {
+      "id": "familia",
+      "tenses": ["presente-simple"],
+      "situation": "Un amigo nuevo te pregunta por tu familia y tus mascotas.",
+      "roleplay": {
+        "scenario": "You are a new friend asking the student about their family and pets. Keep the questions simple.",
+        "goal": "Contá quiénes son tu familia y si tenés mascotas."
+      },
+      "guided": {
+        "prompt": "Hablá de tu familia: nombrá a dos familiares y contá algo de una mascota.",
+        "requirements": [
+          { "label": "Familiares", "re": "\\b(father|dad|mother|mom|mum|brother|sister|grandmother|grandfather|uncle|aunt|cousin)\\b", "hint": "Usá father, mother, brother, sister…" },
+          { "label": "Tener (have)", "re": "\\bi have\\b|\\bmy [a-z]+ (is|has)\\b", "hint": "Por ejemplo: I have a brother." },
+          { "label": "Mascota", "re": "\\b(dog|dogs|puppy|cat|pet|pets)\\b", "hint": "Por ejemplo: I have two dogs." }
+        ],
+        "min": 2,
+        "sample": "I have a brother and a sister. My mother is very kind. I have two dogs."
+      }
+    },
+    {
+      "id": "compras",
+      "tenses": ["presente-simple"],
+      "situation": "Estás de compras: supermercado, ropa y tecnología. Preguntá precios y formas de pago.",
+      "roleplay": {
+        "scenario": "You are a shop assistant. The student buys things, asks about prices, sizes and payment methods.",
+        "goal": "Comprá algo, preguntá el precio y cómo pagar."
+      },
+      "guided": {
+        "prompt": "Contá qué comprás en el supermercado y preguntá el precio de algo.",
+        "requirements": [
+          { "label": "Comprar", "re": "\\bi (always |usually |sometimes )?(buy|get)\\b", "hint": "Por ejemplo: I usually buy…" },
+          { "label": "Un alimento", "re": "\\b(vegetables|fruit|fruits|meat|milk|cheese|bread|coffee|tea|tomatoes|apples|bananas|chicken|yogurt|beef)\\b", "hint": "Nombrá algo: bread, milk, tomatoes…" },
+          { "label": "El precio", "re": "\\bhow much\\b", "hint": "How much is it? / How much does it cost?" }
+        ],
+        "min": 2,
+        "sample": "I usually buy bread and milk. How much does it cost?"
+      }
+    },
+    {
+      "id": "trabajo-estudios",
+      "tenses": ["presente-simple"],
+      "situation": "Un compañero nuevo te pregunta a qué te dedicás y qué herramientas usás.",
+      "roleplay": {
+        "scenario": "You are a new coworker asking the student about their job, tasks and the tools they use.",
+        "goal": "Contá a qué te dedicás y qué usás en tu trabajo."
+      },
+      "guided": {
+        "prompt": "Contá a qué te dedicás y qué herramientas usás.",
+        "requirements": [
+          { "label": "Tu trabajo", "re": "\\bi (work|manage|coordinate|analyze|analyse|study)\\b|\\bi am an? [a-z]+", "hint": "Por ejemplo: I work…" },
+          { "label": "Tareas o lugar", "re": "\\b(office|team|data|reports|meetings|company|farm|university|home)\\b", "hint": "Mencioná el lugar o las tareas." },
+          { "label": "Herramientas", "re": "\\buse\\b", "hint": "Por ejemplo: I use Excel." }
+        ],
+        "min": 2,
+        "sample": "I work with data and reports. I use Excel every day."
+      }
+    },
+    {
+      "id": "pasatiempos",
+      "tenses": ["presente-simple", "presente-continuo"],
+      "situation": "Charlás sobre qué hacés en tu tiempo libre y qué estás haciendo este fin de semana.",
+      "roleplay": {
+        "scenario": "You are a friend asking the student about their hobbies and what they are doing this weekend.",
+        "goal": "Contá tus pasatiempos y tus planes del fin de semana."
+      },
+      "guided": {
+        "prompt": "Contá qué te gusta hacer en tu tiempo libre y qué estás haciendo este fin de semana.",
+        "requirements": [
+          { "label": "Gustos", "re": "\\bi (like|love|enjoy)\\b", "hint": "Por ejemplo: I like…" },
+          { "label": "Una actividad", "re": "\\b(running|cycling|gym|soccer|football|music|mate|beach|mountains|reading|swimming|dancing|travel|traveling)\\b", "hint": "Nombrá una actividad." },
+          { "label": "Plan (presente continuo)", "re": "\\bi am [a-z]+ing\\b", "hint": "Por ejemplo: I am going to the beach this weekend." }
+        ],
+        "min": 2,
+        "sample": "I like playing soccer. I am going to the beach this weekend."
+      }
+    },
+    {
+      "id": "clima",
+      "tenses": ["presente-continuo", "futuro-going-to"],
+      "situation": "Hablás del clima de hoy y de lo que va a pasar.",
+      "roleplay": {
+        "scenario": "You are a friend chatting with the student about today's weather and plans for tomorrow.",
+        "goal": "Describí el clima de hoy y qué va a pasar mañana."
+      },
+      "guided": {
+        "prompt": "Describí el clima de hoy y decí qué va a pasar mañana.",
+        "requirements": [
+          { "label": "Clima", "re": "\\b(sunny|cloudy|rainy|windy|foggy|stormy|humid|dry|hot|warm|cool|cold|freezing|raining|snowing)\\b", "hint": "Usá sunny, cloudy, rainy, windy…" },
+          { "label": "Futuro", "re": "\\b(going to|will)\\b", "hint": "It is going to rain." },
+          { "label": "Cuándo", "re": "\\b(today|tomorrow|later|tonight)\\b", "hint": "Decí cuándo: today, tomorrow…" }
+        ],
+        "min": 2,
+        "sample": "Today it is sunny and warm. Tomorrow it is going to rain."
+      }
+    },
+    {
+      "id": "emociones",
+      "tenses": ["presente-continuo"],
+      "situation": "Un amigo nota que estás cansado o preocupado y te pregunta cómo te sentís.",
+      "roleplay": {
+        "scenario": "You are a friend who notices the student looks tired or worried. Ask how they feel and why, and be supportive.",
+        "goal": "Contá cómo te sentís y por qué."
+      },
+      "guided": {
+        "prompt": "Contá cómo te sentís hoy y por qué.",
+        "requirements": [
+          { "label": "Sentir", "re": "\\bi (feel|am feeling|am)\\b", "hint": "I am feeling… / I feel…" },
+          { "label": "Una emoción", "re": "\\b(happy|excited|grateful|confident|relaxed|motivated|sad|tired|stressed|worried|frustrated|lonely)\\b", "hint": "happy, tired, stressed, worried…" },
+          { "label": "El motivo", "re": "\\bbecause\\b", "hint": "Explicá con because…" }
+        ],
+        "min": 2,
+        "sample": "I am feeling tired because I worked a lot."
+      }
+    },
+    {
+      "id": "transporte",
+      "tenses": ["futuro-going-to"],
+      "situation": "Estás en una ciudad: preguntá cómo llegar y entendé las indicaciones.",
+      "roleplay": {
+        "scenario": "You are a local in the street. The student asks how to get somewhere. Give simple directions and answer follow-up questions.",
+        "goal": "Preguntá cómo llegar a un lugar y pedí que te repitan."
+      },
+      "guided": {
+        "prompt": "Explicá cómo llegar de un lugar a otro: qué transporte usás y qué indicaciones das.",
+        "requirements": [
+          { "label": "Transporte", "re": "\\b(bus|train|subway|taxi|car|bicycle|bike|motorcycle|airplane)\\b", "hint": "bus, train, subway, taxi…" },
+          { "label": "Indicaciones", "re": "\\b(turn left|turn right|go straight|cross the street)\\b", "hint": "Turn left / Go straight…" },
+          { "label": "Ubicación", "re": "\\b(next to|behind|in front of|on your left|on your right)\\b", "hint": "next to, behind, in front of…" }
+        ],
+        "min": 2,
+        "sample": "Take the bus. Go straight and turn left. The station is next to the bank."
+      }
+    },
+    {
+      "id": "salud",
+      "tenses": ["pasado-simple"],
+      "situation": "No te sentís bien: explicá tus síntomas y qué hiciste.",
+      "roleplay": {
+        "scenario": "You are a doctor talking to a patient (the student). Ask about symptoms, when they started, and what the patient did last week.",
+        "goal": "Explicá qué te pasó y qué hiciste al respecto."
+      },
+      "guided": {
+        "prompt": "Contá cuándo te sentiste mal por última vez y qué hiciste.",
+        "requirements": [
+          { "label": "Pasado", "re": "\\b(had|felt|went|took|caught|was|slept|visited)\\b", "hint": "Usá pasado: I had, I felt, I went…" },
+          { "label": "Un síntoma", "re": "\\b(headache|fever|cold|flu|cough|pain|stomachache|allergy|dizziness)\\b", "hint": "headache, fever, cold, cough…" },
+          { "label": "Qué hiciste", "re": "\\b(doctor|pharmacy|medicine|rest|rested|water)\\b", "hint": "Mencioná doctor, medicine, rest…" }
+        ],
+        "min": 2,
+        "sample": "Last week I had a cold. I went to the doctor and took some medicine."
+      }
+    },
+    {
+      "id": "ropa",
+      "tenses": ["presente-continuo"],
+      "situation": "Estás en una tienda de ropa: describí qué llevás puesto y qué necesitás.",
+      "roleplay": {
+        "scenario": "You are a shop assistant in a clothing store helping the student choose clothes: styles, sizes, materials and prices.",
+        "goal": "Elegí una prenda, preguntá por el talle y el precio."
+      },
+      "guided": {
+        "prompt": "Describí qué ropa estás usando hoy y qué necesitás comprar.",
+        "requirements": [
+          { "label": "Usar (present continuous)", "re": "\\bi am wearing\\b", "hint": "I am wearing…" },
+          { "label": "Una prenda", "re": "\\b(shirt|jeans|jacket|sneakers|dress|sweater|coat|shoes|pants|shorts|cap|hat)\\b", "hint": "jeans, shirt, jacket, sneakers…" },
+          { "label": "Necesidad", "re": "\\bi (need|want)\\b", "hint": "I need to buy…" }
+        ],
+        "min": 2,
+        "sample": "I am wearing jeans and a shirt. I need to buy a new jacket."
+      }
+    },
+    {
+      "id": "conectores",
+      "tenses": ["pasado-simple", "futuro-will"],
+      "situation": "Contás una historia y unís las ideas con conectores.",
+      "roleplay": {
+        "scenario": "You are a friend asking the student to tell what happened yesterday. Encourage them to use connectors like first, then, because, so, but.",
+        "goal": "Contá qué pasó ayer usando conectores."
+      },
+      "guided": {
+        "prompt": "Contá qué hiciste ayer usando conectores (first, then, because, so...).",
+        "requirements": [
+          { "label": "Pasado", "re": "\\b(went|had|was|did|took|saw|met|worked|visited|called)\\b", "hint": "Usá verbos en pasado." },
+          { "label": "Secuencia", "re": "\\b(first|then|after that|finally)\\b", "hint": "first, then, after that, finally" },
+          { "label": "Causa o contraste", "re": "\\b(because|so|but|however|although)\\b", "hint": "because, so, but…" }
+        ],
+        "min": 2,
+        "sample": "First I went to work. Then I had lunch because I was hungry."
+      }
+    },
+    {
+      "id": "expresiones",
+      "tenses": ["futuro-will"],
+      "situation": "Practicás fórmulas de cortesía: pedir ayuda, agradecer, disculparte.",
+      "roleplay": {
+        "scenario": "You are a polite stranger. The student practices greeting, asking for help politely, and thanking. Offer help with 'I will...'.",
+        "goal": "Pedí ayuda con cortesía y agradecé."
+      },
+      "guided": {
+        "prompt": "Armá un mini diálogo de cortesía: saludá, pedí ayuda con \"could you\" y agradecé.",
+        "requirements": [
+          { "label": "Saludo", "re": "\\b(hello|hi|good morning|good afternoon)\\b", "hint": "Hello / Good morning" },
+          { "label": "Pedido cortés", "re": "\\b(could you|would you mind|can you)\\b", "hint": "Could you help me, please?" },
+          { "label": "Agradecer", "re": "\\b(thank you|thanks)\\b", "hint": "Thank you!" }
+        ],
+        "min": 2,
+        "sample": "Hello! Could you help me, please? Thank you!"
+      }
+    }
+  ]
+}

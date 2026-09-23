@@ -1,17 +1,18 @@
 import { createInterface } from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
-import { checkActivity, correctAnswer } from "./activities.js";
-import { loadCurriculum } from "./curriculum.js";
+import { checkActivity, correctAnswer, guidedMissing, storyStep } from "./activities.js";
+import { buildCurriculum } from "./curriculum.js";
 import {
   completeRoleplay,
-  crowns,
-  currentLevel,
-  isCleared,
-  learnActivities,
+  currentLesson,
+  isLessonCleared,
+  isUnitCleared,
+  lessonActivities,
+  lessonCrowns,
   nextReviews,
   record,
   roleplayAvailable,
-  unlockedLevels,
+  unlockedLessons,
 } from "./game.js";
 import { mulberry32 } from "./rng.js";
 import { dayNumber } from "./scheduler.js";
@@ -35,22 +36,67 @@ async function ask(question) {
   return done ? null : value;
 }
 
-const curriculum = loadCurriculum();
+const curriculum = buildCurriculum();
 const day = dayNumber();
 let state = loadState();
 const startXp = state.xp;
 
+const say = (line = "") => console.log(line);
+
+function showActivity(a) {
+  say(`\n[${a.skill}] ${a.prompt}`);
+  if (a.hint) say(`  (pista: ${a.hint})`);
+  if (a.say) say(`  (audio) "${a.say}"`);
+  if (a.source) say(`  ${a.source}`);
+  if (a.text) say(`  ${a.text}`);
+  a.turns?.forEach((t) => say(`  ${t.who}: ${t.text ?? "___"}`));
+  a.options?.forEach((option, i) => say(`  ${i + 1}) ${option}`));
+  if (a.words) say(`  ${a.words.join(" / ")}`);
+  if (a.pairs) {
+    a.pairs.forEach((p, i) => say(`  ${String.fromCharCode(65 + i)}) ${p.left}`));
+    a.rights.forEach((r, i) => say(`  ${i + 1}) ${r}`));
+    say("  (escribí los números en orden, por ejemplo: 2 1 4 3)");
+  }
+  if (a.requirements) say(`  Incluí: ${a.requirements.map((r) => r.label).join(" | ")}`);
+}
+
+// Recorre una historia con opciones. Devuelve la lista de aciertos, o null si se cerró la entrada.
+async function playStory(activity) {
+  const { story } = activity;
+  const goods = [];
+  let nodeId = story.start;
+  for (;;) {
+    const node = story.nodes[nodeId];
+    say(`\n  ${node.npc}`);
+    if (node.end) return goods;
+    node.options.forEach((o, i) => say(`  ${i + 1}) ${o.text}`));
+    const raw = await ask("> ");
+    if (raw === null) return null;
+    const step = storyStep(story, nodeId, Number.parseInt(raw, 10) - 1) ?? storyStep(story, nodeId, 0);
+    goods.push(step.good);
+    say(step.good ? "  Bien dicho." : `  Mejor: ${step.best}`);
+    nodeId = step.next;
+  }
+}
+
 // Devuelve true/false según acierto, o null si se cerró la entrada.
 async function play(activity, context) {
-  console.log(`\n[${activity.skill}] ${activity.prompt}`);
-  if (activity.say) console.log(`  (audio) "${activity.say}"`);
-  if (activity.text) console.log(`  ${activity.text}`);
-  activity.options?.forEach((option, i) => console.log(`  ${i + 1}) ${option}`));
-  if (activity.words) console.log(`  ${activity.words.join(" / ")}`);
-  const raw = await ask("> ");
-  if (raw === null) return null;
-  const ok = checkActivity(activity, activity.options ? Number.parseInt(raw, 10) - 1 : raw);
-  console.log(ok ? `Correcto! +${activity.xp} XP` : `Era: ${correctAnswer(activity)}`);
+  showActivity(activity);
+  let response;
+  if (activity.type === "story") {
+    response = await playStory(activity);
+  } else {
+    const raw = await ask("> ");
+    if (raw !== null) {
+      if (activity.options) response = Number.parseInt(raw, 10) - 1;
+      else if (activity.pairs) response = raw.trim().split(/[\s,]+/).map((n) => Number.parseInt(n, 10) - 1);
+      else response = raw;
+    }
+  }
+  if (response === null || response === undefined) return null;
+  const ok = checkActivity(activity, response);
+  say(ok ? `Correcto! +${activity.xp} XP` : `Era: ${correctAnswer(activity)}`);
+  if (!ok && activity.type === "guided") for (const r of guidedMissing(activity, response)) say(`  Falta: ${r.label}. ${r.hint}`);
   state = record(state, activity, ok, context, day);
   return ok;
 }
@@ -60,29 +106,40 @@ async function playAll(activities, context) {
   return true;
 }
 
-async function converse(level) {
-  console.log(`\n== Role-play: ${level.roleplay.goal} (escribí 'salir' para terminar) ==`);
+async function converse(unit) {
+  say(`\n== Role-play: ${unit.roleplay.goal} (escribí 'salir' para terminar) ==`);
   const history = [{ role: "user", content: "Hi! Let's start." }];
   let turns = 0;
   while (turns < MAX_TURNS) {
     let text;
     try {
-      text = await reply(level, history);
+      text = await reply(unit, history);
     } catch (error) {
       // El último mensaje del alumno sigue en el historial: reintentar no lo pierde.
-      console.log(`\nNo se pudo usar la IA: ${describeError(error)}`);
+      say(`\nNo se pudo usar la IA: ${describeError(error)}`);
       const again = await ask("Enter para reintentar, 'salir' para terminar: ");
       if (again === null || again.trim().toLowerCase() === "salir") break;
       continue;
     }
     turns++;
-    console.log(`\nTutor: ${text}`);
+    say(`\nTutor: ${text}`);
     history.push({ role: "assistant", content: text });
     const said = (await ask("Vos: "))?.trim();
     if (!said || said.toLowerCase() === "salir") break;
     history.push({ role: "user", content: said });
   }
-  state = completeRoleplay(state, level.id, turns, day);
+  state = completeRoleplay(state, unit.id, turns, day);
+}
+
+function showUnitIntro(unit) {
+  say(`\n== Unidad ${unit.index + 1}: ${unit.title} (${unit.titleEs}) ==\n${unit.situation}`);
+  for (const t of unit.tenses) {
+    say(`\nTiempo verbal: ${t.nameEs} (${t.name})`);
+    for (const u of t.uses) say(`  Uso: ${u.es}. Ej: ${u.example}`);
+    for (const form of ["affirmative", "negative", "interrogative"]) {
+      say(`  ${{ affirmative: "Afirmativa", negative: "Negativa", interrogative: "Pregunta" }[form]}: ${t.structures[form][0].pattern}  ->  ${t.structures[form][0].example}`);
+    }
+  }
 }
 
 let open = true;
@@ -90,38 +147,43 @@ let open = true;
 // 1. Repaso espaciado de lo aprendido en días anteriores.
 const reviews = nextReviews(state, curriculum, day, rng, MAX_REVIEWS);
 if (reviews.length) {
-  console.log("\n== Repaso ==");
+  say("\n== Repaso ==");
   open = await playAll(reviews, "review");
 }
 
-// 2. Nivel actual: nota, frases y práctica hasta superarlo.
-const level = currentLevel(state, curriculum);
-if (open && !level) console.log("\nCompletaste todos los niveles disponibles.");
-if (open && level) {
-  const n = curriculum.levels.indexOf(level) + 1;
-  console.log(`\n== Nivel ${n}: ${level.title} ==\n${level.situation}\nNota: ${level.grammarNote}`);
-  if (level.phrases.some((p) => !state.phrases[p.id])) {
-    for (const p of level.phrases) console.log(`  ${p.en}  =  ${p.es}`);
+// 2. Lección actual: presentación, práctica rotando los tipos de ejercicio, y ejercicios de unidad.
+const lesson = currentLesson(state, curriculum);
+if (open && !lesson) say("\nCompletaste todas las unidades disponibles.");
+if (open && lesson) {
+  const unit = curriculum.unitOf(lesson.unitId);
+  if (lesson.id === unit.lessons[0].id && !lesson.itemIds.some((id) => state.items[id])) showUnitIntro(unit);
+  say(`\n== Lección: ${lesson.title} ==`);
+  if (lesson.itemIds.some((id) => !state.items[id])) {
+    for (const id of lesson.itemIds) {
+      const item = curriculum.items.get(id);
+      say(`  ${item.en}${item.es ? `  =  ${item.es}` : ""}  |  ${item.examples[0]}`);
+    }
   }
-  for (let round = 0; round < MAX_ROUNDS && open && !isCleared(state, level); round++) {
-    open = await playAll(learnActivities(state, curriculum, level, rng), "learn");
+  for (let round = 0; round < MAX_ROUNDS && open; round++) {
+    open = await playAll(lessonActivities(state, curriculum, lesson, rng, { extras: round === 0 }), "learn");
+    if (isLessonCleared(state, lesson)) break;
   }
-  if (open && isCleared(state, level)) {
-    console.log("\nNivel superado!");
-    if (roleplayAvailable(state, level) && useAi) await converse(level);
+  if (open && isLessonCleared(state, lesson)) {
+    say("\nLección superada!");
+    if (isUnitCleared(state, unit) && roleplayAvailable(state, unit) && useAi) await converse(unit);
   }
 }
 
 saveState(state);
 
-const unlocked = unlockedLevels(state, curriculum);
-console.log("\n== Tu mapa ==");
-curriculum.levels.forEach((l, i) => {
-  const status = !unlocked.includes(l) ? "bloqueado" : isCleared(state, l) ? "superado" : "en curso";
-  console.log(`  ${i + 1}. ${l.title}: ${status}, coronas ${crowns(state, l)}/3`);
-});
-console.log(`XP: ${state.xp} (+${state.xp - startXp} hoy) | Racha: ${state.streak.days} día(s)`);
-if (usage.calls) {
-  console.log(`Tokens de la sesión: ${usage.input} entrada, ${usage.output} salida, ${usage.calls} llamadas.`);
+const unlocked = new Set(unlockedLessons(state, curriculum).map((l) => l.id));
+say("\n== Tu mapa ==");
+for (const unit of curriculum.units) {
+  const done = unit.lessons.filter((l) => isLessonCleared(state, l)).length;
+  const crowns = unit.lessons.reduce((sum, l) => sum + lessonCrowns(state, l), 0);
+  const status = !unit.lessons.some((l) => unlocked.has(l.id)) ? "bloqueada" : done === unit.lessons.length ? "superada" : "en curso";
+  say(`  ${unit.index + 1}. ${unit.title}: ${status} (${done}/${unit.lessons.length} lecciones, coronas ${crowns})`);
 }
+say(`XP: ${state.xp} (+${state.xp - startXp} hoy) | Racha: ${state.streak.days} día(s)`);
+if (usage.calls) say(`Tokens de la sesión: ${usage.input} entrada, ${usage.output} salida, ${usage.calls} llamadas.`);
 rl.close();

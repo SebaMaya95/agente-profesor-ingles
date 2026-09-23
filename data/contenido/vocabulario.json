@@ -1,5 +1,5 @@
 {
-  "fuente": "Vocabulario.docx (datos personales reemplazados por {{marcadores}})",
+  "fuente": "Vocabulario.docx (los datos personales se reemplazaron por marcadores tipo name, father, pet1)",
   "categories": [
     {
       "id": "informacion-personal",

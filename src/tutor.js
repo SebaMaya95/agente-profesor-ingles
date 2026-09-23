@@ -1,5 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { SYSTEM, levelContext } from "./prompts.js";
+import { SYSTEM, unitContext } from "./prompts.js";
 
 // Modelo chico por defecto para cuidar el costo; se puede cambiar con TUTOR_MODEL.
 const MODEL = process.env.TUTOR_MODEL ?? "claude-haiku-4-5";
@@ -22,12 +22,12 @@ export function describeError(error) {
 }
 
 // history: [{ role, content }] con el último mensaje del alumno al final.
-export async function reply(level, history) {
+export async function reply(unit, history) {
   client ??= new Anthropic({ timeout: 30_000 });
   const response = await client.messages.create({
     model: MODEL,
     max_tokens: MAX_TOKENS,
-    system: `${SYSTEM}\n${levelContext(level)}`,
+    system: `${SYSTEM}\n${unitContext(unit)}`,
     messages: history.slice(-HISTORY_WINDOW),
   });
   usage.calls += 1;

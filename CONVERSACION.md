@@ -130,3 +130,31 @@ Resumen de lo relevante de la conversación con Claude durante la construcción 
 - Solo se neutralizaron los datos personales identificables; el contenido profesional (trabajo, estudios) y los gustos quedaron tal cual.
 - Falta la traducción de las oraciones de ejemplo y los errores típicos por oración, que el documento no trae.
 - Los 5 ejercicios nuevos todavía no están implementados.
+
+## Iteración 3c: los 9 ejercicios del documento, rotando entre las 12 categorías
+
+**Pedidos del alumno:** que todos los tipos de ejercicio **roten con las categorías de vocabulario**; que la mascota sea un **perro border collie animado**; y, sobre la asignación de tiempos verbales por categoría, "está ok, avanza".
+
+**Qué se construyó:**
+- Los **9 ejercicios del documento** más 3 propios por el foco en hablar (escuchar y elegir, repetir en voz alta, decir de memoria): 12 tipos. Seis se generan a partir de cada palabra o frase del vocabulario; cinco usan material escrito por unidad (errores típicos, transformaciones afirmativa/negativa/pregunta, diálogos con un turno faltante, historias con opciones, consigna guiada); el role-play sigue siendo el único que usa IA.
+- **Contenido nuevo** (`unidades.json`, `actividades.json`): 36 errores típicos, 24 transformaciones, 24 diálogos, 12 historias, 12 consignas guiadas y 12 escenas de role-play.
+- **Curso rearmado:** 12 unidades (una por categoría) y 73 lecciones de hasta 6 ítems. Al empezar cada unidad se muestra la ficha de su tiempo verbal. Reemplaza al currículo de 5 niveles anterior.
+- **Rotación:** cada lección arranca la rotación de tipos en un punto distinto y nunca repite el mismo tipo seguido; los ejercicios de unidad rotan entre lecciones y cada unidad arranca en un tipo distinto. Cuando se agota el material nuevo de un ejercicio, se repite en un escalón más exigente (por ejemplo, de "elegir la correcta" a "escribirla bien").
+- La corrección ahora entiende contracciones ("doesn't" = "does not") para poder corregir las transformaciones.
+
+**Problemas encontrados y cómo se resolvieron** (las pruebas automáticas y la revisión de ejemplos reales los detectaron):
+- *Bug real:* una historia con 2 respuestas buenas de 3 no aprobaba, porque el umbral era 0,67 y 2/3 es 0,666. Se cambió por aritmética entera.
+- *"Completar" casi no aplicaba* en algunas unidades (5 de 15 ítems en Información personal, 3 de 11 en Trabajo) porque exigía que la palabra del ítem estuviera en su oración. Sin arreglo, ese ejercicio no rotaría en esas categorías. Se agregó una alternativa que tapa otra palabra de contenido de la oración.
+- *Calidad de ejemplos:* al revisar una sesión real aparecieron "completar" con la oración entera tapada (ítems que son frases sueltas) y opciones con mayúsculas inconsistentes (`data Analyst`). Se corrigieron.
+- *Diseño:* las opciones falsas de "relacionar" y "escuchar" salían de lecciones que el alumno todavía no había visto. Ahora salen solo de lo ya visto, con un mínimo de 8 ítems.
+- *Hueco detectado al repasar el documento:* escribí los pares de oraciones para "relacionar oraciones y conectores" pero ningún ejercicio los usaba. Se conectó a la unidad de conectores.
+- *Prueba mal armada:* asumí que un ejercicio de unidad subía de escalón en su segunda aparición; en realidad usa primero material nuevo. El diseño es el correcto y se corrigió la prueba.
+
+**Resultado:** 58 pruebas automáticas pasan. Incluyen un alumno "bot" que juega cada una de las 12 unidades completas y verifica que aparecen los 11 tipos de ejercicio que no usan IA, y otra que verifica que las opciones falsas solo salen de lo ya visto.
+
+**Límites declarados:**
+- El material de ejercicios y las consignas guiadas lo escribió Claude; falta la revisión del alumno.
+- La consigna guiada verifica que estén los elementos pedidos, no que la gramática sea correcta.
+- La rotación de tipos entre categorías es un pedido del alumno; no se buscó evidencia específica sobre ella.
+- Siguen sin traducción 8 ítems del documento (por ejemplo, *Power BI*).
+- Todavía no hay interfaz visual ni voz: la consola es una herramienta de prueba. Es el objetivo de la iteración 4 (web con voz, estilo juego en gama del azul y mascota border collie).

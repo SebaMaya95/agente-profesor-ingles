@@ -10,7 +10,7 @@ const file = process.env.ALUMNO_FILE ?? fileURLToPath(new URL("../data/alumno.js
 export function loadState() {
   if (!existsSync(file)) return newState();
   const saved = JSON.parse(readFileSync(file, "utf8"));
-  return saved.version === 2 ? saved : newState(); // formato anterior: se empieza de cero
+  return saved.version === 3 ? saved : newState(); // formato anterior: se empieza de cero
 }
 
 export function saveState(state) {

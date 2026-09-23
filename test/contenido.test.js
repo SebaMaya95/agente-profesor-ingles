@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { fill, loadPerfil, loadTiempos, loadVocabulario } from "../src/contenido.js";
+import { fill, loadActividades, loadPerfil, loadTiempos, loadUnidades, loadVocabulario } from "../src/contenido.js";
 
 const vocab = loadVocabulario();
 const items = vocab.categories.flatMap((c) => c.groups.flatMap((g) => g.items));
@@ -51,11 +51,51 @@ test("todos los marcadores {{clave}} existen en el perfil de ejemplo y fill los 
   assert.throws(() => fill("Hola {{inexistente}}", perfil), /inexistente/);
 });
 
+test("cada unidad usa tiempos que existen y cubre las categorías del vocabulario en el mismo orden", () => {
+  const { units } = loadUnidades();
+  const tenseIds = new Set(loadTiempos().tenses.map((t) => t.id));
+  assert.deepEqual(units.map((u) => u.id), vocab.categories.map((c) => c.id));
+  for (const u of units) {
+    assert.ok(u.tenses.length >= 1 && u.tenses.every((t) => tenseIds.has(t)), u.id);
+    assert.ok(u.situation && u.roleplay.scenario && u.roleplay.goal, u.id);
+    assert.ok(u.guided.requirements.length >= 3 && u.guided.min >= 1 && u.guided.sample, u.id);
+    for (const r of u.guided.requirements) assert.doesNotThrow(() => new RegExp(r.re, "i"), `${u.id}: regex inválida`);
+  }
+});
+
+test("el material de ejercicios de cada unidad es consistente", () => {
+  const actividades = loadActividades();
+  for (const { id } of loadUnidades().units) {
+    const a = actividades[id];
+    assert.ok(a, `falta material para ${id}`);
+    assert.ok(a.errors.length >= 3, `${id}: pocos errores típicos`);
+    for (const e of a.errors) assert.notEqual(e.correct, e.wrong, id);
+    assert.ok(a.transforms.length >= 2, id);
+    for (const t of a.transforms) {
+      assert.ok(t.forms.affirmative && t.forms.negative && t.forms.interrogative, id);
+      assert.equal(new Set(Object.values(t.forms)).size, 3, `${id}: las 3 formas deben ser distintas`);
+    }
+    assert.ok(a.dialogues.length >= 2, id);
+    for (const d of a.dialogues) {
+      assert.ok(d.gap > 0 && d.gap < d.turns.length - 1 + 1 && d.turns[d.gap].text, `${id}: gap inválido`);
+      assert.ok(d.distractors.length >= 2 && !d.distractors.includes(d.turns[d.gap].text), id);
+    }
+    assert.ok(a.story?.nodes[a.story.start], id);
+  }
+  assert.equal(actividades.conectores.matchSets.length, 2);
+});
+
 // Guarda de privacidad: si existe el perfil real (local), ningún dato personal puede estar en los archivos versionados.
 test("los datos personales del perfil local no aparecen en el contenido versionado", { skip: !existsSync(rel("data/perfil.json")) }, () => {
   const real = JSON.parse(readFileSync(rel("data/perfil.json"), "utf8"));
   const sensibles = ["name", "hometown", "birthday", "height", "weight", "father", "mother", "brother", "sister", "grandmother", "godson", "goddaughter", "pet1", "pet2"];
-  const committed = ["data/contenido/vocabulario.json", "data/contenido/tiempos.json", "data/curriculum.json", "data/perfil.ejemplo.json"]
+  const committed = [
+    "data/contenido/vocabulario.json",
+    "data/contenido/tiempos.json",
+    "data/contenido/unidades.json",
+    "data/contenido/actividades.json",
+    "data/perfil.ejemplo.json",
+  ]
     .map((p) => readFileSync(rel(p), "utf8"))
     .join("\n");
   for (const key of sensibles) {

@@ -1,21 +1,77 @@
-import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
+import {
+  deepFill,
+  loadActividades,
+  loadPerfil,
+  loadTiempos,
+  loadUnidades,
+  loadVocabulario,
+} from "./contenido.js";
 
-const file = fileURLToPath(new URL("../data/curriculum.json", import.meta.url));
+const LESSON_MAX = 6; // ítems por lección
 
-export const loadCurriculum = () => JSON.parse(readFileSync(file, "utf8"));
+// Reparte n ítems en lecciones parejas de hasta LESSON_MAX (7 -> 4+3, 16 -> 6+6+4).
+function chunk(items) {
+  const parts = Math.ceil(items.length / LESSON_MAX);
+  const size = Math.ceil(items.length / parts);
+  return Array.from({ length: parts }, (_, i) => items.slice(i * size, (i + 1) * size));
+}
 
-const withLevel = (level) => level.phrases.map((p) => ({ ...p, levelId: level.id }));
+const toItem = (raw, unitId, lessonId) => ({
+  id: raw.id,
+  unitId,
+  lessonId,
+  en: raw.en,
+  es: raw.es || null,
+  examples: raw.examples,
+  variants: raw.en.split("/").map((s) => s.trim()).filter(Boolean), // "Father / Dad" -> ["Father", "Dad"]
+});
 
-export const phraseIndex = (curriculum) =>
-  new Map(curriculum.levels.flatMap(withLevel).map((p) => [p.id, p]));
+// Arma el curso: 12 unidades (una por categoría), cada una dividida en lecciones cortas.
+// Los textos se completan con el perfil del alumno ({{name}}, {{father}}...).
+export function buildCurriculum(perfil = loadPerfil()) {
+  const vocab = deepFill(loadVocabulario(), perfil);
+  const tiempos = deepFill(loadTiempos(), perfil);
+  const unidades = deepFill(loadUnidades(), perfil);
+  const actividades = deepFill(loadActividades(), perfil);
+  const tenseById = new Map(tiempos.tenses.map((t) => [t.id, t]));
+  const categoryById = new Map(vocab.categories.map((c) => [c.id, c]));
 
-// Frases del mismo nivel y de los anteriores: sirven de distractores en los ejercicios.
-export function poolFor(curriculum, phrase) {
-  const pool = [];
-  for (const level of curriculum.levels) {
-    pool.push(...withLevel(level));
-    if (level.id === phrase.levelId) break;
-  }
-  return pool;
+  const items = new Map();
+  const units = unidades.units.map((u, index) => {
+    const category = categoryById.get(u.id);
+    const lessons = [];
+    for (const group of category.groups) {
+      const parts = chunk(group.items);
+      parts.forEach((part, i) => {
+        const id = `${u.id}.l${lessons.length + 1}`;
+        for (const raw of part) items.set(raw.id, toItem(raw, u.id, id));
+        lessons.push({
+          id,
+          unitId: u.id,
+          title: parts.length > 1 ? `${group.title} (${i + 1}/${parts.length})` : group.title,
+          itemIds: part.map((p) => p.id),
+        });
+      });
+    }
+    return {
+      id: u.id,
+      index,
+      title: category.title,
+      titleEs: category.titleEs,
+      situation: u.situation,
+      tenses: u.tenses.map((id) => tenseById.get(id)),
+      roleplay: u.roleplay,
+      guided: { id: `${u.id}:guided`, ...u.guided },
+      extras: actividades[u.id],
+      lessons,
+      itemList: lessons.flatMap((l) => l.itemIds).map((id) => items.get(id)),
+    };
+  });
+
+  return {
+    units,
+    lessons: units.flatMap((u) => u.lessons),
+    items,
+    unitOf: (id) => units.find((u) => u.id === id),
+  };
 }

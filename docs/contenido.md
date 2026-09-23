@@ -4,11 +4,12 @@ El alumno armó un documento con los **tiempos verbales**, las **categorías de 
 
 ## Qué se incorporó
 
-| Parte del documento | Archivo | Contenido |
-|---|---|---|
-| Tiempos verbales | `data/contenido/tiempos.json` | 5 tiempos con usos, claves y estructuras (afirmativa, negativa, interrogativa): Presente Simple, Presente Continuo, Pasado Simple, Futuro con *will*, Futuro con *going to*. |
-| Categorías de vocabulario | `data/contenido/vocabulario.json` | 12 categorías, 273 ítems (palabra, traducción y oración de ejemplo), agrupados como en el documento. |
-| 9 tipos de ejercicio | (ver tabla abajo) | Se implementan en el motor, uno por uno. |
+| Archivo | Contenido |
+|---|---|
+| `data/contenido/tiempos.json` | 5 tiempos con usos, claves y estructuras (afirmativa, negativa, interrogativa): Presente Simple, Presente Continuo, Pasado Simple, Futuro con *will*, Futuro con *going to*. |
+| `data/contenido/vocabulario.json` | 12 categorías, 273 ítems (palabra, traducción y oración de ejemplo), agrupados como en el documento. |
+| `data/contenido/unidades.json` | Una unidad por categoría: situación, tiempos que practica, escena del role-play y consigna guiada. |
+| `data/contenido/actividades.json` | Material de ejercicios por unidad: 36 errores típicos, 24 transformaciones, 24 diálogos, 12 historias con opciones y 2 sets de oraciones para relacionar. |
 
 Las 12 categorías: Información personal · Familia y relaciones · Compras y vida diaria · Trabajo y estudios · Pasatiempos · Clima · Emociones · Transporte y direcciones · Salud y bienestar · Ropa · Conectores y gramática · Expresiones comunes y cortesía.
 
@@ -16,38 +17,22 @@ Las 12 categorías: Información personal · Familia y relaciones · Compras y v
 
 El documento original tiene datos personales del alumno (nombres de familiares y mascotas, edad, fecha de nacimiento, lugar de residencia, medidas). Por eso:
 
-- `Vocabulario.docx` **no se sube** (está en `.gitignore`) y nunca fue parte del historial.
-- En los archivos versionados, esos datos se reemplazaron por marcadores como `{{name}}` o `{{father}}` (por ejemplo: "My name is {{name}}.").
+- `Vocabulario.docx` **no se sube** (`.gitignore`) y nunca fue parte del historial.
+- En los archivos versionados, esos datos se reemplazaron por marcadores como `{{name}}` o `{{father}}`.
 - Los valores reales viven en `data/perfil.json`, que **tampoco se sube**. Si no existe, se usa `data/perfil.ejemplo.json` (genérico).
-- Resultado: el curso usa la información **del propio alumno** (hablar de uno mismo es lo más útil para fluir), sin exponerla públicamente.
+- El curso usa la información **del propio alumno** (hablar de uno mismo es lo más útil para fluir), sin exponerla públicamente.
 - Una prueba automática verifica que ningún dato del perfil local aparezca en los archivos versionados.
-- Se dejó tal cual el contenido profesional y de gustos (trabajo, estudios, hobbies) por ser de baja sensibilidad; se puede neutralizar también si se prefiere.
+- Se dejó tal cual el contenido profesional y de gustos (trabajo, estudios, hobbies) por ser de baja sensibilidad.
 
-## Los 9 tipos de ejercicio del documento frente al motor
+## Cómo se arma el curso
 
-| # | Ejercicio del documento | Estado | Cómo se resuelve | Tokens |
-|---|---|---|---|---|
-| 1 | Fill in the Blanks (completar oraciones) | ✅ hecho (elegir la palabra) | Agregar variante de escribir o decir la palabra faltante. | 0 |
-| 2 | Sentence Transformation (transformar oraciones) | 🔜 nuevo | Pasar una oración de afirmativa a negativa o pregunta, o cambiar el tiempo. Se arma desde `tiempos.json` con pares de oraciones y respuesta esperada. | 0 |
-| 3 | Sentence Matching (relacionar oraciones y conectores) | 🔜 nuevo | Unir dos mitades o elegir el conector correcto, con los datos de la categoría *Conectores*. | 0 |
-| 4 | Error Detection and Correction | ✅ parcial (elegir la correcta) | Agregar "encontrá y corregí el error" (escribir o decir la versión correcta). | 0 |
-| 5 | Role Play (juego de roles) | ✅ hecho (con IA) | Una escena por nivel, con la categoría como tema. | Sí, con tope |
-| 6 | Word Scramble (ordenar palabras) | ✅ hecho | — | 0 |
-| 7 | Dialogue Completion (completar diálogos) | 🔜 nuevo | Diálogos cortos precargados con un turno faltante para elegir o decir. | 0 |
-| 8 | Choose Your Own Story (historias con opciones) | 🔜 nuevo | Historias ramificadas precargadas: cada elección lleva a otra escena. Motor simple de nodos. | 0 |
-| 9 | Guided Writing (redacción guiada) | 🔜 nuevo | Consigna guiada con requisitos (estructura y palabras a usar). Como el objetivo es hablar, se podrá **decir o escribir**. La corrección de requisitos es en código; la devolución con IA es opcional y con tope. | 0 (IA opcional) |
+**12 unidades, 73 lecciones.** Cada unidad es una categoría, y cada grupo del documento se divide en lecciones de hasta 6 ítems. El camino es lineal: superar una lección desbloquea la siguiente.
 
-Además, por el enfoque en hablar, se mantienen tres ejercicios propios: **escuchar y elegir**, **repetir en voz alta (shadowing)** y **decir la frase de memoria**. En total, 12 tipos.
-
-De los 9 del documento, solo el role-play y la devolución opcional del punto 9 usan la IA. El resto se corrige en código.
-
-## Propuesta para armar los niveles (borrador para validar)
-
-Mantener el orden de los tiempos del documento (simple → continuo → pasado → futuro) y asignar a cada categoría el tiempo que más naturalmente se usa en ella:
+Tiempo verbal en foco por unidad (asignación aprobada por el alumno):
 
 | Unidad | Categoría | Tiempo en foco |
 |---|---|---|
-| 1 | Información personal | Presente Simple (con *to be*) |
+| 1 | Información personal | Presente Simple |
 | 2 | Familia y relaciones | Presente Simple |
 | 3 | Compras y vida diaria | Presente Simple |
 | 4 | Trabajo y estudios | Presente Simple |
@@ -58,12 +43,40 @@ Mantener el orden de los tiempos del documento (simple → continuo → pasado �
 | 9 | Salud y bienestar | Pasado Simple |
 | 10 | Ropa | Presente Continuo |
 | 11 | Conectores | Pasado Simple y *will* |
-| 12 | Expresiones y cortesía | *Will* (ofertas y promesas) |
+| 12 | Expresiones y cortesía | *Will* |
 
-Cada unidad se divide en niveles chicos (por grupo de la categoría) para que el mapa sea largo y cada paso corto.
+Al empezar cada unidad se muestra la ficha del tiempo verbal (usos, claves y estructuras).
+
+## Los 9 tipos de ejercicio del documento en el motor
+
+Todos están implementados y probados. Además se sumaron 3 ejercicios propios por el objetivo de hablar, para un total de **12 tipos**.
+
+| # | Ejercicio del documento | Cómo funciona | Tokens |
+|---|---|---|---|
+| 1 | Fill in the Blanks | **Completar**: se tapa una palabra de la oración de ejemplo y se elige entre 3. | 0 |
+| 2 | Sentence Transformation | **Transformar la oración**: pasar de afirmativa a negativa o pregunta (y a la inversa). Acepta "doesn't" o "does not". | 0 |
+| 3 | Sentence Matching | **Relacionar**: unir palabras con su significado; en la unidad de conectores, unir el comienzo de cada oración con su final. | 0 |
+| 4 | Error Detection and Correction | **Detectar y corregir**: primero elegir la oración correcta; al repetirse, escribirla o decirla bien. | 0 |
+| 5 | Role Play | **Role-play con IA** al superar cada unidad, con una escena propia de la categoría. | Sí, con tope |
+| 6 | Word Scramble | **Armar la frase** con las palabras desordenadas. | 0 |
+| 7 | Dialogue Completion | **Completar el diálogo**: elegir el turno que falta; al repetirse, decirlo o escribirlo. | 0 |
+| 8 | Choose Your Own Story | **Historia con opciones**: cada respuesta lleva a la siguiente escena; se aprueba con 2 de cada 3 buenas. | 0 |
+| 9 | Guided Writing | **Consigna guiada**: se pide algo concreto (por ejemplo, presentarte) y el código verifica los elementos pedidos. Se puede **decir o escribir**. | 0 |
+| propio | — | **Escuchar y elegir** el significado | 0 |
+| propio | — | **Repetir en voz alta** (shadowing) | 0 |
+| propio | — | **Decir la palabra o frase** de memoria | 0 |
+
+## Rotación de los ejercicios con las categorías
+
+- **Ejercicios de ítem** (completar, relacionar, armar la frase, escuchar, repetir, decir): rotan en cada lección. La rotación arranca en un punto distinto según la lección, nunca se repite el mismo tipo seguido, y el tipo permitido sube de dificultad con lo que el alumno ya domina (reconocer e imitar → producir de memoria).
+- **Ejercicios de unidad** (errores, diálogos, transformaciones, historia, consigna guiada): cada lección suma 2, y la rotación arranca en un tipo distinto en cada unidad. Se usa primero el material nuevo; cuando se agota, el ejercicio se repite en su escalón más exigente.
+- **Opciones falsas:** salen solo de lo que el alumno ya vio en la unidad, con un mínimo de 8 ítems para que siempre haya alternativas.
+- Una prueba automática juega cada una de las 12 unidades como alumno perfecto y verifica que aparecen los 11 tipos que no usan IA.
 
 ## Pendientes conocidos
 
-- El documento trae **una traducción por palabra**, pero no de las oraciones de ejemplo. Para los ejercicios de escuchar y elegir significado hay que agregarlas (las redacta Claude y las revisa el alumno).
-- Los **errores típicos** para "detectar el error" tampoco están en el documento; hay que agregarlos por oración (a mano, o por reglas del tiempo verbal cuando se pueda).
-- Las unidades 5, 6, 10 y 11 combinan tiempos: hay que validar esa asignación con el alumno.
+- **Revisión del alumno:** el material de `actividades.json` (errores típicos, transformaciones, diálogos, historias) y las consignas guiadas lo escribió Claude y falta que el alumno lo revise.
+- **8 ítems sin traducción** en el documento (por ejemplo, *Power BI*, *Rock*, *Reggaeton*): no participan de los ejercicios de significado.
+- **"Completar" alternativo:** cuando la palabra del ítem no está en su oración de ejemplo, se tapa otra palabra de contenido de la oración. Puede quedar alguna opción ambigua; conviene detectar casos con el uso.
+- **La consigna guiada verifica que estén los elementos pedidos, no que la gramática sea correcta.** Una devolución con IA (opcional y con tope) no está implementada.
+- Los ejercicios de voz (repetir, decir) se escriben en la consola; en la web se hablarán con el reconocimiento de voz del navegador.
