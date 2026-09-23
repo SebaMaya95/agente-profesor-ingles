@@ -2,7 +2,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { fill, loadActividades, loadPerfil, loadTiempos, loadUnidades, loadVocabulario } from "../src/contenido.js";
+import { fill } from "../src/contenido.js";
+import { loadActividades, loadPerfil, loadTiempos, loadUnidades, loadVocabulario } from "../src/contenido-node.js";
 
 const vocab = loadVocabulario();
 const items = vocab.categories.flatMap((c) => c.groups.flatMap((g) => g.items));

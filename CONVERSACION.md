@@ -158,3 +158,29 @@ Resumen de lo relevante de la conversación con Claude durante la construcción 
 - La rotación de tipos entre categorías es un pedido del alumno; no se buscó evidencia específica sobre ella.
 - Siguen sin traducción 8 ítems del documento (por ejemplo, *Power BI*).
 - Todavía no hay interfaz visual ni voz: la consola es una herramienta de prueba. Es el objetivo de la iteración 4 (web con voz, estilo juego en gama del azul y mascota border collie).
+
+## Iteración 4: la web (Colly)
+
+**Pedidos del alumno:** interfaz "como un juego", con la interacción de una app de idiomas conocida (botones gruesos, colores intensos) pero en **gama del azul y no verde**; mascota **border collie animado**; voz para practicar hablar; publicable en Vercel.
+
+**Decisiones:**
+- *Estilo:* se tomó el estilo de interacción (botones con relieve, barra de progreso, camino de lecciones), sin copiar la marca, la mascota ni los recursos de otra app. La mascota, **Colly**, es un personaje original dibujado en SVG con cuatro estados de ánimo. Paleta azul; solo un coral suave marca los errores y un dorado las recompensas.
+- *Arquitectura:* sitio estático sin herramientas de compilación. El motor (`src/`) se separó de lo que depende de Node (`contenido-node.js`, `state.js`, `tutor.js`) para que corra igual en el navegador y en la consola. Los ejercicios y la corrección siguen en el navegador: **0 tokens**.
+- *Privacidad:* el progreso y el perfil (nombre, familia, etc.) se guardan solo en el navegador (`localStorage`). El perfil personaliza las frases sin salir del dispositivo.
+- *Role-play:* único punto con IA, en una función del servidor (`api/roleplay.js`). La API key nunca llega al navegador. Como una URL pública podría gastar créditos ajenos, el endpoint exige un código de acceso, queda apagado si no está configurado, limita pedidos por IP (contando los intentos con código incorrecto), valida el formato y arma la escena en el servidor.
+- *Voz:* reconocimiento y síntesis del navegador (0 tokens). Se verificó que el navegador suele enviar el audio a su proveedor (Google en Chrome, Apple en Safari) y la app avisa de eso en Perfil.
+
+**Cómo se verificó:** las pruebas automáticas (77) cubren la sesión de práctica, el guardado y el endpoint. La interfaz se probó en el navegador integrado: un alumno "bot" jugó una lección completa (relacionar, repetir, escuchar, detectar error, diálogo, armar la frase), se dibujaron por separado los ejercicios restantes (transformar, historia, consigna guiada), se probó el role-play de 4 turnos con un servidor simulado y se comprobó que el servidor local no expone `perfil.json`, el `.docx`, `.env`, `.git` ni permite salir de la carpeta.
+
+**Problemas encontrados en esas pruebas y cómo se resolvieron:**
+- La herramienta de vista previa buscaba su configuración en la carpeta temporal de la sesión y no en el proyecto; se resolvió dejándola allí con la ruta absoluta del servidor.
+- En "relacionar", al corregir, la columna derecha conservaba los colores de los pares y no marcaba acierto o error. Se corrigió.
+- La barra de progreso no avanzaba al responder, solo al pasar al siguiente ejercicio. Se corrigió.
+- En el camino, las coronas de una lección superada se pisaban con el cartel "EMPEZAR" de la siguiente. Se dio más espacio.
+- El micrófono se estiraba al alto de los cuadros de texto grandes; el título de las lecciones mezclaba inglés y español ("Basic details (Datos básicos) (1/2)"): ahora se muestra en español; y la tarjeta final del role-play quedaba fuera de vista.
+
+**Límites declarados (sin verificar):**
+- **No se hizo un deploy real en Vercel.** `vercel.json` y `.vercelignore` están armados, pero la opción `includeFiles` de la función debe confirmarse al desplegar.
+- No se comprobó la instalación como app (PWA) ni el reconocimiento de voz en dispositivos reales; solo la interfaz en el navegador de escritorio.
+- El role-play con la API real desde la web no se probó (sí con un servidor simulado y con pruebas del endpoint).
+- El contador de pedidos por IP vive en la memoria de cada instancia del servidor: frena abusos simples pero no reemplaza el límite de gasto en la consola de Anthropic.

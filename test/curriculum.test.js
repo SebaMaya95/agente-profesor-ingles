@@ -1,9 +1,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { loadPerfil, loadUnidades } from "../src/contenido.js";
-import { buildCurriculum } from "../src/curriculum.js";
+import { loadCurriculum, loadPerfil, loadUnidades } from "../src/contenido-node.js";
 
-const curriculum = buildCurriculum();
+const curriculum = loadCurriculum();
 
 test("hay 12 unidades en el orden definido, con tiempos, role-play y material de ejercicios", () => {
   assert.deepEqual(curriculum.units.map((u) => u.id), loadUnidades().units.map((u) => u.id));
@@ -41,7 +40,7 @@ test("los ids de lección son únicos y cada unidad conoce sus ítems en orden",
 test("no queda ningún marcador sin completar y el perfil personaliza el contenido", () => {
   assert.equal(JSON.stringify([...curriculum.items.values()]).includes("{{"), false);
   assert.equal(JSON.stringify(curriculum.units.map((u) => u.extras)).includes("{{"), false);
-  const custom = buildCurriculum({ ...loadPerfil(), name: "Zedrik" });
+  const custom = loadCurriculum({ ...loadPerfil(), name: "Zedrik" });
   assert.ok(JSON.stringify([...custom.items.values()]).includes("Zedrik"));
 });
 

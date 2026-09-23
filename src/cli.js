@@ -1,7 +1,7 @@
 import { createInterface } from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
 import { checkActivity, correctAnswer, guidedMissing, storyStep } from "./activities.js";
-import { buildCurriculum } from "./curriculum.js";
+import { loadCurriculum } from "./contenido-node.js";
 import {
   completeRoleplay,
   currentLesson,
@@ -36,7 +36,7 @@ async function ask(question) {
   return done ? null : value;
 }
 
-const curriculum = buildCurriculum();
+const curriculum = loadCurriculum();
 const day = dayNumber();
 let state = loadState();
 const startXp = state.xp;

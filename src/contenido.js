@@ -1,20 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-
-// Contenido que viene de Vocabulario.docx (tiempos y categorías) y material de ejercicios por unidad.
-const dataPath = (name) => fileURLToPath(new URL(`../data/${name}`, import.meta.url));
-const readJson = (name) => JSON.parse(readFileSync(dataPath(name), "utf8"));
-
-export const loadVocabulario = () => readJson("contenido/vocabulario.json");
-export const loadTiempos = () => readJson("contenido/tiempos.json");
-export const loadUnidades = () => readJson("contenido/unidades.json");
-export const loadActividades = () => readJson("contenido/actividades.json");
-
-// Perfil del alumno: usa data/perfil.json si existe (local, no se sube al repo) y completa con el de ejemplo.
-export function loadPerfil() {
-  const { nota, ...example } = readJson("perfil.ejemplo.json");
-  return existsSync(dataPath("perfil.json")) ? { ...example, ...readJson("perfil.json") } : example;
-}
+// Utilidades de contenido que corren igual en Node y en el navegador.
 
 // Reemplaza {{clave}} por el valor del perfil.
 export const fill = (text, perfil) =>

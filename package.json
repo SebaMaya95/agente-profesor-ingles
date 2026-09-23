@@ -1,10 +1,14 @@
 {
   "name": "agente-profesor-ingles",
-  "version": "0.2.0",
-  "description": "Agente profesor de inglés eficiente en tokens (TP Creación de Agentes de IA)",
+  "version": "0.4.0",
+  "description": "Colly: agente profesor de inglés para hablar, eficiente en tokens (TP Creación de Agentes de IA)",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "start": "node src/cli.js",
+    "web": "node tools/serve.js",
     "test": "node --test"
   },
   "dependencies": {

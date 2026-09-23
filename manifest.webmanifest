@@ -1,0 +1,13 @@
+{
+  "name": "Colly · Inglés para hablar",
+  "short_name": "Colly",
+  "description": "Aprendé a hablar inglés con lecciones cortas, repaso espaciado y práctica con voz.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#eef5ff",
+  "theme_color": "#2f6bff",
+  "lang": "es",
+  "icons": [{ "src": "/web/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

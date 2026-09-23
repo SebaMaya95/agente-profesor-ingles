@@ -1,0 +1,10 @@
+data/perfil.json
+*.docx
+.env
+.env.*
+.claude
+node_modules
+test
+docs
+CONVERSACION.md
+tools

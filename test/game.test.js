@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { EXTRA_TYPES, ITEM_TYPES, TYPES, checkActivity } from "../src/activities.js";
-import { buildCurriculum } from "../src/curriculum.js";
+import { loadCurriculum } from "../src/contenido-node.js";
 import {
   EXTRAS_PER_LESSON,
   completeRoleplay,
@@ -21,7 +21,7 @@ import {
 import { mulberry32 } from "../src/rng.js";
 import { rightResponse } from "./helpers.js";
 
-const curriculum = buildCurriculum();
+const curriculum = loadCurriculum();
 const [unit1, unit2] = curriculum.units;
 
 // Alumno bot: responde todo (bien o mal) y devuelve el estado nuevo.

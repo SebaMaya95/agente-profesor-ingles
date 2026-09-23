@@ -15,11 +15,11 @@ import {
   nextItemActivity,
   storyStep,
 } from "../src/activities.js";
-import { buildCurriculum } from "../src/curriculum.js";
+import { loadCurriculum } from "../src/contenido-node.js";
 import { mulberry32 } from "../src/rng.js";
 import { rightResponse, wrongResponse } from "./helpers.js";
 
-const curriculum = buildCurriculum();
+const curriculum = loadCurriculum();
 const items = [...curriculum.items.values()];
 const poolOf = (item) => curriculum.unitOf(item.unitId).itemList;
 

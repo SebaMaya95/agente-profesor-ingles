@@ -23,7 +23,7 @@ Un agente que enseñe a **hablar y entender inglés** lo más rápido posible (n
 - Iteración 3: enfoque en hablar; juego con XP, racha y coronas. ✅
 - Iteración 3b: se incorpora el documento del alumno (5 tiempos, 12 categorías, 273 ítems). ✅
 - Iteración 3c: los 9 tipos de ejercicio del documento (más 3 propios) implementados y rotando entre las 12 unidades, con 73 lecciones. ✅ (consola)
-- Iteración 4: interfaz web con voz, estilo juego en gama del azul y mascota border collie, para publicar en Vercel (próxima).
+- Iteración 4: web de juego (Colly, mascota border collie) en gama del azul, con voz del navegador, los 12 ejercicios, mapa de unidades y role-play con IA; configuración para Vercel. ✅ (probada en local; el deploy en Vercel está pendiente)
 
 ## Cómo funciona una sesión
 
@@ -41,7 +41,15 @@ Completar · Transformar la oración · Relacionar (palabras, y oraciones con co
 
 El contenido (`data/contenido/`) sale del documento del alumno. Como el repo es público, los datos personales se reemplazaron por marcadores (`{{name}}`, `{{father}}`...). Los valores reales van en `data/perfil.json` (local, ignorado por git); sin él se usa `data/perfil.ejemplo.json`.
 
-## Uso
+## Web
+
+Interfaz de juego con mapa de unidades, los 12 ejercicios, voz y role-play. Detalles, publicación en Vercel y límites en [`docs/web.md`](docs/web.md).
+
+```bash
+npm.cmd run web    # http://localhost:5173
+```
+
+## Uso en consola
 
 ```bash
 npm install
@@ -70,5 +78,8 @@ Modelo por defecto: `claude-haiku-4-5` (cambiable con la variable `TUTOR_MODEL`)
 - `src/grading.js`: corrección tolerante (contracciones, palabra clave, error típico).
 - `src/tutor.js` y `src/prompts.js`: role-play con el modelo.
 - `src/cli.js`: sesión de consola (herramienta de prueba del motor).
+- `src/roleplay-api.js` y `api/roleplay.js`: endpoint del role-play (API key solo en el servidor).
+- `web/`: la interfaz (pantallas, ejercicios, voz, mascota, estilos); `index.html` en la raíz.
+- `tools/serve.js`: servidor local para probar la web.
 - `data/contenido/`: tiempos, vocabulario, unidades y material de ejercicios.
-- `test/`: 58 pruebas del motor, del contenido, de la rotación y de la sesión completa.
+- `test/`: 77 pruebas del motor, del contenido, de la rotación, de la sesión web, del guardado y del endpoint.

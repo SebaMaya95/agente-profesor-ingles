@@ -6,3 +6,6 @@ data/alumno.json
 # Datos personales: nunca al repo público
 data/perfil.json
 *.docx
+
+# Configuración local de la app de escritorio
+.claude/
