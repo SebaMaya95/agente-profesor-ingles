@@ -64,3 +64,17 @@ Resumen de lo relevante de la conversación con Claude durante la construcción 
 - La llamada real al modelo (`src/tutor.js`) **no se probó** porque no había API key. Se probó todo el resto sin IA (`--no-ai`).
 - No se activó prompt caching: el prompt de sistema es corto y, por debajo del mínimo cacheable del modelo, el caching no se activaría. Se medirá con el contador de tokens cuando haya API key.
 - El currículo (5 temas, 25 palabras) es de ejemplo y no proviene de una lista de frecuencia real.
+
+## Iteración 2b: primera prueba real con la API
+
+**Cómo se probó:** el alumno cargó su API key como variable de entorno en su propia terminal (la key nunca pasó por el chat ni por el repo) y corrió `npm.cmd start`. En Windows, `npm start` falló por la política de ejecución de scripts de PowerShell (`npm.ps1` bloqueado); se resolvió llamando a `npm.cmd`, sin cambiar configuración del sistema.
+
+**Resultado de la conversación:** el alumno escribió `Me name is Seba` a propósito. El tutor respondió con una pista en español (`Me → My`) sin dar la frase completa, y tras la corrección pasó a otra práctica. Esto cumple la regla de corrección de la metodología (pista explícita primero).
+
+**Consumo medido:** 537 tokens de entrada y 81 de salida en 3 llamadas (~180 de entrada y ~27 de salida por llamada). Con las tarifas de `claude-haiku-4-5` ($1 / $5 por millón de tokens), la sesión costó cerca de **US$ 0,001**. Como cada llamada usa muy pocos tokens, el prompt caching no aplica.
+
+**Problemas observados y ajustes:**
+- La cuarta llamada falló con `Request timed out` y la sesión terminó, perdiendo ese turno. Ahora hay timeout de 30 s, mensajes de error claros (timeout / sin conexión) y se puede reintentar con Enter sin perder lo escrito. La causa del timeout no se investigó; no se sabe si fue la red.
+- El tutor usaba emojis, asteriscos y se inventó un nombre ("My name is Teacher"). Se agregó al prompt: texto plano, sin emojis ni markdown, y sin inventar nombre. Esto también prepara el terreno para voz sintetizada. **Este ajuste de prompt aún no se volvió a probar con la API.**
+
+**Cambio de enfoque pedido por el alumno:** el objetivo es hablar con fluidez, no la escritura ni la gramática formal. Se investigó y se resume en la iteración 3 (frases útiles, repetición espaciada de tareas orales, shadowing, y una versión web con voz).

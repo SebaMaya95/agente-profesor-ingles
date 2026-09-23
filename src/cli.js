@@ -62,16 +62,23 @@ rl.close();
 async function converse(lesson) {
   console.log("\n== Práctica (escribí 'salir' para terminar) ==");
   const history = [{ role: "user", content: "Hi! Let's practice." }];
-  try {
-    for (let turn = 0; turn < MAX_TURNS; turn++) {
-      const text = await reply(lesson, history);
-      console.log(`\nTutor: ${text}`);
-      history.push({ role: "assistant", content: text });
-      const said = (await ask("Vos: "))?.trim();
-      if (!said || said.toLowerCase() === "salir") break;
-      history.push({ role: "user", content: said });
+  let turn = 0;
+  while (turn < MAX_TURNS) {
+    let text;
+    try {
+      text = await reply(lesson, history);
+    } catch (error) {
+      // El último mensaje del alumno sigue en el historial: reintentar no lo pierde.
+      console.log(`\nNo se pudo usar la IA: ${describeError(error)}`);
+      const again = await ask("Enter para reintentar, 'salir' para terminar: ");
+      if (again === null || again.trim().toLowerCase() === "salir") break;
+      continue;
     }
-  } catch (error) {
-    console.log(`\nNo se pudo usar la IA: ${describeError(error)}`);
+    turn++;
+    console.log(`\nTutor: ${text}`);
+    history.push({ role: "assistant", content: text });
+    const said = (await ask("Vos: "))?.trim();
+    if (!said || said.toLowerCase() === "salir") break;
+    history.push({ role: "user", content: said });
   }
 }
