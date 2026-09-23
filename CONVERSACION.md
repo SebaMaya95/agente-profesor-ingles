@@ -78,3 +78,30 @@ Resumen de lo relevante de la conversación con Claude durante la construcción 
 - El tutor usaba emojis, asteriscos y se inventó un nombre ("My name is Teacher"). Se agregó al prompt: texto plano, sin emojis ni markdown, y sin inventar nombre. Esto también prepara el terreno para voz sintetizada. **Este ajuste de prompt aún no se volvió a probar con la API.**
 
 **Cambio de enfoque pedido por el alumno:** el objetivo es hablar con fluidez, no la escritura ni la gramática formal. Se investigó y se resume en la iteración 3 (frases útiles, repetición espaciada de tareas orales, shadowing, y una versión web con voz).
+
+## Iteración 3: enfoque en hablar, niveles tipo juego y banco de actividades
+
+**Preguntas del alumno:** ¿dónde va la API key?; ¿la herramienta será web, app o ambas?; ¿se consideraron estructuras y tiempos verbales?; ¿debería ser un juego por niveles con premios?; ¿los bloques deben ser temáticos o salteados?; ¿se gastan tokens en cada pregunta o hay actividades precargadas?
+
+**Respuestas y decisiones:**
+- *API key:* variable de entorno en la terminal del alumno, nunca en el repo ni en el chat.
+- *Web vs. app:* web en Vercel instalable (PWA). La voz (reconocimiento y síntesis del navegador) no consume tokens y funciona en Chrome, Edge y Safari.
+- *Temático vs. salteado:* las dos cosas, en momentos distintos. Contenido nuevo agrupado por situación; repasos mezclados y espaciados.
+- *Estructuras y tiempos verbales:* cada nivel trae una nota de gramática breve atada a sus frases, de lo simple a lo complejo.
+- *Objetivo hablar:* la unidad pasa a ser la **frase útil** dentro de una situación, no la palabra suelta. Se agregaron a la metodología la evidencia sobre frases hechas, repetición de tareas orales, shadowing y gamificación.
+- *Eficiencia de tokens:* **banco de actividades precargado**. Todo lo cerrado se genera y corrige en código (0 tokens); el azar solo mezcla opciones y elige el tipo de ejercicio, y el planificador decide qué frase toca. La IA se usa únicamente en el role-play de cada nivel.
+- *Estética pedida:* estilo "juego" (botones gruesos con relieve, colores intensos, ese tipo de interacción) en **gama del azul**, con personaje y elementos propios, sin copiar la marca ni los recursos de otra app. Se implementa en la iteración 4.
+
+**Qué se construyó:**
+- Currículo v2: 5 niveles por situación (presentarte, café, rutina, direcciones, pasado), 6 frases cada uno, con palabra clave y error típico de hispanohablantes.
+- 6 tipos de ejercicio: escuchar y elegir, detectar el error, completar, armar la frase, repetir en voz alta, decir de memoria.
+- Juego: XP, racha diaria, niveles que se desbloquean (80% de las frases con 2 aciertos), coronas por repasos espaciados y role-play con IA al superar el nivel.
+- Corrección tolerante para lo dicho, que exige la palabra clave y rechaza lo que se parece más al error típico (por ejemplo, "She live in Rosario").
+
+**Resultado:** 30 pruebas automáticas pasan. Incluyen un alumno "bot" que juega niveles completos, y la verificación de que todas las actividades de todas las frases se generan y corrigen bien.
+
+**Límites declarados:**
+- Las frases, notas y errores típicos son de autoría de Claude y están pendientes de revisión por el alumno.
+- Las reglas de superación de nivel y de XP son decisiones de diseño, no valores respaldados por estudios.
+- Todavía no hay interfaz visual ni voz: la consola es una herramienta de prueba del motor.
+- El ajuste de prompt para el role-play nuevo (escena por nivel) no se probó aún con la API.

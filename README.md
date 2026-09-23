@@ -4,55 +4,62 @@ Trabajo práctico de **Creación de Agentes de IA**.
 
 ## Objetivo
 
-Un agente que enseñe a interactuar en inglés (escuchar, hablar, leer, escribir) lo más rápido posible, aplicando metodología con respaldo de investigación, y siendo **extremadamente eficiente en el uso de tokens**.
+Un agente que enseñe a **hablar y entender inglés** lo más rápido posible (no tanto escritura ni gramática formal), con metodología respaldada por investigación y **extremadamente eficiente en tokens**. Se plantea como un juego: niveles por situación, XP, racha y coronas.
 
 ## Principios de diseño
 
-- **La pedagogía la decide el código, no el modelo.** El plan de repaso (repetición espaciada, refuerzo intermitente) se calcula con un algoritmo determinístico. El modelo solo genera y corrige la interacción.
-- **Metodología investigada una sola vez** y destilada en `docs/metodologia.md`. No se vuelve a investigar en cada sesión.
-- **Tokens mínimos:** modelo chico (Haiku 4.5), prompts cortos, prompt caching, estado del alumno guardado localmente en JSON.
+- **La pedagogía la decide el código, no el modelo.** El plan de repaso (repetición espaciada), los ejercicios y su corrección son determinísticos: **0 tokens**.
+- **Banco de actividades precargado.** Las frases y los errores típicos se escriben y revisan una vez en `data/curriculum.json`. El azar solo mezcla opciones y elige el tipo de ejercicio; qué frase toca lo decide el planificador.
+- **La IA solo para el role-play** de cada nivel (con tope de turnos, respuestas cortas y modelo chico).
+- **Metodología investigada una sola vez**, en [`docs/metodologia.md`](docs/metodologia.md).
 - **Stack:** Node.js.
 
 ## Estado
 
 - Iteración 0: definición del proyecto y vínculo con GitHub. ✅
-- Iteración 1: metodología investigada, ver [`docs/metodologia.md`](docs/metodologia.md). ✅
-- Iteración 2: esqueleto del agente en Node, con repaso espaciado en código y conversación con IA. ✅ (la llamada real al modelo aún no se probó: falta API key)
+- Iteración 1: metodología investigada. ✅
+- Iteración 2: esqueleto con repaso espaciado y conversación con IA; primera prueba real con la API (costo medido: ~US$ 0,001 por sesión). ✅
+- Iteración 3: enfoque en hablar; niveles por situación, 6 tipos de ejercicio, XP, racha, coronas y role-play. ✅ (consola)
+- Iteración 4: interfaz web con voz, estilo juego en gama del azul, para publicar en Vercel (próxima).
 
 ## Cómo funciona una sesión
 
-1. **Repaso** (hasta 3 preguntas de ítems vencidos, mezclando temas). Pregunta y corrección las hace el código: **0 tokens**.
-2. **Tema nuevo** presentado en bloque desde `data/curriculum.json`: **0 tokens**.
-3. **Conversación** de hasta 4 turnos con el modelo: es el **único** punto que gasta tokens (respuestas de máx. 200 tokens, historial de los últimos 6 mensajes).
+1. **Repaso** de frases vencidas, mezclando niveles. Ejercicios y corrección en código.
+2. **Nivel actual:** nota de gramática, frases y práctica hasta superarlo (80% de las frases aprendidas).
+3. **Role-play con IA** al superar el nivel: el único punto que gasta tokens.
 
-Al final se imprime el consumo de tokens de la sesión.
+Al final se muestra el mapa de niveles, el XP, la racha y los tokens usados.
+
+### Tipos de ejercicio
+
+Escuchar y elegir el significado · Detectar el error · Completar · Armar la frase · Repetir en voz alta (shadowing) · Decir la frase de memoria. En la consola, las de voz se escriben; en la web se hablarán.
 
 ## Uso
 
 ```bash
 npm install
 npm test
-npm start -- --no-ai        # sin IA, no necesita API key
+npm.cmd start -- --no-ai    # sin IA, no necesita API key
 ```
 
-Para la conversación con IA, definí la API key en tu terminal (no se guarda en el repo):
+En Windows PowerShell conviene `npm.cmd` (si `npm` falla por la política de ejecución de scripts).
+
+Para el role-play con IA, definí la API key en tu terminal (no se guarda en el repo):
 
 ```powershell
 $env:ANTHROPIC_API_KEY = "tu-key"
-npm start
+npm.cmd start
 ```
 
 Modelo por defecto: `claude-haiku-4-5` (cambiable con la variable `TUTOR_MODEL`).
 
 ## Estructura
 
+- `src/game.js`: reglas del juego (niveles, XP, racha, coronas, repasos).
+- `src/activities.js`: generador y corrector de los 6 tipos de ejercicio.
 - `src/scheduler.js`: repetición espaciada (1-3-7-14-30 días) e intercalado.
-- `src/grading.js`: corrección de respuestas de vocabulario.
-- `src/tutor.js` y `src/prompts.js`: llamada al modelo y prompt corto.
-- `src/cli.js`: orquesta la sesión.
-- `data/curriculum.json`: currículo inicial de 5 temas (ejemplo, nivel A1).
-- `test/`: 12 pruebas, incluida una de integración de la sesión completa.
-
-## Historial de iteraciones
-
-Ver [`CONVERSACION.md`](CONVERSACION.md) y el historial de commits.
+- `src/grading.js`: corrección tolerante para lo dicho, con palabra clave y detección del error típico.
+- `src/tutor.js` y `src/prompts.js`: role-play con el modelo.
+- `src/cli.js`: sesión de consola (herramienta de prueba del motor).
+- `data/curriculum.json`: 5 niveles (presentarte, café, rutina, direcciones, pasado), 6 frases cada uno.
+- `test/`: pruebas del motor, del banco de actividades y de la sesión completa.

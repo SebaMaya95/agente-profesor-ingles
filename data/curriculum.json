@@ -1,64 +1,94 @@
 {
-  "nota": "Currículo inicial de ejemplo (nivel A1), con palabras muy comunes. Se puede reemplazar por una lista de frecuencia real más adelante.",
-  "lessons": [
+  "nota": "Currículo v2: niveles por situación. La unidad es la frase útil (chunk), pensada para hablar. Cada frase trae 'key' (palabra clave para completar/corregir) y 'wrong' (error típico de hispanohablantes).",
+  "levels": [
     {
-      "id": "saludos",
-      "title": "Saludos y cortesía",
-      "pattern": "My name is ___. Nice to meet you.",
-      "words": [
-        { "en": "hello", "es": "hola" },
-        { "en": "goodbye", "es": "adiós" },
-        { "en": "please", "es": "por favor" },
-        { "en": "thank you", "es": "gracias" },
-        { "en": "sorry", "es": "perdón" }
+      "id": "presentarte",
+      "title": "Presentarte",
+      "situation": "Conocés a alguien nuevo. Decí tu nombre, de dónde sos y cómo estás.",
+      "grammarNote": "La edad en inglés se dice con 'ser', no con 'tener': I'm thirty (no 'I have thirty years').",
+      "roleplay": {
+        "scenario": "You are a friendly person meeting the student for the first time at a language meetup. Greet them and get to know them: name, where they are from, age, how they are.",
+        "goal": "Presentate y respondé 3 preguntas básicas."
+      },
+      "phrases": [
+        { "id": "presentarte.1", "en": "Hi, my name is Sam.", "es": "Hola, me llamo Sam.", "key": "name", "wrong": "Hi, me name is Sam." },
+        { "id": "presentarte.2", "en": "Nice to meet you.", "es": "Encantado de conocerte.", "key": "meet", "wrong": "Nice to meeting you." },
+        { "id": "presentarte.3", "en": "I'm from Argentina.", "es": "Soy de Argentina.", "key": "from", "wrong": "I'm of Argentina." },
+        { "id": "presentarte.4", "en": "I'm thirty years old.", "es": "Tengo treinta años.", "key": "old", "wrong": "I have thirty years." },
+        { "id": "presentarte.5", "en": "How are you?", "es": "¿Cómo estás?", "key": "are", "wrong": "How you are?" },
+        { "id": "presentarte.6", "en": "I'm fine, thanks. And you?", "es": "Bien, gracias. ¿Y vos?", "key": "fine", "wrong": "I fine, thanks. And you?" }
       ]
     },
     {
-      "id": "ser-estar",
-      "title": "Yo soy / vos sos (verbo to be)",
-      "pattern": "I am ___. You are ___. She is ___.",
-      "words": [
-        { "en": "I", "es": "yo" },
-        { "en": "you", "es": "tú / vos" },
-        { "en": "he", "es": "él" },
-        { "en": "she", "es": "ella" },
-        { "en": "we", "es": "nosotros" }
+      "id": "cafe",
+      "title": "Pedir en un café",
+      "situation": "Estás en un café. Pedí algo, preguntá el precio y pagá.",
+      "grammarNote": "I'd like = quisiera (cortés). I like = me gusta. Para pedir, Can I have...? es lo más natural.",
+      "roleplay": {
+        "scenario": "You are a barista in a cafe. The student orders a drink, asks the price and pays.",
+        "goal": "Pedí una bebida, preguntá cuánto cuesta y pedí la cuenta."
+      },
+      "phrases": [
+        { "id": "cafe.1", "en": "Can I have a coffee, please?", "es": "¿Me das un café, por favor?", "key": "have", "wrong": "Can I to have a coffee, please?" },
+        { "id": "cafe.2", "en": "I'd like a tea, please.", "es": "Quisiera un té, por favor.", "key": "I'd", "wrong": "I like a tea, please." },
+        { "id": "cafe.3", "en": "How much is it?", "es": "¿Cuánto cuesta?", "key": "much", "wrong": "How much costs it?" },
+        { "id": "cafe.4", "en": "Can I pay by card?", "es": "¿Puedo pagar con tarjeta?", "key": "by", "wrong": "Can I pay with card?" },
+        { "id": "cafe.5", "en": "Is this seat taken?", "es": "¿Está ocupado este asiento?", "key": "taken", "wrong": "Is this seat busy?" },
+        { "id": "cafe.6", "en": "The bill, please.", "es": "La cuenta, por favor.", "key": "bill", "wrong": "The account, please." }
       ]
     },
     {
-      "id": "verbos",
-      "title": "Verbos de todos los días",
-      "pattern": "I want ___. I have ___. I like ___.",
-      "words": [
-        { "en": "want", "es": "querer" },
-        { "en": "have", "es": "tener" },
-        { "en": "like", "es": "gustar / querer (algo)" },
-        { "en": "go", "es": "ir" },
-        { "en": "need", "es": "necesitar" }
+      "id": "rutina",
+      "title": "Tu rutina y tu trabajo",
+      "situation": "Charlás con un compañero nuevo sobre qué hacés y cómo es tu día.",
+      "grammarNote": "Presente simple: con he/she/it el verbo lleva -s (she lives). Para negar usá don't / doesn't.",
+      "roleplay": {
+        "scenario": "You are a new coworker chatting with the student about their job and daily routine.",
+        "goal": "Contá a qué te dedicás y cómo es un día tuyo."
+      },
+      "phrases": [
+        { "id": "rutina.1", "en": "What do you do?", "es": "¿A qué te dedicás?", "key": "do", "wrong": "What do you work?" },
+        { "id": "rutina.2", "en": "I work from home.", "es": "Trabajo desde casa.", "key": "from", "wrong": "I work since home." },
+        { "id": "rutina.3", "en": "I wake up at seven.", "es": "Me despierto a las siete.", "key": "at", "wrong": "I wake up to the seven." },
+        { "id": "rutina.4", "en": "I don't like coffee.", "es": "No me gusta el café.", "key": "don't", "wrong": "I no like coffee." },
+        { "id": "rutina.5", "en": "She lives in Rosario.", "es": "Ella vive en Rosario.", "key": "lives", "wrong": "She live in Rosario." },
+        { "id": "rutina.6", "en": "I usually go to the gym.", "es": "Suelo ir al gimnasio.", "key": "usually", "wrong": "I use to go to the gym." }
       ]
     },
     {
-      "id": "comida",
-      "title": "Pedir comida y bebida",
-      "pattern": "Can I have ___, please?",
-      "words": [
-        { "en": "water", "es": "agua" },
-        { "en": "coffee", "es": "café" },
-        { "en": "bread", "es": "pan" },
-        { "en": "menu", "es": "carta / menú" },
-        { "en": "bill", "es": "la cuenta" }
+      "id": "direcciones",
+      "title": "Preguntar cómo llegar",
+      "situation": "Estás perdido en una ciudad. Preguntá cómo llegar y entendé la respuesta.",
+      "grammarNote": "En la pregunta el verbo va antes del sujeto: where is the station? (no 'where the station is'). 'A pie' es on foot.",
+      "roleplay": {
+        "scenario": "You are a local in the street. The student asks you how to get to the train station. Give simple directions and answer follow-up questions.",
+        "goal": "Preguntá cómo llegar a la estación y pedí que te repitan."
+      },
+      "phrases": [
+        { "id": "direcciones.1", "en": "Excuse me, where is the station?", "es": "Disculpá, ¿dónde está la estación?", "key": "where", "wrong": "Excuse me, where the station is?" },
+        { "id": "direcciones.2", "en": "Turn left at the corner.", "es": "Doblá a la izquierda en la esquina.", "key": "left", "wrong": "Turn to left in the corner." },
+        { "id": "direcciones.3", "en": "Go straight ahead.", "es": "Seguí derecho.", "key": "straight", "wrong": "Go direct ahead." },
+        { "id": "direcciones.4", "en": "Is it far from here?", "es": "¿Queda lejos de acá?", "key": "far", "wrong": "Is it far of here?" },
+        { "id": "direcciones.5", "en": "It's about ten minutes on foot.", "es": "Son unos diez minutos a pie.", "key": "foot", "wrong": "It's about ten minutes by foot." },
+        { "id": "direcciones.6", "en": "Could you say that again?", "es": "¿Podrías repetirlo?", "key": "Could", "wrong": "Could you say me that again?" }
       ]
     },
     {
-      "id": "lugares-tiempo",
-      "title": "Lugares y tiempo",
-      "pattern": "Where is ___? I go to ___ today.",
-      "words": [
-        { "en": "today", "es": "hoy" },
-        { "en": "tomorrow", "es": "mañana" },
-        { "en": "home", "es": "casa" },
-        { "en": "work", "es": "trabajo" },
-        { "en": "where", "es": "dónde" }
+      "id": "pasado",
+      "title": "Contar tu fin de semana",
+      "situation": "Un amigo te pregunta qué hiciste. Contale en pasado.",
+      "grammarNote": "Después de did/didn't el verbo vuelve a su forma base (did you have, didn't sleep). Irregulares: go→went, meet→met, be→was/were.",
+      "roleplay": {
+        "scenario": "You are a friend asking the student about their weekend and what they did yesterday.",
+        "goal": "Contá qué hiciste ayer o el fin de semana."
+      },
+      "phrases": [
+        { "id": "pasado.1", "en": "What did you do yesterday?", "es": "¿Qué hiciste ayer?", "key": "did", "wrong": "What did you did yesterday?" },
+        { "id": "pasado.2", "en": "I went to the cinema.", "es": "Fui al cine.", "key": "went", "wrong": "I goed to the cinema." },
+        { "id": "pasado.3", "en": "It was great!", "es": "¡Estuvo genial!", "key": "was", "wrong": "It were great!" },
+        { "id": "pasado.4", "en": "I didn't sleep well.", "es": "No dormí bien.", "key": "sleep", "wrong": "I didn't slept well." },
+        { "id": "pasado.5", "en": "We met at eight.", "es": "Nos encontramos a las ocho.", "key": "met", "wrong": "We meeted at eight." },
+        { "id": "pasado.6", "en": "Did you have fun?", "es": "¿Te divertiste?", "key": "have", "wrong": "Did you had fun?" }
       ]
     }
   ]
