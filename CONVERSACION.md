@@ -105,3 +105,28 @@ Resumen de lo relevante de la conversación con Claude durante la construcción 
 - Las reglas de superación de nivel y de XP son decisiones de diseño, no valores respaldados por estudios.
 - Todavía no hay interfaz visual ni voz: la consola es una herramienta de prueba del motor.
 - El ajuste de prompt para el role-play nuevo (escena por nivel) no se probó aún con la API.
+
+## Iteración 3b: se incorpora el documento "Vocabulario"
+
+**Pedido del alumno:** agregó a la carpeta un documento con los tiempos verbales, las categorías de vocabulario y 9 tipos de ejercicio, y pidió usarlos como base del curso, pudiendo sumar más vocabulario y actividades.
+
+**Qué se hizo:**
+- Se leyó el documento completo y se convirtió a datos: 5 tiempos verbales (`data/contenido/tiempos.json`) y 12 categorías con 273 ítems (`data/contenido/vocabulario.json`). El conteo por categoría se verificó contra el documento.
+- Se mapearon los 9 ejercicios contra lo ya construido: 3 ya existían (completar, ordenar, role-play), 1 existía parcialmente (detectar errores) y 5 son nuevos (transformar oraciones, relacionar conectores, completar diálogos, historias con opciones, redacción guiada). Detalle en [`docs/contenido.md`](docs/contenido.md).
+- Se propuso cómo asignar tiempos verbales a las 12 categorías para armar los niveles (borrador a validar).
+
+**Privacidad (decisión importante):** el documento contenía datos personales del alumno (nombres de familiares y mascotas, edad, fecha de nacimiento, lugar de residencia, medidas) y el repositorio es público. Antes de hacer nada se verificó que el documento **no** estaba en el repo ni en su historial. Luego:
+- Se agregó `*.docx` y `data/perfil.json` al `.gitignore`.
+- Los datos personales se reemplazaron por marcadores (`{{name}}`, `{{father}}`...) y los valores reales quedaron en un perfil local que no se sube. Con eso el curso puede hablar de la vida del propio alumno sin exponerla.
+- Se agregó una prueba automática que falla si algún dato del perfil local aparece en un archivo versionado.
+
+**Problemas encontrados:**
+- El conversor reemplazó "Ana" (nombre de la abuela) dentro de la palabra "Analytical", y eso rompió la lectura de un grupo. Se corrigió para que solo reemplace palabras completas y se verificó el resultado.
+- Varios comandos de PowerShell con texto multilínea se colgaron en este entorno; se resolvió escribiendo los scripts como archivos.
+
+**Resultado:** 35 pruebas automáticas pasan.
+
+**Límites declarados:**
+- Solo se neutralizaron los datos personales identificables; el contenido profesional (trabajo, estudios) y los gustos quedaron tal cual.
+- Falta la traducción de las oraciones de ejemplo y los errores típicos por oración, que el documento no trae.
+- Los 5 ejercicios nuevos todavía no están implementados.

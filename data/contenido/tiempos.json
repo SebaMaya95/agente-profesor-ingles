@@ -1,0 +1,148 @@
+{
+  "fuente": "Vocabulario.docx",
+  "tenses": [
+    {
+      "id": "presente-simple",
+      "name": "Simple Present",
+      "nameEs": "Presente Simple",
+      "uses": [
+        { "es": "Acciones habituales o repetitivas", "example": "I go to work every day." },
+        { "es": "Hechos generales o verdades universales", "example": "The sun rises in the east." },
+        { "es": "Horarios o eventos programados en el futuro", "example": "The train leaves at 6 PM." }
+      ],
+      "keys": [
+        "Se usa con adverbios de frecuencia: always, usually, sometimes, never, every day, on Mondays, once a week, etc.",
+        "En tercera persona (he, she, it), se agrega -s o -es al verbo.",
+        "Para negativos e interrogativos, se usa do/does."
+      ],
+      "structures": {
+        "affirmative": [
+          { "pattern": "I/You/We/They + base verb", "example": "I work in an office." },
+          { "pattern": "He/She/It + base verb + s/es", "example": "She works in an office." }
+        ],
+        "negative": [
+          { "pattern": "I/You/We/They + don't + base verb", "example": "I don't like coffee." },
+          { "pattern": "He/She/It + doesn't + base verb", "example": "She doesn't like coffee." }
+        ],
+        "interrogative": [
+          { "pattern": "Do + I/You/We/They + base verb + ?", "example": "Do you like coffee?" },
+          { "pattern": "Does + He/She/It + base verb + ?", "example": "Does she work in an office?" }
+        ]
+      }
+    },
+    {
+      "id": "presente-continuo",
+      "name": "Present Continuous",
+      "nameEs": "Presente Continuo",
+      "uses": [
+        { "es": "Acciones que están ocurriendo en el momento", "example": "I am reading a book now." },
+        { "es": "Situaciones temporales", "example": "She is staying in a hotel this week." },
+        { "es": "Planes futuros ya organizados", "example": "We are traveling to Spain next summer." }
+      ],
+      "keys": [
+        "Se usa con expresiones como: now, at the moment, right now, today, this week, currently, etc.",
+        "Se forma con el verbo to be + verbo en -ing.",
+        "No se usa con verbos de estado (like, love, want, know, need, believe, etc.)."
+      ],
+      "structures": {
+        "affirmative": [
+          { "pattern": "I am + verb-ing", "example": "I am studying English." },
+          { "pattern": "He/She/It is + verb-ing", "example": "She is watching TV." },
+          { "pattern": "We/You/They are + verb-ing", "example": "They are playing soccer." }
+        ],
+        "negative": [
+          { "pattern": "I am not + verb-ing", "example": "I am not watching TV." },
+          { "pattern": "He/She/It is not + verb-ing", "example": "He is not working today." },
+          { "pattern": "We/You/They are not + verb-ing", "example": "They are not listening to music." }
+        ],
+        "interrogative": [
+          { "pattern": "Am I + verb-ing + ?", "example": "Am I speaking too fast?" },
+          { "pattern": "Is He/She/It + verb-ing + ?", "example": "Is she studying for the test?" },
+          { "pattern": "Are We/You/They + verb-ing + ?", "example": "Are they playing soccer?" }
+        ]
+      }
+    },
+    {
+      "id": "pasado-simple",
+      "name": "Simple Past",
+      "nameEs": "Pasado Simple",
+      "uses": [
+        { "es": "Acciones completadas en el pasado", "example": "I visited my grandmother last weekend." },
+        { "es": "Eventos o hechos pasados sin relación con el presente", "example": "He lived in Paris for five years." },
+        { "es": "Secuencias de eventos en el pasado", "example": "She woke up, had breakfast, and left for work." }
+      ],
+      "keys": [
+        "Se usa con expresiones como: yesterday, last week, last year, in 2020, two days ago, when I was a child, etc.",
+        "Verbos regulares terminan en -ed (worked, played, studied).",
+        "Verbos irregulares cambian su forma (go → went, eat → ate, see → saw).",
+        "Para negativos e interrogativos, se usa did + verbo base."
+      ],
+      "structures": {
+        "affirmative": [
+          { "pattern": "I/You/We/They/He/She/It + verbo en pasado", "example": "She visited her grandmother." }
+        ],
+        "negative": [
+          { "pattern": "I/You/We/They/He/She/It + didn't + verbo base", "example": "She didn't visit her grandmother." }
+        ],
+        "interrogative": [
+          { "pattern": "Did + I/You/We/They/He/She/It + verbo base + ?", "example": "Did she visit her grandmother?" }
+        ]
+      }
+    },
+    {
+      "id": "futuro-will",
+      "name": "Future Simple – Will",
+      "nameEs": "Futuro Simple con \"Will\"",
+      "uses": [
+        { "es": "Decisiones espontáneas", "example": "I'm hungry! I will order a pizza." },
+        { "es": "Predicciones sin evidencia", "example": "It will rain tomorrow." },
+        { "es": "Promesas, ofertas o amenazas", "example": "I will help you with your homework." }
+      ],
+      "keys": [
+        "Se usa con expresiones como: tomorrow, next week, next year, in the future, one day, I think, probably, etc.",
+        "La estructura es will + verbo base para todos los sujetos."
+      ],
+      "structures": {
+        "affirmative": [
+          { "pattern": "I/You/We/They/He/She/It + will + verbo base", "example": "She will call you later." }
+        ],
+        "negative": [
+          { "pattern": "I/You/We/They/He/She/It + won't + verbo base", "example": "She won't call you later." }
+        ],
+        "interrogative": [
+          { "pattern": "Will + I/You/We/They/He/She/It + verbo base + ?", "example": "Will she call you later?" }
+        ]
+      }
+    },
+    {
+      "id": "futuro-going-to",
+      "name": "Be going to + Infinitive",
+      "nameEs": "Futuro con \"Going to\"",
+      "uses": [
+        { "es": "Planes y decisiones ya tomadas", "example": "I'm going to visit my parents next weekend." },
+        { "es": "Predicciones con evidencia actual", "example": "Look at those clouds! It's going to rain!" }
+      ],
+      "keys": [
+        "Se usa con expresiones como: tonight, next week, in two days, this year, soon, in the near future, etc.",
+        "Se forma con be (am/is/are) + going to + verbo base."
+      ],
+      "structures": {
+        "affirmative": [
+          { "pattern": "I am going to + verbo base", "example": "I am going to buy a new phone." },
+          { "pattern": "He/She/It is going to + verbo base", "example": "She is going to travel to Spain." },
+          { "pattern": "We/You/They are going to + verbo base", "example": "They are going to play soccer." }
+        ],
+        "negative": [
+          { "pattern": "I am not going to + verbo base", "example": "I am not going to watch that movie." },
+          { "pattern": "He/She/It is not going to + verbo base", "example": "He is not going to study tonight." },
+          { "pattern": "We/You/They are not going to + verbo base", "example": "We are not going to be late." }
+        ],
+        "interrogative": [
+          { "pattern": "Am I going to + verbo base + ?", "example": "Am I going to meet him later?" },
+          { "pattern": "Is He/She/It going to + verbo base + ?", "example": "Is she going to cook dinner?" },
+          { "pattern": "Are We/You/They going to + verbo base + ?", "example": "Are they going to travel next year?" }
+        ]
+      }
+    }
+  ]
+}

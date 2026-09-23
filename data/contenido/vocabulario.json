@@ -1,0 +1,2572 @@
+{
+  "fuente": "Vocabulario.docx (datos personales reemplazados por {{marcadores}})",
+  "categories": [
+    {
+      "id": "informacion-personal",
+      "title": "Personal Information",
+      "titleEs": "Información Personal",
+      "groups": [
+        {
+          "title": "Basic details (Datos básicos)",
+          "items": [
+            {
+              "id": "informacion-personal.1",
+              "en": "Name",
+              "es": "Nombre",
+              "examples": [
+                "My name is {{name}}."
+              ]
+            },
+            {
+              "id": "informacion-personal.2",
+              "en": "Age",
+              "es": "Edad",
+              "examples": [
+                "I am {{age}} years old."
+              ]
+            },
+            {
+              "id": "informacion-personal.3",
+              "en": "Hometown",
+              "es": "Ciudad natal",
+              "examples": [
+                "I am from {{hometown}}."
+              ]
+            },
+            {
+              "id": "informacion-personal.4",
+              "en": "Nationality",
+              "es": "Nacionalidad",
+              "examples": [
+                "I am {{nationality}}."
+              ]
+            },
+            {
+              "id": "informacion-personal.5",
+              "en": "Birthdate",
+              "es": "Fecha de nacimiento",
+              "examples": [
+                "I was born on {{birthday}}."
+              ]
+            },
+            {
+              "id": "informacion-personal.6",
+              "en": "Height",
+              "es": "Altura",
+              "examples": [
+                "I am {{height}} tall."
+              ]
+            },
+            {
+              "id": "informacion-personal.7",
+              "en": "Weight",
+              "es": "Peso",
+              "examples": [
+                "I weigh {{weight}}."
+              ]
+            },
+            {
+              "id": "informacion-personal.8",
+              "en": "Hair color",
+              "es": "Color de cabello",
+              "examples": [
+                "I have {{hair}} hair."
+              ]
+            },
+            {
+              "id": "informacion-personal.9",
+              "en": "Eye color",
+              "es": "Color de ojos",
+              "examples": [
+                "I have {{eyes}} eyes."
+              ]
+            },
+            {
+              "id": "informacion-personal.10",
+              "en": "Live",
+              "es": "vivir",
+              "examples": [
+                "I live {{home}}."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Personality (Personalidad)",
+          "items": [
+            {
+              "id": "informacion-personal.11",
+              "en": "Analytical",
+              "es": "Analítico",
+              "examples": [
+                "I have an analytical mindset."
+              ]
+            },
+            {
+              "id": "informacion-personal.12",
+              "en": "Determined",
+              "es": "Determinado",
+              "examples": [
+                "I am determined to achieve my goals."
+              ]
+            },
+            {
+              "id": "informacion-personal.13",
+              "en": "Empathetic",
+              "es": "Empático",
+              "examples": [
+                "I always try to understand others."
+              ]
+            },
+            {
+              "id": "informacion-personal.14",
+              "en": "Loyal",
+              "es": "Fiel",
+              "examples": [
+                "I am loyal to my friends and family."
+              ]
+            },
+            {
+              "id": "informacion-personal.15",
+              "en": "Leader",
+              "es": "Líder",
+              "examples": [
+                "I like taking on leadership roles."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "familia",
+      "title": "Family & Relationships",
+      "titleEs": "Familia y Relaciones",
+      "groups": [
+        {
+          "title": "Family members (Miembros de la familia)",
+          "items": [
+            {
+              "id": "familia.1",
+              "en": "Father / Dad",
+              "es": "Padre",
+              "examples": [
+                "My father’s name is {{father}}."
+              ]
+            },
+            {
+              "id": "familia.2",
+              "en": "Mother / Mom",
+              "es": "Madre",
+              "examples": [
+                "My mother’s name is {{mother}}."
+              ]
+            },
+            {
+              "id": "familia.3",
+              "en": "Brother / Sister",
+              "es": "Hermano / Hermana",
+              "examples": [
+                "I have a brother, {{brother}}, and a sister, {{sister}}."
+              ]
+            },
+            {
+              "id": "familia.4",
+              "en": "Grandmother / Grandfather",
+              "es": "Abuela / Abuelo",
+              "examples": [
+                "My grandmother {{grandmother}} is very important to me."
+              ]
+            },
+            {
+              "id": "familia.5",
+              "en": "Uncle / Aunt",
+              "es": "Tío / Tía",
+              "examples": [
+                "I have uncles and aunts who live nearby."
+              ]
+            },
+            {
+              "id": "familia.6",
+              "en": "Cousin",
+              "es": "Primo / Prima",
+              "examples": [
+                "I have several cousins."
+              ]
+            },
+            {
+              "id": "familia.7",
+              "en": "Godson / Goddaughter",
+              "es": "Ahijado / Ahijada",
+              "examples": [
+                "I have a godson, {{godson}}, and a goddaughter, {{goddaughter}}."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Pets (Mascotas)",
+          "items": [
+            {
+              "id": "familia.8",
+              "en": "Dog / Puppy",
+              "es": "Perro / Cachorro",
+              "examples": [
+                "I have two dogs, {{pet1}} and {{pet2}}."
+              ]
+            },
+            {
+              "id": "familia.9",
+              "en": "Hyperactive",
+              "es": "Hiperactivo",
+              "examples": [
+                "They are very energetic and playful."
+              ]
+            },
+            {
+              "id": "familia.10",
+              "en": "Companion",
+              "es": "Compañero",
+              "examples": [
+                "They are great companions."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Relationships (Relaciones)",
+          "items": [
+            {
+              "id": "familia.11",
+              "en": "Close-knit family",
+              "es": "Familia unida",
+              "examples": [
+                "We are a very close-knit family."
+              ]
+            },
+            {
+              "id": "familia.12",
+              "en": "Spending time together",
+              "es": "Pasar tiempo juntos",
+              "examples": [
+                "I love spending time with my godchildren."
+              ]
+            },
+            {
+              "id": "familia.13",
+              "en": "Trust",
+              "es": "Confianza",
+              "examples": [
+                "I trust my family completely."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "compras",
+      "title": "Shopping & Daily Life",
+      "titleEs": "Compras y Vida Diaria",
+      "groups": [
+        {
+          "title": "Supermarket Shopping (Compras en supermercado)",
+          "items": [
+            {
+              "id": "compras.1",
+              "en": "Vegetables",
+              "es": "Verduras",
+              "examples": [
+                "I always buy tomatoes, onions, and lettuce."
+              ]
+            },
+            {
+              "id": "compras.2",
+              "en": "Fruits",
+              "es": "Frutas",
+              "examples": [
+                "I usually get bananas, apples, and oranges."
+              ]
+            },
+            {
+              "id": "compras.3",
+              "en": "Meat",
+              "es": "Carne",
+              "examples": [
+                "I buy chicken and beef."
+              ]
+            },
+            {
+              "id": "compras.4",
+              "en": "Dairy products",
+              "es": "Lácteos",
+              "examples": [
+                "I get milk, cheese, and yogurt."
+              ]
+            },
+            {
+              "id": "compras.5",
+              "en": "Beverages",
+              "es": "Bebidas",
+              "examples": [
+                "I like coffee, tea, and mate."
+              ]
+            },
+            {
+              "id": "compras.6",
+              "en": "Bakery products",
+              "es": "Panadería",
+              "examples": [
+                "I buy bread and pastries."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Clothing Shopping (Compras de ropa)",
+          "items": [
+            {
+              "id": "compras.7",
+              "en": "Shirt",
+              "es": "Camisa",
+              "examples": [
+                "I need a new shirt for work."
+              ]
+            },
+            {
+              "id": "compras.8",
+              "en": "T-shirt",
+              "es": "Remera",
+              "examples": [
+                "I prefer cotton T-shirts."
+              ]
+            },
+            {
+              "id": "compras.9",
+              "en": "Jeans",
+              "es": "Jeans",
+              "examples": [
+                "I wear jeans every day."
+              ]
+            },
+            {
+              "id": "compras.10",
+              "en": "Jacket",
+              "es": "Campera",
+              "examples": [
+                "It’s cold, I need a jacket."
+              ]
+            },
+            {
+              "id": "compras.11",
+              "en": "Sneakers",
+              "es": "Zapatillas",
+              "examples": [
+                "I like comfortable sneakers."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Technology Shopping (Compras tecnológicas)",
+          "items": [
+            {
+              "id": "compras.12",
+              "en": "Laptop / Notebook",
+              "es": "Computadora portátil",
+              "examples": [
+                "I bought a new laptop."
+              ]
+            },
+            {
+              "id": "compras.13",
+              "en": "Smartphone",
+              "es": "Celular",
+              "examples": [
+                "My smartphone has a great camera."
+              ]
+            },
+            {
+              "id": "compras.14",
+              "en": "Headphones",
+              "es": "Auriculares",
+              "examples": [
+                "I prefer wireless headphones."
+              ]
+            },
+            {
+              "id": "compras.15",
+              "en": "Speaker",
+              "es": "Parlante",
+              "examples": [
+                "This speaker has amazing sound quality."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Common Shopping Phrases (Frases comunes en compras)",
+          "items": [
+            {
+              "id": "compras.16",
+              "en": "How much does it cost?",
+              "es": "¿Cuánto cuesta?",
+              "examples": [
+                "How much does it cost?"
+              ]
+            },
+            {
+              "id": "compras.17",
+              "en": "Do you have this in a different size?",
+              "es": "¿Tienes esto en otro talle?",
+              "examples": [
+                "Do you have this in a different size?"
+              ]
+            },
+            {
+              "id": "compras.18",
+              "en": "What payment methods do you accept?",
+              "es": "¿Qué métodos de pago aceptan?",
+              "examples": [
+                "What payment methods do you accept?"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trabajo-estudios",
+      "title": "Work & Studies",
+      "titleEs": "Trabajo y Estudios",
+      "groups": [
+        {
+          "title": "Job title (Título laboral)",
+          "items": [
+            {
+              "id": "trabajo-estudios.1",
+              "en": "Administrator",
+              "es": "Administrador",
+              "examples": [
+                "I manage an agricultural estate."
+              ]
+            },
+            {
+              "id": "trabajo-estudios.2",
+              "en": "Data Analyst",
+              "es": "Analista de datos",
+              "examples": [
+                "I work with business intelligence tools."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Tasks & Responsibilities (Tareas y responsabilidades)",
+          "items": [
+            {
+              "id": "trabajo-estudios.3",
+              "en": "Data analysis",
+              "es": "Análisis de datos",
+              "examples": [
+                "I analyze data for decision-making."
+              ]
+            },
+            {
+              "id": "trabajo-estudios.4",
+              "en": "Team management",
+              "es": "Gestión de equipos",
+              "examples": [
+                "I coordinate teams effectively."
+              ]
+            },
+            {
+              "id": "trabajo-estudios.5",
+              "en": "Meetings",
+              "es": "Reuniones",
+              "examples": [
+                "I have informal meetings with my boss."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Tools & Software (Herramientas y software)",
+          "items": [
+            {
+              "id": "trabajo-estudios.6",
+              "en": "Power BI",
+              "es": null,
+              "examples": [
+                "I use Power BI for data visualization."
+              ]
+            },
+            {
+              "id": "trabajo-estudios.7",
+              "en": "Google Sheets & Excel",
+              "es": null,
+              "examples": [
+                "I create reports using spreadsheets."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Degree / Major (Título universitario)",
+          "items": [
+            {
+              "id": "trabajo-estudios.8",
+              "en": "Bachelor’s degree in Administration",
+              "es": "Licenciatura en Administración",
+              "examples": [
+                "Bachelor’s degree in Administration"
+              ]
+            },
+            {
+              "id": "trabajo-estudios.9",
+              "en": "Diploma in Capital Markets",
+              "es": "Diplomatura en Mercado de Capitales",
+              "examples": [
+                "Diploma in Capital Markets"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Courses & Certifications (Cursos y certificaciones)",
+          "items": [
+            {
+              "id": "trabajo-estudios.10",
+              "en": "Excel & Power BI",
+              "es": null,
+              "examples": [
+                "I took courses on data visualization."
+              ]
+            },
+            {
+              "id": "trabajo-estudios.11",
+              "en": "English A2 Exam",
+              "es": null,
+              "examples": [
+                "I am preparing for an A2 English test."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pasatiempos",
+      "title": "Hobbies & Free Time",
+      "titleEs": "Pasatiempos y Tiempo Libre",
+      "groups": [
+        {
+          "title": "Sports & Exercise (Deportes y Ejercicio)",
+          "items": [
+            {
+              "id": "pasatiempos.1",
+              "en": "Running",
+              "es": "Correr",
+              "examples": [
+                "I like running outdoors."
+              ]
+            },
+            {
+              "id": "pasatiempos.2",
+              "en": "Cycling",
+              "es": "Andar en bicicleta",
+              "examples": [
+                "I enjoy long bike rides."
+              ]
+            },
+            {
+              "id": "pasatiempos.3",
+              "en": "Gym",
+              "es": "Gimnasio",
+              "examples": [
+                "I go to the gym to stay fit."
+              ]
+            },
+            {
+              "id": "pasatiempos.4",
+              "en": "Soccer",
+              "es": "Fútbol",
+              "examples": [
+                "I play soccer whenever I can."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Music & Entertainment (Música y Entretenimiento)",
+          "items": [
+            {
+              "id": "pasatiempos.5",
+              "en": "Listening to music",
+              "es": "Escuchar música",
+              "examples": [
+                "I always listen to music."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Genres (Géneros)",
+          "items": [
+            {
+              "id": "pasatiempos.6",
+              "en": "Rock",
+              "es": null,
+              "examples": [
+                "I enjoy rock music."
+              ]
+            },
+            {
+              "id": "pasatiempos.7",
+              "en": "Reggaeton",
+              "es": null,
+              "examples": [
+                "Reggaeton is fun to dance to."
+              ]
+            },
+            {
+              "id": "pasatiempos.8",
+              "en": "Cuarteto",
+              "es": null,
+              "examples": [
+                "I listen to cuarteto sometimes."
+              ]
+            },
+            {
+              "id": "pasatiempos.9",
+              "en": "Reggae",
+              "es": null,
+              "examples": [
+                "I find reggae relaxing."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Travel & Outdoor Activities (Viajes y Actividades al Aire Libre)",
+          "items": [
+            {
+              "id": "pasatiempos.10",
+              "en": "Beach / Mountains",
+              "es": "Playa / Montañas",
+              "examples": [
+                "I prefer warm destinations."
+              ]
+            },
+            {
+              "id": "pasatiempos.11",
+              "en": "Spring & Summer",
+              "es": "Primavera y Verano",
+              "examples": [
+                "I love sunny weather."
+              ]
+            },
+            {
+              "id": "pasatiempos.12",
+              "en": "Drinking mate",
+              "es": "Tomar mate",
+              "examples": [
+                "I enjoy drinking mate while watching the sea."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clima",
+      "title": "Weather & Climate",
+      "titleEs": "Clima y Tiempo Atmosférico",
+      "groups": [
+        {
+          "title": "Types of Weather (Tipos de Clima)",
+          "items": [
+            {
+              "id": "clima.1",
+              "en": "Sunny",
+              "es": "Soleado",
+              "examples": [
+                "I love sunny days in summer."
+              ]
+            },
+            {
+              "id": "clima.2",
+              "en": "Cloudy",
+              "es": "Nublado",
+              "examples": [
+                "It’s cloudy, but it’s not cold."
+              ]
+            },
+            {
+              "id": "clima.3",
+              "en": "Rainy",
+              "es": "Lluvioso",
+              "examples": [
+                "I don’t like going out when it’s rainy."
+              ]
+            },
+            {
+              "id": "clima.4",
+              "en": "Windy",
+              "es": "Ventoso",
+              "examples": [
+                "It’s too windy for a bike ride."
+              ]
+            },
+            {
+              "id": "clima.5",
+              "en": "Foggy",
+              "es": "Neblinoso",
+              "examples": [
+                "Driving in foggy weather is dangerous."
+              ]
+            },
+            {
+              "id": "clima.6",
+              "en": "Stormy",
+              "es": "Tormentoso",
+              "examples": [
+                "There’s a storm coming tonight."
+              ]
+            },
+            {
+              "id": "clima.7",
+              "en": "Humid",
+              "es": "Húmedo",
+              "examples": [
+                "It feels very humid in the summer."
+              ]
+            },
+            {
+              "id": "clima.8",
+              "en": "Dry",
+              "es": "Seco",
+              "examples": [
+                "I prefer dry weather over humidity."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Seasons (Estaciones del Año)",
+          "items": [
+            {
+              "id": "clima.9",
+              "en": "Spring",
+              "es": "Primavera",
+              "examples": [
+                "I love the warm weather in spring."
+              ]
+            },
+            {
+              "id": "clima.10",
+              "en": "Summer",
+              "es": "Verano",
+              "examples": [
+                "Summer is perfect for the beach."
+              ]
+            },
+            {
+              "id": "clima.11",
+              "en": "Autumn / Fall",
+              "es": "Otoño",
+              "examples": [
+                "The leaves change color in autumn."
+              ]
+            },
+            {
+              "id": "clima.12",
+              "en": "Winter",
+              "es": "Invierno",
+              "examples": [
+                "I don’t like the cold in winter."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Temperature (Temperatura)",
+          "items": [
+            {
+              "id": "clima.13",
+              "en": "Hot",
+              "es": "Caluroso",
+              "examples": [
+                "It’s too hot to go outside."
+              ]
+            },
+            {
+              "id": "clima.14",
+              "en": "Warm",
+              "es": "Templado",
+              "examples": [
+                "The weather is warm and nice today."
+              ]
+            },
+            {
+              "id": "clima.15",
+              "en": "Cool",
+              "es": "Fresco",
+              "examples": [
+                "I like cool summer evenings."
+              ]
+            },
+            {
+              "id": "clima.16",
+              "en": "Cold",
+              "es": "Frío",
+              "examples": [
+                "Winters here are very cold."
+              ]
+            },
+            {
+              "id": "clima.17",
+              "en": "Freezing",
+              "es": "Helado",
+              "examples": [
+                "It’s freezing outside!"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Common Weather Phrases (Frases sobre el Clima)",
+          "items": [
+            {
+              "id": "clima.18",
+              "en": "What’s the weather like today?",
+              "es": "¿Cómo está el clima hoy?",
+              "examples": [
+                "What’s the weather like today?"
+              ]
+            },
+            {
+              "id": "clima.19",
+              "en": "It’s going to rain later.",
+              "es": "Va a llover más tarde.",
+              "examples": [
+                "It’s going to rain later."
+              ]
+            },
+            {
+              "id": "clima.20",
+              "en": "The sun is shining.",
+              "es": "El sol está brillando.",
+              "examples": [
+                "The sun is shining."
+              ]
+            },
+            {
+              "id": "clima.21",
+              "en": "It’s a beautiful day.",
+              "es": "Es un día hermoso.",
+              "examples": [
+                "It’s a beautiful day."
+              ]
+            },
+            {
+              "id": "clima.22",
+              "en": "It looks like it might snow.",
+              "es": "Parece que podría nevar.",
+              "examples": [
+                "It looks like it might snow."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emociones",
+      "title": "Emotions & Feelings",
+      "titleEs": "Emociones y Sentimientos",
+      "groups": [
+        {
+          "title": "Positive Emotions (Emociones Positivas)",
+          "items": [
+            {
+              "id": "emociones.1",
+              "en": "Happy",
+              "es": "Feliz",
+              "examples": [
+                "I feel happy when I’m with my family."
+              ]
+            },
+            {
+              "id": "emociones.2",
+              "en": "Excited",
+              "es": "Emocionado",
+              "examples": [
+                "I’m excited about my next trip."
+              ]
+            },
+            {
+              "id": "emociones.3",
+              "en": "Grateful",
+              "es": "Agradecido",
+              "examples": [
+                "I’m grateful for the people in my life."
+              ]
+            },
+            {
+              "id": "emociones.4",
+              "en": "Confident",
+              "es": "Seguro",
+              "examples": [
+                "I feel confident about my skills."
+              ]
+            },
+            {
+              "id": "emociones.5",
+              "en": "Relaxed",
+              "es": "Relajado",
+              "examples": [
+                "Listening to music makes me feel relaxed."
+              ]
+            },
+            {
+              "id": "emociones.6",
+              "en": "Motivated",
+              "es": "Motivado",
+              "examples": [
+                "I’m motivated to keep learning."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Negative Emotions (Emociones Negativas)",
+          "items": [
+            {
+              "id": "emociones.7",
+              "en": "Sad",
+              "es": "Triste",
+              "examples": [
+                "I feel sad when I can’t see my family."
+              ]
+            },
+            {
+              "id": "emociones.8",
+              "en": "Tired",
+              "es": "Cansado",
+              "examples": [
+                "I feel tired after a long day at work."
+              ]
+            },
+            {
+              "id": "emociones.9",
+              "en": "Stressed",
+              "es": "Estresado",
+              "examples": [
+                "Deadlines sometimes make me feel stressed."
+              ]
+            },
+            {
+              "id": "emociones.10",
+              "en": "Worried",
+              "es": "Preocupado",
+              "examples": [
+                "I’m worried about the exam results."
+              ]
+            },
+            {
+              "id": "emociones.11",
+              "en": "Frustrated",
+              "es": "Frustrado",
+              "examples": [
+                "I get frustrated when things don’t go as planned."
+              ]
+            },
+            {
+              "id": "emociones.12",
+              "en": "Lonely",
+              "es": "Solo",
+              "examples": [
+                "I sometimes feel lonely when I travel alone."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Expressions Related to Emotions (Expresiones sobre Emociones)",
+          "items": [
+            {
+              "id": "emociones.13",
+              "en": "I’m feeling great today!",
+              "es": "¡Me siento genial hoy!",
+              "examples": [
+                "I’m feeling great today!"
+              ]
+            },
+            {
+              "id": "emociones.14",
+              "en": "You look tired, are you okay?",
+              "es": "Pareces cansado, ¿estás bien?",
+              "examples": [
+                "You look tired, are you okay?"
+              ]
+            },
+            {
+              "id": "emociones.15",
+              "en": "I’m in a good mood.",
+              "es": "Estoy de buen humor.",
+              "examples": [
+                "I’m in a good mood."
+              ]
+            },
+            {
+              "id": "emociones.16",
+              "en": "That made my day!",
+              "es": "¡Eso me alegró el día!",
+              "examples": [
+                "That made my day!"
+              ]
+            },
+            {
+              "id": "emociones.17",
+              "en": "I’m not feeling very well.",
+              "es": "No me siento muy bien.",
+              "examples": [
+                "I’m not feeling very well."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transporte",
+      "title": "Transport & Directions",
+      "titleEs": "Transporte y Direcciones",
+      "groups": [
+        {
+          "title": "Medios de Transporte",
+          "items": [
+            {
+              "id": "transporte.1",
+              "en": "Bus",
+              "es": "Autobús",
+              "examples": [
+                "I take the bus to work every day."
+              ]
+            },
+            {
+              "id": "transporte.2",
+              "en": "Train",
+              "es": "Tren",
+              "examples": [
+                "The train leaves at 5 p.m."
+              ]
+            },
+            {
+              "id": "transporte.3",
+              "en": "Subway",
+              "es": "Subte/Metro",
+              "examples": [
+                "The subway is the fastest way to get downtown."
+              ]
+            },
+            {
+              "id": "transporte.4",
+              "en": "Taxi",
+              "es": "Taxi",
+              "examples": [
+                "Let's take a taxi to the hotel."
+              ]
+            },
+            {
+              "id": "transporte.5",
+              "en": "Car",
+              "es": "Auto",
+              "examples": [
+                "He bought a new car last week."
+              ]
+            },
+            {
+              "id": "transporte.6",
+              "en": "Airplane",
+              "es": "Avión",
+              "examples": [
+                "I traveled to Spain by airplane."
+              ]
+            },
+            {
+              "id": "transporte.7",
+              "en": "Bicycle",
+              "es": "Bicicleta",
+              "examples": [
+                "I ride my bicycle in the park every morning."
+              ]
+            },
+            {
+              "id": "transporte.8",
+              "en": "Motorcycle",
+              "es": "Motocicleta",
+              "examples": [
+                "He enjoys riding his motorcycle on weekends."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Indicaciones y Ubicación",
+          "items": [
+            {
+              "id": "transporte.9",
+              "en": "Turn left",
+              "es": "Girar a la izquierda",
+              "examples": [
+                "Turn left at the next traffic light."
+              ]
+            },
+            {
+              "id": "transporte.10",
+              "en": "Turn right",
+              "es": "Girar a la derecha",
+              "examples": [
+                "Turn right and the supermarket is on your left."
+              ]
+            },
+            {
+              "id": "transporte.11",
+              "en": "Go straight",
+              "es": "Ir derecho",
+              "examples": [
+                "Go straight for two blocks and you’ll see the museum."
+              ]
+            },
+            {
+              "id": "transporte.12",
+              "en": "Cross the street",
+              "es": "Cruzar la calle",
+              "examples": [
+                "Look both ways before you cross the street."
+              ]
+            },
+            {
+              "id": "transporte.13",
+              "en": "Next to",
+              "es": "Al lado de",
+              "examples": [
+                "The pharmacy is next to the bakery."
+              ]
+            },
+            {
+              "id": "transporte.14",
+              "en": "Behind",
+              "es": "Detrás de",
+              "examples": [
+                "The parking lot is behind the building."
+              ]
+            },
+            {
+              "id": "transporte.15",
+              "en": "In front of",
+              "es": "Enfrente de",
+              "examples": [
+                "There is a bus stop in front of the hospital."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Frases útiles en Transporte Público",
+          "items": [
+            {
+              "id": "transporte.16",
+              "en": "Where is the bus stop?",
+              "es": "¿Dónde está la parada de autobús?",
+              "examples": [
+                "Excuse me, where is the nearest bus stop?"
+              ]
+            },
+            {
+              "id": "transporte.17",
+              "en": "How much is a ticket?",
+              "es": "¿Cuánto cuesta un boleto?",
+              "examples": [
+                "How much is a ticket to the airport?"
+              ]
+            },
+            {
+              "id": "transporte.18",
+              "en": "Does this train go to the airport?",
+              "es": "¿Este tren va al aeropuerto?",
+              "examples": [
+                "Excuse me, does this train go to the airport?"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "salud",
+      "title": "Health & Wellbeing",
+      "titleEs": "Salud y Bienestar",
+      "groups": [
+        {
+          "title": "Partes del Cuerpo",
+          "items": [
+            {
+              "id": "salud.1",
+              "en": "Head",
+              "es": "Cabeza",
+              "examples": [
+                "I have a headache."
+              ]
+            },
+            {
+              "id": "salud.2",
+              "en": "Eyes",
+              "es": "Ojos",
+              "examples": [
+                "Her eyes are blue."
+              ]
+            },
+            {
+              "id": "salud.3",
+              "en": "Nose",
+              "es": "Nariz",
+              "examples": [
+                "My nose is stuffy because I have a cold."
+              ]
+            },
+            {
+              "id": "salud.4",
+              "en": "Mouth",
+              "es": "Boca",
+              "examples": [
+                "Open your mouth, please."
+              ]
+            },
+            {
+              "id": "salud.5",
+              "en": "Ears",
+              "es": "Oídos/Orejas",
+              "examples": [
+                "My ears hurt after the flight."
+              ]
+            },
+            {
+              "id": "salud.6",
+              "en": "Arms",
+              "es": "Brazos",
+              "examples": [
+                "She has strong arms."
+              ]
+            },
+            {
+              "id": "salud.7",
+              "en": "Legs",
+              "es": "Piernas",
+              "examples": [
+                "My legs are tired after running."
+              ]
+            },
+            {
+              "id": "salud.8",
+              "en": "Hands",
+              "es": "Manos",
+              "examples": [
+                "Wash your hands before eating."
+              ]
+            },
+            {
+              "id": "salud.9",
+              "en": "Feet",
+              "es": "Pies",
+              "examples": [
+                "My feet hurt after walking all day."
+              ]
+            },
+            {
+              "id": "salud.10",
+              "en": "Back",
+              "es": "Espalda",
+              "examples": [
+                "I have pain in my back."
+              ]
+            },
+            {
+              "id": "salud.11",
+              "en": "Stomach",
+              "es": "Estómago",
+              "examples": [
+                "I have a stomachache."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Síntomas y Enfermedades",
+          "items": [
+            {
+              "id": "salud.12",
+              "en": "Headache",
+              "es": "Dolor de cabeza",
+              "examples": [
+                "I have a terrible headache today."
+              ]
+            },
+            {
+              "id": "salud.13",
+              "en": "Fever",
+              "es": "Fiebre",
+              "examples": [
+                "He has a high fever."
+              ]
+            },
+            {
+              "id": "salud.14",
+              "en": "Stomachache",
+              "es": "Dolor de estómago",
+              "examples": [
+                "She didn’t eat because she has a stomachache."
+              ]
+            },
+            {
+              "id": "salud.15",
+              "en": "Cold",
+              "es": "Resfriado",
+              "examples": [
+                "I caught a cold last week."
+              ]
+            },
+            {
+              "id": "salud.16",
+              "en": "Flu",
+              "es": "Gripe",
+              "examples": [
+                "The flu is very common in winter."
+              ]
+            },
+            {
+              "id": "salud.17",
+              "en": "Cough",
+              "es": "Tos",
+              "examples": [
+                "He has a bad cough."
+              ]
+            },
+            {
+              "id": "salud.18",
+              "en": "Allergy",
+              "es": "Alergia",
+              "examples": [
+                "I have an allergy to pollen."
+              ]
+            },
+            {
+              "id": "salud.19",
+              "en": "Pain",
+              "es": "Dolor",
+              "examples": [
+                "Do you have pain in your knee?"
+              ]
+            },
+            {
+              "id": "salud.20",
+              "en": "Dizziness",
+              "es": "Mareos",
+              "examples": [
+                "She felt dizziness after standing up too fast."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "En el Doctor y la Farmacia",
+          "items": [
+            {
+              "id": "salud.21",
+              "en": "Doctor",
+              "es": "Médico/Doctor",
+              "examples": [
+                "I have an appointment with the doctor at 3 p.m."
+              ]
+            },
+            {
+              "id": "salud.22",
+              "en": "Nurse",
+              "es": "Enfermero/a",
+              "examples": [
+                "The nurse gave me a vaccine."
+              ]
+            },
+            {
+              "id": "salud.23",
+              "en": "Hospital",
+              "es": "Hospital",
+              "examples": [
+                "He was taken to the hospital after the accident."
+              ]
+            },
+            {
+              "id": "salud.24",
+              "en": "Pharmacy",
+              "es": "Farmacia",
+              "examples": [
+                "I need to go to the pharmacy to buy some medicine."
+              ]
+            },
+            {
+              "id": "salud.25",
+              "en": "Medicine",
+              "es": "Medicina/Medicamento",
+              "examples": [
+                "This medicine helps with pain."
+              ]
+            },
+            {
+              "id": "salud.26",
+              "en": "Prescription",
+              "es": "Receta médica",
+              "examples": [
+                "Do I need a prescription for this medicine?"
+              ]
+            },
+            {
+              "id": "salud.27",
+              "en": "Appointment",
+              "es": "Turno/Cita médica",
+              "examples": [
+                "I have an appointment with my doctor tomorrow."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bienestar y Hábitos Saludables",
+          "items": [
+            {
+              "id": "salud.28",
+              "en": "Exercise",
+              "es": "Ejercicio",
+              "examples": [
+                "Regular exercise is important for your health."
+              ]
+            },
+            {
+              "id": "salud.29",
+              "en": "Healthy food",
+              "es": "Comida saludable",
+              "examples": [
+                "I try to eat healthy food every day."
+              ]
+            },
+            {
+              "id": "salud.30",
+              "en": "Rest",
+              "es": "Descanso",
+              "examples": [
+                "You need to get enough rest."
+              ]
+            },
+            {
+              "id": "salud.31",
+              "en": "Sleep",
+              "es": "Dormir/Sueño",
+              "examples": [
+                "Good sleep is essential for well-being."
+              ]
+            },
+            {
+              "id": "salud.32",
+              "en": "Drink water",
+              "es": "Beber agua",
+              "examples": [
+                "You should drink water regularly."
+              ]
+            },
+            {
+              "id": "salud.33",
+              "en": "Relax",
+              "es": "Relajarse",
+              "examples": [
+                "It’s important to take time to relax."
+              ]
+            },
+            {
+              "id": "salud.34",
+              "en": "Meditate",
+              "es": "Meditar",
+              "examples": [
+                "I meditate every morning to reduce stress."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ropa",
+      "title": "Clothing",
+      "titleEs": "Ropa",
+      "groups": [
+        {
+          "title": "Prendas de vestir (Clothing items)",
+          "items": [
+            {
+              "id": "ropa.1",
+              "en": "T-shirt",
+              "es": "Remera",
+              "examples": [
+                "I prefer cotton T-shirts."
+              ]
+            },
+            {
+              "id": "ropa.2",
+              "en": "Shirt",
+              "es": "Camisa",
+              "examples": [
+                "I need a new shirt for work."
+              ]
+            },
+            {
+              "id": "ropa.3",
+              "en": "Blouse",
+              "es": "Blusa",
+              "examples": [
+                "She bought a beautiful blouse."
+              ]
+            },
+            {
+              "id": "ropa.4",
+              "en": "Sweater",
+              "es": "Suéter",
+              "examples": [
+                "My sweater is very warm in winter."
+              ]
+            },
+            {
+              "id": "ropa.5",
+              "en": "Jacket",
+              "es": "Chaqueta/Campera",
+              "examples": [
+                "I wear a jacket when it’s cold."
+              ]
+            },
+            {
+              "id": "ropa.6",
+              "en": "Coat",
+              "es": "Abrigo",
+              "examples": [
+                "He has a long black coat."
+              ]
+            },
+            {
+              "id": "ropa.7",
+              "en": "Pants/Trousers",
+              "es": "Pantalones",
+              "examples": [
+                "He wears black pants at work."
+              ]
+            },
+            {
+              "id": "ropa.8",
+              "en": "Jeans",
+              "es": "Jeans/Pantalones de mezclilla",
+              "examples": [
+                "I wear jeans every day."
+              ]
+            },
+            {
+              "id": "ropa.9",
+              "en": "Shorts",
+              "es": "Pantalones cortos/Shorts",
+              "examples": [
+                "In summer, I wear shorts."
+              ]
+            },
+            {
+              "id": "ropa.10",
+              "en": "Dress",
+              "es": "Vestido",
+              "examples": [
+                "She is wearing a red dress."
+              ]
+            },
+            {
+              "id": "ropa.11",
+              "en": "Skirt",
+              "es": "Falda/Pollera",
+              "examples": [
+                "My skirt is too short."
+              ]
+            },
+            {
+              "id": "ropa.12",
+              "en": "Suit",
+              "es": "Traje",
+              "examples": [
+                "He wears a suit for weddings."
+              ]
+            },
+            {
+              "id": "ropa.13",
+              "en": "Tracksuit",
+              "es": "Conjunto deportivo/Buzo y pantalón deportivo",
+              "examples": [
+                "My tracksuit is comfortable for exercise."
+              ]
+            },
+            {
+              "id": "ropa.14",
+              "en": "Pajamas",
+              "es": "Pijama",
+              "examples": [
+                "I put on my pajamas before bed."
+              ]
+            },
+            {
+              "id": "ropa.15",
+              "en": "Underwear",
+              "es": "Ropa interior",
+              "examples": [
+                "I need to buy new underwear."
+              ]
+            },
+            {
+              "id": "ropa.16",
+              "en": "Socks",
+              "es": "Medias/Calcetines",
+              "examples": [
+                "My socks are very soft."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Calzado (Footwear)",
+          "items": [
+            {
+              "id": "ropa.17",
+              "en": "Shoes",
+              "es": "Zapatos",
+              "examples": [
+                "These shoes are very elegant."
+              ]
+            },
+            {
+              "id": "ropa.18",
+              "en": "Sneakers",
+              "es": "Zapatillas deportivas",
+              "examples": [
+                "I wear sneakers to go running."
+              ]
+            },
+            {
+              "id": "ropa.19",
+              "en": "Boots",
+              "es": "Botas",
+              "examples": [
+                "Her boots are perfect for winter."
+              ]
+            },
+            {
+              "id": "ropa.20",
+              "en": "Sandals",
+              "es": "Sandalias",
+              "examples": [
+                "I like to wear sandals at the beach."
+              ]
+            },
+            {
+              "id": "ropa.21",
+              "en": "Slippers",
+              "es": "Pantuflas",
+              "examples": [
+                "He wears slippers at home."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Accesorios (Accessories)",
+          "items": [
+            {
+              "id": "ropa.22",
+              "en": "Hat",
+              "es": "Sombrero",
+              "examples": [
+                "She is wearing a big hat."
+              ]
+            },
+            {
+              "id": "ropa.23",
+              "en": "Cap",
+              "es": "Gorra",
+              "examples": [
+                "I always wear a cap in summer."
+              ]
+            },
+            {
+              "id": "ropa.24",
+              "en": "Scarf",
+              "es": "Bufanda/Pañoleta",
+              "examples": [
+                "My scarf keeps me warm."
+              ]
+            },
+            {
+              "id": "ropa.25",
+              "en": "Gloves",
+              "es": "Guantes",
+              "examples": [
+                "He wears gloves in winter."
+              ]
+            },
+            {
+              "id": "ropa.26",
+              "en": "Belt",
+              "es": "Cinturón",
+              "examples": [
+                "I need a belt for my jeans."
+              ]
+            },
+            {
+              "id": "ropa.27",
+              "en": "Sunglasses",
+              "es": "Gafas de sol/Anteojos de sol",
+              "examples": [
+                "She wears sunglasses when it’s sunny."
+              ]
+            },
+            {
+              "id": "ropa.28",
+              "en": "Bag",
+              "es": "Bolso/Cartera",
+              "examples": [
+                "Her bag is very heavy."
+              ]
+            },
+            {
+              "id": "ropa.29",
+              "en": "Purse",
+              "es": "Monedero/Billetera pequeña",
+              "examples": [
+                "She put her money in her purse."
+              ]
+            },
+            {
+              "id": "ropa.30",
+              "en": "Watch",
+              "es": "Reloj",
+              "examples": [
+                "My watch is very expensive."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Materiales y descripciones (Materials and Descriptions)",
+          "items": [
+            {
+              "id": "ropa.31",
+              "en": "Cotton",
+              "es": "Algodón",
+              "examples": [
+                "This T-shirt is made of cotton."
+              ]
+            },
+            {
+              "id": "ropa.32",
+              "en": "Wool",
+              "es": "Lana",
+              "examples": [
+                "My sweater is made of wool."
+              ]
+            },
+            {
+              "id": "ropa.33",
+              "en": "Leather",
+              "es": "Cuero/Piel",
+              "examples": [
+                "He bought a leather jacket."
+              ]
+            },
+            {
+              "id": "ropa.34",
+              "en": "Silk",
+              "es": "Seda",
+              "examples": [
+                "Her dress is made of silk."
+              ]
+            },
+            {
+              "id": "ropa.35",
+              "en": "Tight",
+              "es": "Ajustado/Entallado",
+              "examples": [
+                "These jeans are too tight."
+              ]
+            },
+            {
+              "id": "ropa.36",
+              "en": "Loose",
+              "es": "Holgado/Flojo",
+              "examples": [
+                "I like loose clothing."
+              ]
+            },
+            {
+              "id": "ropa.37",
+              "en": "Striped",
+              "es": "A rayas/Rayado",
+              "examples": [
+                "He is wearing a striped shirt."
+              ]
+            },
+            {
+              "id": "ropa.38",
+              "en": "Polka dots",
+              "es": "De lunares/Punteado",
+              "examples": [
+                "Her dress has polka dots."
+              ]
+            },
+            {
+              "id": "ropa.39",
+              "en": "Plain",
+              "es": "Liso/Sin estampado",
+              "examples": [
+                "I prefer plain T-shirts."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Estilos de ropa (Clothing styles)",
+          "items": [
+            {
+              "id": "ropa.40",
+              "en": "Casual",
+              "es": "Casual/Informal",
+              "examples": [
+                "I like to wear casual clothes on weekends."
+              ]
+            },
+            {
+              "id": "ropa.41",
+              "en": "Formal",
+              "es": "Formal/Elegante",
+              "examples": [
+                "He needs formal clothes for the meeting."
+              ]
+            },
+            {
+              "id": "ropa.42",
+              "en": "Sporty",
+              "es": "Deportivo",
+              "examples": [
+                "She prefers a sporty style for everyday life."
+              ]
+            },
+            {
+              "id": "ropa.43",
+              "en": "Vintage",
+              "es": "Vintage/Ropa retro",
+              "examples": [
+                "His vintage jacket looks great."
+              ]
+            },
+            {
+              "id": "ropa.44",
+              "en": "Trendy",
+              "es": "A la moda/Moderno",
+              "examples": [
+                "She always wears trendy outfits."
+              ]
+            },
+            {
+              "id": "ropa.45",
+              "en": "Elegant",
+              "es": "Elegante",
+              "examples": [
+                "He looks elegant in his new suit."
+              ]
+            },
+            {
+              "id": "ropa.46",
+              "en": "Bohemian",
+              "es": "Bohemio",
+              "examples": [
+                "She has a bohemian dress with floral prints."
+              ]
+            },
+            {
+              "id": "ropa.47",
+              "en": "Classic",
+              "es": "Clásico",
+              "examples": [
+                "A classic white shirt never goes out of style."
+              ]
+            },
+            {
+              "id": "ropa.48",
+              "en": "Streetwear",
+              "es": "Ropa urbana",
+              "examples": [
+                "He wears streetwear with oversized T-shirts and sneakers."
+              ]
+            },
+            {
+              "id": "ropa.49",
+              "en": "Business casual",
+              "es": "Casual de oficina",
+              "examples": [
+                "Business casual is perfect for work meetings."
+              ]
+            },
+            {
+              "id": "ropa.50",
+              "en": "Minimalist",
+              "es": "Minimalista",
+              "examples": [
+                "Her wardrobe is full of minimalist clothes in neutral colors."
+              ]
+            },
+            {
+              "id": "ropa.51",
+              "en": "Chic",
+              "es": "Elegante/Con estilo",
+              "examples": [
+                "She looks chic with her new accessories."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Expresiones comunes (Common expressions)",
+          "items": [
+            {
+              "id": "ropa.52",
+              "en": "What are you wearing?",
+              "es": "¿Qué estás usando/poniéndote?",
+              "examples": [
+                "What are you wearing today?"
+              ]
+            },
+            {
+              "id": "ropa.53",
+              "en": "I need to buy a new jacket.",
+              "es": "Necesito comprar una chaqueta nueva.",
+              "examples": [
+                "I need to buy a new jacket for winter."
+              ]
+            },
+            {
+              "id": "ropa.54",
+              "en": "This dress is too tight.",
+              "es": "Este vestido es demasiado ajustado.",
+              "examples": [
+                "I can’t wear this dress, it’s too tight."
+              ]
+            },
+            {
+              "id": "ropa.55",
+              "en": "These shoes are very comfortable.",
+              "es": "Estos zapatos son muy cómodos.",
+              "examples": [
+                "I wear these shoes every day because they are very comfortable."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conectores",
+      "title": "Connectors & Grammar Words",
+      "titleEs": "Conectores y Cohesión en el Discurso",
+      "groups": [
+        {
+          "title": "Adición",
+          "items": [
+            {
+              "id": "conectores.1",
+              "en": "And",
+              "es": "Y",
+              "examples": [
+                "I like coffee and tea."
+              ]
+            },
+            {
+              "id": "conectores.2",
+              "en": "Also",
+              "es": "También",
+              "examples": [
+                "She speaks Spanish and also French."
+              ]
+            },
+            {
+              "id": "conectores.3",
+              "en": "In addition",
+              "es": "Además",
+              "examples": [
+                "He works and, in addition, studies at night."
+              ]
+            },
+            {
+              "id": "conectores.4",
+              "en": "Moreover",
+              "es": "Además, es más",
+              "examples": [
+                "The hotel is cheap; moreover, it’s close to the beach."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Contraste",
+          "items": [
+            {
+              "id": "conectores.5",
+              "en": "But",
+              "es": "Pero",
+              "examples": [
+                "I like summer, but I prefer winter."
+              ]
+            },
+            {
+              "id": "conectores.6",
+              "en": "However",
+              "es": "Sin embargo",
+              "examples": [
+                "The food was good; however, the service was slow."
+              ]
+            },
+            {
+              "id": "conectores.7",
+              "en": "Although",
+              "es": "Aunque",
+              "examples": [
+                "Although it was raining, we went out."
+              ]
+            },
+            {
+              "id": "conectores.8",
+              "en": "On the other hand",
+              "es": "Por otro lado",
+              "examples": [
+                "I like big cities; on the other hand, they are noisy."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Causa y Efecto",
+          "items": [
+            {
+              "id": "conectores.9",
+              "en": "Because",
+              "es": "Porque",
+              "examples": [
+                "I stayed home because I was sick."
+              ]
+            },
+            {
+              "id": "conectores.10",
+              "en": "So",
+              "es": "Así que, entonces",
+              "examples": [
+                "It was late, so I went to bed."
+              ]
+            },
+            {
+              "id": "conectores.11",
+              "en": "Therefore",
+              "es": "Por lo tanto",
+              "examples": [
+                "It rained all day; therefore, the game was canceled."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Secuencia",
+          "items": [
+            {
+              "id": "conectores.12",
+              "en": "First",
+              "es": "Primero",
+              "examples": [
+                "First, wash your hands."
+              ]
+            },
+            {
+              "id": "conectores.13",
+              "en": "Then",
+              "es": "Luego",
+              "examples": [
+                "Then, cut the vegetables."
+              ]
+            },
+            {
+              "id": "conectores.14",
+              "en": "After that",
+              "es": "Después de eso",
+              "examples": [
+                "After that, put everything in a pan."
+              ]
+            },
+            {
+              "id": "conectores.15",
+              "en": "Finally",
+              "es": "Finalmente",
+              "examples": [
+                "Finally, serve the meal."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Preposiciones Comunes",
+          "items": [
+            {
+              "id": "conectores.16",
+              "en": "At",
+              "es": "En, a, en un punto específico",
+              "examples": [
+                "I’ll meet you at the park."
+              ]
+            },
+            {
+              "id": "conectores.17",
+              "en": "On",
+              "es": "Sobre, en una superficie, un día específico",
+              "examples": [
+                "The book is on the table.",
+                "My birthday is on Monday."
+              ]
+            },
+            {
+              "id": "conectores.18",
+              "en": "In",
+              "es": "Dentro de, en un período de tiempo",
+              "examples": [
+                "She is in the kitchen.",
+                "I was born in June."
+              ]
+            },
+            {
+              "id": "conectores.19",
+              "en": "By",
+              "es": "Por, junto a, antes de",
+              "examples": [
+                "This song was written by John.",
+                "Please finish the work by Friday."
+              ]
+            },
+            {
+              "id": "conectores.20",
+              "en": "With",
+              "es": "Con",
+              "examples": [
+                "I went to the cinema with my friends."
+              ]
+            },
+            {
+              "id": "conectores.21",
+              "en": "About",
+              "es": "Sobre, acerca de",
+              "examples": [
+                "We talked about the new project."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Artículos Definidos e Indefinidos",
+          "items": [
+            {
+              "id": "conectores.22",
+              "en": "The",
+              "es": "El, la, los, las – Específico",
+              "examples": [
+                "The sun is very bright today."
+              ]
+            },
+            {
+              "id": "conectores.23",
+              "en": "A / An",
+              "es": "Un, una – General, indefinido",
+              "examples": [
+                "I bought a new phone.",
+                "She is an artist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Preposiciones de Movimiento",
+          "items": [
+            {
+              "id": "conectores.24",
+              "en": "To",
+              "es": "Hacia, a",
+              "examples": [
+                "I’m going to the gym."
+              ]
+            },
+            {
+              "id": "conectores.25",
+              "en": "From",
+              "es": "Desde, de",
+              "examples": [
+                "She is from Argentina."
+              ]
+            },
+            {
+              "id": "conectores.26",
+              "en": "Into",
+              "es": "Dentro de, hacia adentro",
+              "examples": [
+                "She went into the room."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Preposiciones de Tiempo",
+          "items": [
+            {
+              "id": "conectores.27",
+              "en": "Before",
+              "es": "Antes de",
+              "examples": [
+                "I eat breakfast before going to work."
+              ]
+            },
+            {
+              "id": "conectores.28",
+              "en": "After",
+              "es": "Después de",
+              "examples": [
+                "We will go out after lunch."
+              ]
+            },
+            {
+              "id": "conectores.29",
+              "en": "Since",
+              "es": "Desde, a partir de un punto en el pasado",
+              "examples": [
+                "I have lived here since 2020."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "expresiones",
+      "title": "Common Expressions & Politeness",
+      "titleEs": "Expresiones Comunes y Fórmulas de Cortesía",
+      "groups": [
+        {
+          "title": "Saludar y Presentarse",
+          "items": [
+            {
+              "id": "expresiones.1",
+              "en": "Hello",
+              "es": "Hola",
+              "examples": [
+                "Hello! How are you?"
+              ]
+            },
+            {
+              "id": "expresiones.2",
+              "en": "Good morning",
+              "es": "Buenos días",
+              "examples": [
+                "Good morning, Mr. Smith."
+              ]
+            },
+            {
+              "id": "expresiones.3",
+              "en": "Nice to meet you",
+              "es": "Encantado de conocerte",
+              "examples": [
+                "Nice to meet you, I’m {{name}}."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Pedir algo de forma educada",
+          "items": [
+            {
+              "id": "expresiones.4",
+              "en": "Please",
+              "es": "Por favor",
+              "examples": [
+                "Can you help me, please?"
+              ]
+            },
+            {
+              "id": "expresiones.5",
+              "en": "Could you…?",
+              "es": "¿Podrías…?",
+              "examples": [
+                "Could you lend me a pen?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Disculparse y Expresar Problemas",
+          "items": [
+            {
+              "id": "expresiones.6",
+              "en": "Excuse me",
+              "es": "Perdón/Disculpe",
+              "examples": [
+                "Excuse me, where is the restroom?"
+              ]
+            },
+            {
+              "id": "expresiones.7",
+              "en": "I’m sorry",
+              "es": "Lo siento",
+              "examples": [
+                "I’m sorry, I didn’t mean to upset you."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Agradecer y Responder",
+          "items": [
+            {
+              "id": "expresiones.8",
+              "en": "Thank you",
+              "es": "Gracias",
+              "examples": [
+                "Thank you for your help."
+              ]
+            },
+            {
+              "id": "expresiones.9",
+              "en": "You’re welcome",
+              "es": "De nada",
+              "examples": [
+                "You’re welcome! Have a nice day."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Ejemplificación",
+          "items": [
+            {
+              "id": "expresiones.10",
+              "en": "For example",
+              "es": "Por ejemplo",
+              "examples": [
+                "There are many hobbies; for example, painting and reading."
+              ]
+            },
+            {
+              "id": "expresiones.11",
+              "en": "Such as",
+              "es": "Como, tal como",
+              "examples": [
+                "I like tropical fruits such as mangoes and pineapples."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Énfasis",
+          "items": [
+            {
+              "id": "expresiones.12",
+              "en": "Indeed",
+              "es": "De hecho, en efecto",
+              "examples": [
+                "Indeed, learning a new language is beneficial."
+              ]
+            },
+            {
+              "id": "expresiones.13",
+              "en": "Especially",
+              "es": "Especialmente",
+              "examples": [
+                "I love all animals, especially dogs."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Condición y Consecuencia",
+          "items": [
+            {
+              "id": "expresiones.14",
+              "en": "If",
+              "es": "Si",
+              "examples": [
+                "If it rains, we’ll stay inside."
+              ]
+            },
+            {
+              "id": "expresiones.15",
+              "en": "Unless",
+              "es": "A menos que",
+              "examples": [
+                "You won’t pass unless you study."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Comparación y Similitud",
+          "items": [
+            {
+              "id": "expresiones.16",
+              "en": "Like",
+              "es": "Como, al igual que",
+              "examples": [
+                "She sings like a professional."
+              ]
+            },
+            {
+              "id": "expresiones.17",
+              "en": "Similarly",
+              "es": "De manera similar",
+              "examples": [
+                "This book is interesting; similarly, the movie was great."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Conclusión",
+          "items": [
+            {
+              "id": "expresiones.18",
+              "en": "In conclusion",
+              "es": "En conclusión",
+              "examples": [
+                "In conclusion, teamwork is essential."
+              ]
+            },
+            {
+              "id": "expresiones.19",
+              "en": "To sum up",
+              "es": "Para resumir",
+              "examples": [
+                "To sum up, exercise is good for your health."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Saludar y Despedirse en Diferentes Contextos",
+          "items": [
+            {
+              "id": "expresiones.20",
+              "en": "How’s it going?",
+              "es": "¿Cómo va todo?",
+              "examples": [
+                "Hey, how’s it going?"
+              ]
+            },
+            {
+              "id": "expresiones.21",
+              "en": "See you later",
+              "es": "Nos vemos luego",
+              "examples": [
+                "See you later! Have a good day."
+              ]
+            },
+            {
+              "id": "expresiones.22",
+              "en": "Take care",
+              "es": "Cuídate",
+              "examples": [
+                "Take care! See you soon."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Pedir Ayuda o Información",
+          "items": [
+            {
+              "id": "expresiones.23",
+              "en": "Can you help me?",
+              "es": "¿Me puedes ayudar?",
+              "examples": [
+                "Excuse me, can you help me?"
+              ]
+            },
+            {
+              "id": "expresiones.24",
+              "en": "Do you know…?",
+              "es": "¿Sabes…?",
+              "examples": [
+                "Do you know where the bank is?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reacciones Comunes",
+          "items": [
+            {
+              "id": "expresiones.25",
+              "en": "That’s great!",
+              "es": "¡Eso es genial!",
+              "examples": [
+                "You passed the exam? That’s great!"
+              ]
+            },
+            {
+              "id": "expresiones.26",
+              "en": "I don’t understand",
+              "es": "No entiendo",
+              "examples": [
+                "Sorry, I don’t understand. Can you repeat?"
+              ]
+            },
+            {
+              "id": "expresiones.27",
+              "en": "I think so",
+              "es": "Creo que sí",
+              "examples": [
+                "Is the museum open today? I think so."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Expresiones de Cortesía y Formalidad",
+          "items": [
+            {
+              "id": "expresiones.28",
+              "en": "Excuse the interruption",
+              "es": "Disculpa la interrupción",
+              "examples": [
+                "Excuse the interruption, but I have a question."
+              ]
+            },
+            {
+              "id": "expresiones.29",
+              "en": "Would you mind…?",
+              "es": "¿Te importaría…?",
+              "examples": [
+                "Would you mind opening the window?"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

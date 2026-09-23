@@ -1,0 +1,22 @@
+{
+  "nota": "Perfil de ejemplo (genérico). Copialo a data/perfil.json con tus datos reales: ese archivo NO se sube a GitHub.",
+  "name": "Sam",
+  "age": "30",
+  "nationality": "Argentine",
+  "hometown": "Buenos Aires, Argentina",
+  "birthday": "March 3",
+  "height": "1.75 meters",
+  "weight": "70 kilograms",
+  "hair": "dark",
+  "eyes": "brown",
+  "home": "in an apartment",
+  "father": "Tom",
+  "mother": "Anna",
+  "brother": "Max",
+  "sister": "Lucy",
+  "grandmother": "Rose",
+  "godson": "Leo",
+  "goddaughter": "Mia",
+  "pet1": "Rocky",
+  "pet2": "Luna"
+}

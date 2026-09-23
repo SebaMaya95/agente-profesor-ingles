@@ -20,7 +20,12 @@ Un agente que enseñe a **hablar y entender inglés** lo más rápido posible (n
 - Iteración 1: metodología investigada. ✅
 - Iteración 2: esqueleto con repaso espaciado y conversación con IA; primera prueba real con la API (costo medido: ~US$ 0,001 por sesión). ✅
 - Iteración 3: enfoque en hablar; niveles por situación, 6 tipos de ejercicio, XP, racha, coronas y role-play. ✅ (consola)
+- Iteración 3b: se incorpora el documento del alumno (5 tiempos verbales, 12 categorías, 273 ítems, 9 tipos de ejercicio); ver [`docs/contenido.md`](docs/contenido.md). ✅ (contenido cargado; ejercicios nuevos pendientes)
 - Iteración 4: interfaz web con voz, estilo juego en gama del azul, para publicar en Vercel (próxima).
+
+## Contenido y privacidad
+
+El contenido (`data/contenido/`) sale del documento del alumno. Como el repo es público, los datos personales se reemplazaron por marcadores (`{{name}}`, `{{father}}`...). Los valores reales van en `data/perfil.json` (local, ignorado por git); sin él se usa `data/perfil.ejemplo.json`.
 
 ## Cómo funciona una sesión
 

@@ -2,3 +2,7 @@ node_modules/
 .env
 *.log
 data/alumno.json
+
+# Datos personales: nunca al repo público
+data/perfil.json
+*.docx
