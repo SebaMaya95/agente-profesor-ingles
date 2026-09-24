@@ -2,6 +2,8 @@
 
 Trabajo práctico de **Creación de Agentes de IA**.
 
+**Sitio publicado:** https://agente-profesor-ingles.vercel.app · **Registro de la construcción, iteración por iteración:** [`CONVERSACION.md`](CONVERSACION.md)
+
 ## Objetivo
 
 Un agente que enseñe a **hablar y entender inglés** lo más rápido posible (no tanto escritura ni gramática formal), con metodología respaldada por investigación y **extremadamente eficiente en tokens**. Se plantea como un juego: unidades por tema, lecciones, XP, racha y coronas. La mascota será un border collie animado.
@@ -23,7 +25,8 @@ Un agente que enseñe a **hablar y entender inglés** lo más rápido posible (n
 - Iteración 3: enfoque en hablar; juego con XP, racha y coronas. ✅
 - Iteración 3b: se incorpora el documento del alumno (5 tiempos, 12 categorías, 273 ítems). ✅
 - Iteración 3c: los 9 tipos de ejercicio del documento (más 3 propios) implementados y rotando entre las 12 unidades, con 73 lecciones. ✅ (consola)
-- Iteración 4: web de juego (Colly, mascota border collie) en gama del azul, con voz del navegador, los 12 ejercicios, mapa de unidades y role-play con IA; configuración para Vercel. ✅ (probada en local; el deploy en Vercel está pendiente)
+- Iteración 4: web de juego (Colly, mascota border collie) en gama del azul, con voz del navegador, los 12 ejercicios, mapa de unidades y role-play con IA. ✅
+- Iteración 5: publicada en Vercel y verificada desde afuera (carga sin login, archivos privados en 404, endpoint del role-play protegido por código). ✅
 
 ## Cómo funciona una sesión
 

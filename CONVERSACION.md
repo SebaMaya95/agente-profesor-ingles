@@ -1,6 +1,52 @@
-# Registro de la conversación e iteraciones
+# Colly, agente profesor de inglés: registro de la conversación e iteraciones
 
-Resumen de lo relevante de la conversación con Claude durante la construcción del agente. Se actualiza en cada iteración.
+Materia: **Creación de Agentes de IA**. Este documento resume lo relevante de la conversación con Claude durante la construcción, para poder ver las iteraciones y el resultado.
+
+## Resultado
+
+- **Agente:** Colly, un profesor de inglés cuyo objetivo es que el alumno **hable** con fluidez, presentado como un juego (unidades, lecciones, XP, racha, coronas y una mascota border collie).
+- **Sitio publicado:** https://agente-profesor-ingles.vercel.app
+- **Repositorio:** https://github.com/SebaMaya95/agente-profesor-ingles (con un commit por iteración)
+- **Restricción del alumno:** ser **extremadamente eficiente en tokens**. Solución: la pedagogía, los ejercicios y su corrección son código; la IA se usa **solo** en el role-play final de cada unidad.
+- **Contenido:** parte del documento del propio alumno (5 tiempos verbales, 12 categorías con 273 ítems, 9 tipos de ejercicio), ampliado con 3 ejercicios propios: 12 tipos en total, 12 unidades y 73 lecciones.
+
+## Iteraciones
+
+| # | Commit | Qué se hizo |
+|---|---|---|
+| 0 | `391f762` | Elección del agente (profesor de inglés frente a analista del agro) y vínculo con GitHub. |
+| 1 | `9bb4d71` | Investigación de metodología: repetición espaciada, práctica de recuperación, corrección de errores. |
+| 2 | `59b4d69` | Primer esqueleto en Node: repaso espaciado en código y conversación con IA. |
+| 2b | `8130a78` | Primera prueba real con la API; se corrigieron timeouts y el prompt. |
+| 3 | `e31e4e0` | Enfoque en hablar; juego con niveles, XP, racha y coronas. |
+| 3b | `844921d` | Se incorpora el documento del alumno, protegiendo sus datos personales. |
+| 3c | `dfef13c` | Los 9 ejercicios del documento (más 3 propios) rotando entre las 12 unidades. |
+| 4 | `b6f19c4` | La web: mapa, voz, mascota, 12 ejercicios y role-play con IA. |
+| 5 | (este) | Publicación en Vercel y verificación del sitio. |
+
+## Decisiones más importantes
+
+1. **Código para lo cerrado, IA solo para lo abierto.** Elegir, completar, ordenar, relacionar, detectar errores, historias con opciones y consignas guiadas se generan y corrigen sin modelo (0 tokens). Un banco de contenido escrito una sola vez reemplaza las llamadas al modelo por pregunta.
+2. **Espaciado en el tiempo.** Los ítems vuelven a preguntarse a intervalos crecientes; la dificultad sube de reconocer a producir.
+3. **Privacidad en un repo público.** El documento del alumno tenía datos personales; se reemplazaron por marcadores y los valores reales viven solo en el navegador del alumno o en un archivo local ignorado por git. Una prueba automática impide que se filtren.
+4. **Seguro por defecto en el servidor.** La API key vive solo en el servidor; el endpoint del role-play queda apagado sin configuración, exige un código de acceso, limita pedidos por IP y valida el formato.
+5. **Cada afirmación se verificó o se declaró sin verificar.** Cuando algo no se pudo probar, quedó escrito como límite.
+
+## Mediciones y verificaciones
+
+- **77 pruebas automáticas** pasan (motor, contenido, rotación de ejercicios, sesión web, guardado, endpoint del role-play y privacidad).
+- **Costo medido** en la primera prueba real con la API (iteración 2b): unos **US$ 0,001 por sesión** de conversación con `claude-haiku-4-5`. Es una medición de esa versión; el role-play actual usa una escena y prompt distintos y no se volvió a medir.
+- **Sitio publicado, verificado desde afuera:** carga sin login; `/data/perfil.json` y `/Vocabulario.docx` devuelven 404; el endpoint del role-play rechaza los pedidos sin código de acceso (401), lo que confirma que las variables del servidor están aplicadas.
+
+## Límites conocidos
+
+- El material de ejercicios (errores típicos, diálogos, historias) lo escribió Claude; requiere revisión del alumno.
+- La consigna guiada verifica que estén los elementos pedidos, no la corrección gramatical.
+- El reconocimiento de voz depende del navegador (Chrome, Edge y Safari); el audio suele ir al proveedor del navegador, no a esta app.
+- No se probó la instalación como app (PWA) ni la voz en un celular real.
+- El contador de pedidos por IP es de memoria y no reemplaza el límite de gasto de la consola de Anthropic.
+
+## Registro detallado por iteración
 
 ## Iteración 0: definición y vínculo con GitHub
 
@@ -184,3 +230,24 @@ Resumen de lo relevante de la conversación con Claude durante la construcción 
 - No se comprobó la instalación como app (PWA) ni el reconocimiento de voz en dispositivos reales; solo la interfaz en el navegador de escritorio.
 - El role-play con la API real desde la web no se probó (sí con un servidor simulado y con pruebas del endpoint).
 - El contador de pedidos por IP vive en la memoria de cada instancia del servidor: frena abusos simples pero no reemplaza el límite de gasto en la consola de Anthropic.
+
+## Iteración 5: publicación en Vercel
+
+**Pedido del alumno:** publicar la app y explicar cómo cargar la API key de Anthropic, el código de acceso del role-play y un límite de gasto mensual.
+
+**Qué se hizo:** una guía paso a paso (`docs/web.md`), verificada contra la documentación oficial de Anthropic y de Vercel. El alumno hizo las acciones que requieren su cuenta (crear la cuenta de Vercel, cargar la API key, generar el código de acceso); la key y el código nunca pasaron por la conversación.
+
+**Datos que cambiaron el plan:**
+- Anthropic **no permite fijar límite de gasto en el workspace "Default"**, así que se recomendó crear un workspace propio para la app, con su límite y su key.
+- Las API keys de Anthropic ahora se crean con un **vencimiento a elección**; al vencer, el role-play deja de funcionar. Se recomendó una duración que cubra la corrección de la materia.
+
+**Problemas encontrados y cómo se resolvieron:**
+- La cuenta de Vercel que ya tenía el alumno estaba atada a otra identidad de GitHub (la de su trabajo), por lo que no mostraba el repositorio personal aunque la aplicación de GitHub ya estaba instalada. Se creó una cuenta de Vercel aparte con la identidad personal, lo que además separa el TP de proyectos comerciales (el plan Hobby es de uso no comercial).
+- El link que Vercel muestra por defecto es el de un despliegue puntual y está protegido por login; un profesor no podría abrirlo. Se verificó que el dominio público del proyecto sí carga sin login y es el que se comparte.
+- Renombrar el proyecto no cambia su dirección pública. El alumno decidió mantener `agente-profesor-ingles.vercel.app`.
+
+**Verificación desde afuera del sitio publicado:** la app carga; `/data/perfil.json` y `/Vocabulario.docx` dan 404; `GET /api/roleplay` da 405; un `POST` sin código da 401 `bad_code`, lo que prueba que las variables de entorno están aplicadas y que la función encuentra los archivos del curso en el servidor (con lo que `includeFiles` de `vercel.json` funciona).
+
+**Sin verificar:**
+- El role-play con la API key real desde el sitio publicado. Solo lo puede probar el alumno con su código, porque la key y el código no deben pasar por la conversación.
+- Que el límite de gasto mensual quedó configurado en la consola de Anthropic: es un ajuste de la cuenta del alumno que no se puede comprobar desde acá.
