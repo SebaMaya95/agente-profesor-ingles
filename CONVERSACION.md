@@ -37,6 +37,7 @@ Materia: **Creación de Agentes de IA**. Este documento resume lo relevante de l
 - **77 pruebas automáticas** pasan (motor, contenido, rotación de ejercicios, sesión web, guardado, endpoint del role-play y privacidad).
 - **Costo medido** en la primera prueba real con la API (iteración 2b): unos **US$ 0,001 por sesión** de conversación con `claude-haiku-4-5`. Es una medición de esa versión; el role-play actual usa una escena y prompt distintos y no se volvió a medir.
 - **Sitio publicado, verificado desde afuera:** carga sin login; `/data/perfil.json` y `/Vocabulario.docx` devuelven 404; el endpoint del role-play rechaza los pedidos sin código de acceso (401), lo que confirma que las variables del servidor están aplicadas.
+- **Confirmación del alumno** (Claude no pudo verlo por sí mismo, porque la API key y el código de acceso no pasan por la conversación): probó el sitio publicado, incluido el role-play con la API real, y informó que todo funciona.
 
 ## Límites conocidos
 
@@ -248,6 +249,6 @@ Materia: **Creación de Agentes de IA**. Este documento resume lo relevante de l
 
 **Verificación desde afuera del sitio publicado:** la app carga; `/data/perfil.json` y `/Vocabulario.docx` dan 404; `GET /api/roleplay` da 405; un `POST` sin código da 401 `bad_code`, lo que prueba que las variables de entorno están aplicadas y que la función encuentra los archivos del curso en el servidor (con lo que `includeFiles` de `vercel.json` funciona).
 
-**Sin verificar:**
-- El role-play con la API key real desde el sitio publicado. Solo lo puede probar el alumno con su código, porque la key y el código no deben pasar por la conversación.
+**Estado final de las verificaciones:**
+- El role-play con la API key real desde el sitio publicado lo probó el alumno con su propio código (la key y el código no pasaron por la conversación) y **informó que funciona**. Consta como confirmación del alumno: Claude no pudo comprobarlo por sí mismo.
 - Que el límite de gasto mensual quedó configurado en la consola de Anthropic: es un ajuste de la cuenta del alumno que no se puede comprobar desde acá.
