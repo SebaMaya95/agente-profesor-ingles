@@ -42,15 +42,38 @@ Después escribí ese mismo código en **Perfil → Role-play con IA**.
 
 ## Cómo publicarla en Vercel
 
-1. Crear un proyecto en Vercel importando el repositorio de GitHub (la cuenta de Vercel la creás y autorizás vos).
-2. En *Settings → Environment Variables* cargar:
-   - `ANTHROPIC_API_KEY`: tu key de Anthropic.
-   - `ROLEPLAY_ACCESS_CODE`: un código que elijas y compartas solo con quien deba usar el role-play.
+### Parte 1: Anthropic (workspace con límite de gasto y API key)
+
+1. Entrar a la consola de Anthropic (platform.claude.com) con tu cuenta.
+2. **Settings → Workspaces → Create workspace**. Nombre `Colly`. (No se puede fijar límite en el workspace "Default", por eso se crea uno propio.)
+3. Cambiar al workspace `Colly` con el selector de arriba a la izquierda.
+4. En los ajustes del workspace, pestaña **Spend limits**: fijar el límite mensual (por ejemplo, US$ 5) y activar las alertas de aviso.
+5. Crear la API key **dentro de ese workspace** (sección *API keys*, elegir el workspace `Colly`). Se muestra una sola vez: copiarla a un gestor de contraseñas. Nunca al chat ni al repo.
+
+### Parte 2: Vercel
+
+1. Crear la cuenta en vercel.com con el botón de GitHub (plan Hobby, gratis, para uso no comercial).
+2. **Add New… → Project → Import Git Repository**, elegir `agente-profesor-ingles`. Conviene darle a Vercel acceso solo a ese repositorio.
+3. En *Configure Project*: Framework Preset **Other**; el resto se deja como está (lo define `vercel.json`).
+4. Antes de desplegar, abrir *Environment Variables* y cargar (solo en **Production**):
+   - `ANTHROPIC_API_KEY`: la key del paso anterior.
+   - `ROLEPLAY_ACCESS_CODE`: un código que generes vos (por ejemplo, con `[guid]::NewGuid().ToString("N").Substring(0,16)` en PowerShell) y compartas solo con quien deba usar el role-play.
    - Opcional: `TUTOR_MODEL` (por defecto `claude-haiku-4-5`).
-3. En la consola de Anthropic, **poné un límite de gasto mensual**.
-4. Deploy. Con cada push a `main`, Vercel publica de nuevo.
+5. **Deploy**. Con cada push a `main`, Vercel publica de nuevo. Si cambiás una variable después, hay que hacer *Redeploy*: solo aplica a los despliegues nuevos.
 
 Sin la key o sin el código, el role-play queda apagado (seguro por defecto). El resto de la app funciona igual.
+
+### Parte 3: Verificar el despliegue
+
+- La URL carga el mapa y se puede jugar una lección.
+- `https://TU-URL/data/perfil.json` y `https://TU-URL/Vocabulario.docx` devuelven 404.
+- En **Perfil → Role-play con IA**, pegar el código y guardar. Para probar sin superar la unidad, abrir la consola del navegador y ejecutar `__app.go("roleplay", { unitId: "informacion-personal" })`.
+- Si el role-play dice "no está configurado": faltan las variables o falta el *Redeploy*. Si dice "código incorrecto": revisar el código en Perfil. Si falla con otro error: mirar *Logs* del proyecto en Vercel (la función `/api/roleplay`).
+- En la consola de Anthropic, el consumo debe aparecer en el workspace `Colly`.
+
+### Si la key se filtra
+
+Revocarla en la consola de Anthropic (sección *API keys*), crear otra en el mismo workspace, cambiarla en Vercel y hacer *Redeploy*.
 
 ## Protecciones del endpoint del role-play
 
@@ -73,7 +96,7 @@ Límite conocido: el contador por IP vive en la memoria de cada instancia y se r
 
 ## Sin verificar todavía
 
-- **La publicación en Vercel:** `vercel.json` y `.vercelignore` están armados, pero no se probó un deploy real. En particular, la opción `includeFiles` de la función debe confirmarse al desplegar.
+- **La publicación en Vercel:** `vercel.json` y `.vercelignore` están armados y la propiedad `includeFiles` existe en la documentación de Vercel (acepta un patrón glob), pero no se probó un deploy real. Si el role-play falla con error de archivos no encontrados, hay que revisar ese patrón.
 - **La instalación como app (PWA):** existen el manifiesto y el service worker, pero no se comprobó la instalación en un dispositivo. El service worker solo se registra en `https`.
 - **Voz en dispositivos reales:** se probó la interfaz en el navegador de escritorio; el reconocimiento y la síntesis de voz dependen de cada navegador y sistema.
 - **El role-play con la API real desde la web** (se probó con un servidor simulado y con pruebas automáticas del endpoint).
